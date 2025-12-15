@@ -59,9 +59,11 @@ const clubhouseImages = [
 ];
 
 export default function Home() {
+
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [imagesPerView, setImagesPerView] = useState(3);
   const [showEnquiry, setShowEnquiry] = useState(false);
+  const [showBookVisit, setShowBookVisit] = useState(false);
   const [pendingDownload, setPendingDownload] = useState(null);
 
   useEffect(() => {
@@ -123,6 +125,7 @@ export default function Home() {
     setShowEnquiry(true);
   };
 
+
   const handleEnquireOpen = () => {
     setPendingDownload(null);
     setShowEnquiry(true);
@@ -131,6 +134,14 @@ export default function Home() {
     setShowEnquiry(false);
     setPendingDownload(null);
   };
+
+  const handleBookVisitOpen = () => {
+    setShowBookVisit(true);
+  };
+  const handleBookVisitClose = () => {
+    setShowBookVisit(false);
+  };
+
 
   const handleEnquirySubmit = (e) => {
     e.preventDefault();
@@ -148,6 +159,14 @@ export default function Home() {
     }
     setShowEnquiry(false);
     setPendingDownload(null);
+  };
+
+  const handleBookVisitSubmit = (e) => {
+    e.preventDefault();
+    // Here you can add logic to handle the booking visit form submission
+    // For now, we'll just close the modal
+    setShowBookVisit(false);
+    alert("Thank you! We'll contact you shortly to confirm your visit.");
   };
 
   return (
@@ -415,9 +434,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+
                   <div className="mt-4 flex flex-wrap gap-3">
                     <button
-                      onClick={() => handleSmoothScroll("enquire")}
+                      onClick={handleBookVisitOpen}
                       className="rounded-full border border-[#d2b36c] bg-[#f7e4b0] px-5 py-2 text-sm font-semibold text-[#0c0a08] shadow transition hover:brightness-110"
                     >
                       Book a Visit
@@ -1000,9 +1020,10 @@ export default function Home() {
                 previews tailored to your preferences.
               </p>
             </div>
+
             <div className="flex flex-wrap gap-3">
               <button
-                onClick={() => handleSmoothScroll("floor-plans")}
+                onClick={handleBookVisitOpen}
                 className="rounded-full bg-gradient-to-r from-[#f7e4b0] via-[#d2b36c] to-[#b88a2d] px-5 py-3 text-sm font-semibold text-[#0c0a08] shadow-lg shadow-[#d2b36c]/30 transition hover:brightness-110"
               >
                 Book a Visit
@@ -1079,6 +1100,147 @@ export default function Home() {
                     type="button"
                     onClick={handleEnquireClose}
                     className="rounded-full border border-[#2a2118] px-5 py-3 text-sm font-semibold text-[#f7f1e6] transition hover:border-[#d2b36c] hover:bg-[#1c1612]"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        )}
+
+        {showBookVisit && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+            <div className="w-full max-w-2xl rounded-3xl border border-[#2a2118] bg-[#18120f] p-6 text-[#f2e9dd] shadow-[0_25px_80px_rgba(0,0,0,0.45)] max-h-[90vh] overflow-y-auto">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#d2b36c]">
+                    Book Your Visit
+                  </p>
+                  <p className="text-xl font-semibold text-[#f7f1e6]">
+                    Schedule a Private Tour
+                  </p>
+                  <p className="text-sm text-[#cbbfae]">
+                    Choose your preferred time and let us create a personalized experience for you.
+                  </p>
+                </div>
+                <button
+                  onClick={handleBookVisitClose}
+                  className="rounded-full border border-[#2a2118] px-3 py-1 text-xs font-semibold text-[#f7f1e6] transition hover:border-[#d2b36c]"
+                >
+                  Close
+                </button>
+              </div>
+
+              <form
+                className="mt-5 grid grid-cols-1 gap-4"
+                onSubmit={handleBookVisitSubmit}
+              >
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    required
+                    className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    required
+                    className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                />
+                
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#d2b36c] mb-2">Preferred Date</label>
+                    <input
+                      type="date"
+                      required
+                      className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-[#d2b36c] mb-2">Preferred Time</label>
+                    <select
+                      required
+                      className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                    >
+                      <option value="">Select Time</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="1:00 PM">1:00 PM</option>
+                      <option value="2:00 PM">2:00 PM</option>
+                      <option value="3:00 PM">3:00 PM</option>
+                      <option value="4:00 PM">4:00 PM</option>
+                      <option value="5:00 PM">5:00 PM</option>
+                      <option value="6:00 PM">6:00 PM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-[#d2b36c] mb-2">Number of Visitors</label>
+                  <select
+                    required
+                    className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                  >
+                    <option value="">Select Number</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5+">5+ People</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-[#d2b36c] mb-2">Specific Interests</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      "Floor Plans",
+                      "Amenities",
+                      "Specifications",
+                      "Location",
+                      "Pricing",
+                      "Possession"
+                    ].map((interest) => (
+                      <label key={interest} className="flex items-center gap-2 text-sm text-[#e2d8c8]">
+                        <input
+                          type="checkbox"
+                          className="rounded border-[#2a2118] bg-[#0f0b09] text-[#d2b36c] focus:ring-[#d2b36c] focus:ring-offset-0"
+                        />
+                        {interest}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <textarea
+                  rows={3}
+                  placeholder="Additional Requirements or Questions"
+                  className="w-full rounded-2xl border border-[#2a2118] bg-[#0f0b09] px-4 py-3 text-sm text-[#f7f1e6] focus:border-[#d2b36c] focus:outline-none"
+                />
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <button
+                    type="submit"
+                    className="rounded-full border border-[#2a2118] bg-gradient-to-r from-[#f7e4b0] via-[#d2b36c] to-[#b88a2d] px-6 py-3 text-sm font-semibold text-[#0c0a08] shadow-lg shadow-[#d2b36c]/30 transition hover:brightness-110"
+                  >
+                    Confirm Booking
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleBookVisitClose}
+                    className="rounded-full border border-[#2a2118] px-6 py-3 text-sm font-semibold text-[#f7f1e6] transition hover:border-[#d2b36c] hover:bg-[#1c1612]"
                   >
                     Cancel
                   </button>
