@@ -1,97 +1,189 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Premium Dark/Light Theme System */
+  --bg-dark: #0f1012;
+  /* Deep Charcoal */
+  --bg-darker: #08090a;
+  /* Near Black */
+  --bg-light: #fdfcfb;
+  /* Warm Off-White */
+  --bg-soft: #f4f2ef;
+  /* Soft Beige/Grey */
+
+  --accent: #d4af37;
+  /* Classic Gold */
+  --accent-light: #e6c86e;
+  /* Soft Gold */
+  --accent-dark: #b69121;
+  /* Deep Gold */
+
+  --text-main: #1a1a1a;
+  /* Soft Black */
+  --text-body: #4a4a4a;
+  /* Dark Grey */
+  --text-inv: #fcfcfc;
+  /* Off White (for dark bg) */
+  --text-inv-muted: #a3a3a3;
+  /* Muted White */
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-darker: var(--bg-darker);
+  --color-bg-light: var(--bg-light);
+  --color-bg-soft: var(--bg-soft);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+
+  --color-text-main: var(--text-main);
+  --color-text-body: var(--text-body);
+  --color-text-inv: var(--text-inv);
+  --color-text-inv-muted: var(--text-inv-muted);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Luxe micro-animations */
-@keyframes gradientShift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: hue-rotate(0deg);
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  /* Serif usually looks better lighter */
+  letter-spacing: -0.02em;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
   50% {
-    transform: translate3d(-10px, -12px, 0) scale(1.02);
-    filter: hue-rotate(8deg);
+    background-position: 100% 50%;
   }
+
   100% {
-    transform: translate3d(6px, 14px, 0) scale(1);
-    filter: hue-rotate(-8deg);
+    background-position: 0% 50%;
   }
 }
 
-@keyframes floatSoft {
+.animate-gradient {
+  animation: gradient 6s ease infinite;
+}
+
+@keyframes flow {
   0% {
-    transform: translateY(0px);
+    background-position: 0% 50%;
   }
-  50% {
-    transform: translateY(-10px);
-  }
+
   100% {
-    transform: translateY(0px);
+    background-position: 200% 50%;
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
+.animate-flow {
+  animation: flow 4s linear infinite;
+}
+
+/* Typography System */
+@layer utilities {
+  .heading-display {
+    @apply font-serif text-5xl sm:text-7xl lg:text-8xl leading-[1.05] tracking-tight;
   }
-  100% {
-    background-position: 200% 0;
+
+  .heading-section {
+    @apply font-serif text-3xl md:text-5xl leading-tight;
+  }
+
+  .heading-card {
+    @apply font-serif text-2xl leading-none;
+  }
+
+  .text-sub {
+    @apply text-xs font-bold uppercase tracking-[0.15em];
+  }
+
+  .body-lg {
+    @apply text-lg sm:text-xl font-light leading-relaxed;
+  }
+
+  .body-main {
+    @apply text-base font-light leading-relaxed;
+  }
+
+  .caption {
+    @apply text-[10px] uppercase tracking-widest opacity-60;
   }
 }
 
-.lux-blur {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* Animation Utilities - Simplified */
+.reveal-up {
+  animation: fadeIn 0.7s ease-out forwards;
 }
 
-.lux-gradient-border {
-  position: relative;
-  overflow: hidden;
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
 }
 
-.lux-gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  padding: 1px;
-  background: linear-gradient(120deg, rgba(210, 179, 108, 0.8), rgba(184, 138, 45, 0.65), rgba(109, 75, 15, 0.8));
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  border-radius: 22px;
-  pointer-events: none;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.lux-shimmer {
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
-  background-size: 200% 100%;
-  animation: shimmer 3.5s ease-in-out infinite;
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-soft);
+  /* Subtle thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
