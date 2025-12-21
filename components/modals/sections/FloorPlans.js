@@ -145,7 +145,9 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         setPendingDownload('brochure');
                                         onOpenEnquiry(true);
                                     }}
-                                    className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 hover:bg-black/80 transition-all duration-300 inline-flex items-center gap-2 text-white/70 hover:text-white text-xs font-bold uppercase tracking-widest"
+
+
+                                    className="bg-accent/10 hover:bg-accent px-4 py-2 rounded-full border border-accent/20 transition-all duration-300 transform scale-90 group-hover:scale-100 inline-flex items-center gap-2 text-accent hover:text-white text-xs font-bold uppercase tracking-widest"
                                 >
                                     <ArrowRight className="w-3 h-3" /> Download Master Plan
                                 </button>
