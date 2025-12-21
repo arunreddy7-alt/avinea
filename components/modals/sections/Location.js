@@ -64,7 +64,7 @@ export function Location() {
                 </div>
 
                 <div className="relative h-[350px] lg:h-[400px] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                    <Image src="/gallery7.png" alt="Map" fill className="object-cover" />
+                    <Image src="/location.jpg" alt="Map" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                     <div className="absolute bottom-4 left-4">
                         <p className="text-[9px] font-bold uppercase tracking-widest text-accent mb-1">Prime Location</p>

@@ -28,8 +28,8 @@ export function Hero({ onOpenEnquiry }) {
                 <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center lg:justify-end lg:pb-32">
                     <Reveal>
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="w-12 h-[1px] bg-accent"></div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Phase 2 Launching</span>
+                            <div className="hidden md:inline w-12 h-[1px] bg-accent"></div>
+                            <span className="hidden md:inline text-xs font-bold uppercase tracking-[0.2em] text-accent">Phase 2 Launching</span>
                         </div>
                     </Reveal>
 

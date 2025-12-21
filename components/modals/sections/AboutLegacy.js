@@ -102,7 +102,7 @@ export function AboutLegacy() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="absolute bottom-0 left-10 w-[50%] h-[50%] z-20 shadow-2xl border-[8px] border-[#0c0a08]"
                     >
-                        <Image src="/gallery8.png" alt="Legacy 2" fill className="object-cover" />
+                        <Image src="/img4.jpg" alt="Legacy 2" fill className="object-cover" />
                     </motion.div>
 
                     <div className="absolute top-[20%] left-0 w-[30%] h-[30%] opacity-20 z-0 bg-accent mix-blend-color-dodge" />

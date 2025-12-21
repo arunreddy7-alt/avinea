@@ -24,12 +24,14 @@ export const navLinks = [
 ];
 
 export const galleryImages = [
-    "/gallery1.png",
-    "/gallery2.png",
-    "/gallery3.png",
-    "/gallery4.png",
-    "/gallery5.png",
-    "/gallery6.png",
+    "/gallery1.jpg",
+    "/gal2.jpg",
+    "/gal3.jpg",
+    "/gal4.jpg",
+    "/gal5.jpg",
+    "/gal6.jpg",
+    "/gal7.jpg",
+    "/gal8.jpg",
 ];
 
 export const clubhouseImages = [
@@ -43,10 +45,14 @@ export const clubhouseImages = [
     { src: "/working space.jpg", label: "Co-working Space" },
 ];
 
+
 export const floorPlans = [
     { title: "2 BHK", image: "/2bhk.png", size: "Approx. 1000–1100 sq.ft", features: ["Cross ventilation", "Balcony views"] },
     { title: "3 BHK", image: "/3bhk.png", size: "Approx. 1350–1450 sq.ft", features: ["Spacious Living", "Optimized"] },
     { title: "3 BHK Premium", image: "/3bhk2.png", size: "Approx. 1500–1600 sq.ft", features: ["Luxury Finish", "Courtyard View"] },
+    { title: "4 BHK", image: "/4bhk.png", size: "Approx. 1700–2000 sq.ft", features: ["Family Living", "Premium Views"] },
+    { title: "5 BHK", image: "/5bhk.png", size: "Approx. 2300–2600 sq.ft", features: ["Luxury Space", "Multiple Balconies"] },
+    { title: "6.5 BHK", image: "/6bhk.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra Luxury", "Penthouse Style"] },
 ];
 
 export const specs = {

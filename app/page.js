@@ -10,8 +10,8 @@ import { Clubhouse } from "@/components/modals/sections/Clubhouse";
 import { Specifications } from "@/components/modals/sections/Specifications";
 import { FloorPlans } from "@/components/modals/sections/FloorPlans";
 import { Gallery } from "@/components/modals/sections/Gallery";
-import { Location } from "@/components/modals/sections/Location";
 import { VideoHighlight } from "@/components/modals/sections/VideoHighlight";
+import { Location } from "@/components/modals/sections/Location";
 import { ClientVoices } from "@/components/modals/sections/ClientVoices";
 import { AboutLegacy } from "@/components/modals/sections/AboutLegacy";
 import { FinalCTA } from "@/components/modals/sections/FinalCTA";
@@ -66,9 +66,9 @@ export default function Home() {
         <Overview />
         <Amenities />
         <Specifications />
-
-        <Location />
         <VideoHighlight />
+        <Location />
+        
         <Clubhouse />
 
         <FloorPlans

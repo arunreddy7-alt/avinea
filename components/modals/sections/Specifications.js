@@ -15,7 +15,7 @@ export function Specifications() {
     // Images map to key
     const images = {
         living: "/living&bedroom.jpg",
-        bath: "/gallery3.png", // No replacement found
+        bath: "/bathroom.jpg", // No replacement found
         kitchen: "/kitchen.jpg",
         structure: "/structure&flooring.jpg",
         safety: "/safety&security.jpg",

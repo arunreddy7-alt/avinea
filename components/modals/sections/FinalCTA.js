@@ -8,10 +8,23 @@ import { Reveal } from "@/components/modals/ui/Reveal";
 
 export function FinalCTA({ onBookVisit, onRequestDetails }) {
     return (
-        <section className="relative py-40 px-6 bg-[#050505] overflow-hidden flex items-center justify-center min-h-[70vh]">
-            {/* Golden Gradient in Black */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/20 via-[#050505] to-[#050505] opacity-60 pointer-events-none" />
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
+
+        <section className="relative py-40 px-6 overflow-hidden flex items-center justify-center min-h-[70vh]">
+            {/* Background Image with Black Gradient */}
+            <div className="absolute inset-0">
+                <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: 'url(/img.jpg)',
+                    }}
+                />
+                {/* Black Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80" />
+                {/* Additional dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-[#050505]/50" />
+            </div>
+            {/* Noise Texture */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
 
             <div className="max-w-5xl mx-auto text-center relative z-10 space-y-12">
                 <Reveal>

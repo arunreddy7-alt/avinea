@@ -75,7 +75,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                             <div className="p-4 bg-white/5 border border-white/10">
                                                 <p className="text-xs font-bold uppercase tracking-widest text-accent mb-3">Interests</p>
                                                 <div className="grid grid-cols-2 gap-2">
-                                                    {["3 BHK", "4 BHK", "Penthouse", "Investment"].map(item => (
+                                                    {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                         <label key={item} className="flex items-center gap-2 cursor-pointer group">
                                                             <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-accent transition-colors">
                                                                 <input type="checkbox" className="opacity-0 w-full h-full cursor-pointer peer" />
