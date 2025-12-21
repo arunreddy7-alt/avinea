@@ -24,8 +24,9 @@ export function Hero({ onOpenEnquiry }) {
             </div>
 
             {/* Main Content Container - Flex Column for safe layout */}
+
             <div className="relative z-10 w-full h-full flex flex-col justify-end px-6 pb-0">
-                <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center lg:justify-end lg:pb-32">
+                <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center lg:justify-end lg:pb-32 pt-35 md:pt-0">
                     <Reveal>
                         <div className="flex items-center gap-4 mb-8">
                             <div className="hidden md:inline w-12 h-[1px] bg-accent"></div>
