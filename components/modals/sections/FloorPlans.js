@@ -107,6 +107,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                     </div>
                 </Reveal>
 
+
                 <div className="mt-8 text-center">
                     <button
                         onClick={() => {
@@ -115,8 +116,42 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                         }}
                         className="inline-flex items-center gap-2 text-white/40 hover:text-accent transition-colors text-xs font-bold uppercase tracking-widest"
                     >
-                        <ArrowRight className="w-3 h-3" /> Download Master Plan
                     </button>
+                    
+
+                    {/* Blurred Master Layout Image */}
+                    <div className="mt-6 max-w-2xl mx-auto">
+                        <div 
+                            onClick={() => {
+                                setPendingDownload('masterlayout');
+                                onOpenEnquiry(true);
+                            }}
+                            className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group"
+                        >
+
+                            <Image
+                                src="/masterlayout.png"
+                                alt="Master Layout"
+                                width={800}
+                                height={600}
+                                className="w-full h-auto blur-md opacity-60 transition-all duration-500"
+                            />
+                            <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
+
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setPendingDownload('brochure');
+                                        onOpenEnquiry(true);
+                                    }}
+                                    className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 hover:bg-black/80 transition-all duration-300 inline-flex items-center gap-2 text-white/70 hover:text-white text-xs font-bold uppercase tracking-widest"
+                                >
+                                    <ArrowRight className="w-3 h-3" /> Download Master Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

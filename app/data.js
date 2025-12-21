@@ -49,10 +49,9 @@ export const clubhouseImages = [
 export const floorPlans = [
     { title: "2 BHK", image: "/2bhk.png", size: "Approx. 1000–1100 sq.ft", features: ["Cross ventilation", "Balcony views"] },
     { title: "3 BHK", image: "/3bhk.png", size: "Approx. 1350–1450 sq.ft", features: ["Spacious Living", "Optimized"] },
-    { title: "3 BHK Premium", image: "/3bhk2.png", size: "Approx. 1500–1600 sq.ft", features: ["Luxury Finish", "Courtyard View"] },
     { title: "4 BHK", image: "/4bhk.png", size: "Approx. 1700–2000 sq.ft", features: ["Family Living", "Premium Views"] },
-    { title: "5 BHK", image: "/5bhk.png", size: "Approx. 2300–2600 sq.ft", features: ["Luxury Space", "Multiple Balconies"] },
-    { title: "6.5 BHK", image: "/6bhk.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra Luxury", "Penthouse Style"] },
+    { title: "5 BHK (PentHouse)", image: "/5bhk.png", size: "Approx. 2300–2600 sq.ft", features: ["Luxury Space", "Multiple Balconies"] },
+    { title: "6 BHK (PentHouse)", image: "/6bhk.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra Luxury", "Penthouse Style"] },
 ];
 
 export const specs = {
