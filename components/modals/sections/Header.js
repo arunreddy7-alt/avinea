@@ -105,7 +105,7 @@ export function Header({ onOpenEnquiry }) {
                                 onClick={onOpenEnquiry}
                                 className="w-full py-4 bg-accent text-white font-bold uppercase tracking-widest rounded-lg"
                             >
-                                Enquire Now
+                                Schedule Visit
                             </button>
                             <div className="flex items-center gap-3 text-sm text-black/60 pt-4">
                                 <Phone className="w-4 h-4" />

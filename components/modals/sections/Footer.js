@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { navLinks } from "@/app/data";
 
-export function Footer({ onScrollTo }) {
+export function Footer({ onScrollTo, onOpenEnquiry }) {
     return (
         <footer className="bg-[#F2F0E9] text-[#1a1a1a] py-24 px-6 relative border-t border-black/5">
             <div className="max-w-7xl mx-auto">

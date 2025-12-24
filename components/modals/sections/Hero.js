@@ -95,9 +95,9 @@ export function Hero({ onOpenEnquiry }) {
                             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
                                 {[
                                     { label: "Acres", val: "12+", sub: "Expansive Greenery" },
-                                    { label: "Units", val: "450", sub: "Luxury Residences" },
+                                    { label: "Units", val: "50+", sub: "Luxury Residences" },
                                     { label: "Location", val: "Pune", sub: "Falcon Street" },
-                                    { label: "Possession", val: "2027", sub: "Target Date" },
+                                    { label: "Possession", val: "2028", sub: "Target Date" },
                                 ].map((stat, i) => (
                                     <div key={i} className="py-6 px-4 md:px-8 flex flex-col justify-center group hover:bg-white/5 transition-colors cursor-default">
                                         <div className="flex items-baseline gap-2 mb-1">

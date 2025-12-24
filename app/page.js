@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Header } from "@/components/modals/sections/Header";
 import { Hero } from "@/components/modals/sections/Hero";
@@ -26,6 +26,27 @@ export default function Home() {
   const [showBookVisit, setShowBookVisit] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [pendingDownload, setPendingDownload] = useState(null);
+  const [hasAutoPopupShown, setHasAutoPopupShown] = useState(false);
+
+  // Auto-popup form after 6 seconds
+  useEffect(() => {
+    // Check if popup has already been shown in this session
+    if (typeof window !== 'undefined' && sessionStorage.getItem('autoPopupShown')) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setShowBookVisit(true);
+      setHasAutoPopupShown(true);
+      
+      // Store in sessionStorage to prevent showing again in this session
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('autoPopupShown', 'true');
+      }
+    }, 6000); // 6 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Handle auto-download when enquiry is submitted
   const handleEnquirySubmit = () => {
@@ -59,7 +80,7 @@ export default function Home() {
 
   return (
     <div className="bg-bg-light min-h-screen selection:bg-accent selection:text-white font-sans">
-      <Header onOpenEnquiry={() => setShowEnquiry(true)} />
+      <Header onOpenEnquiry={() => setShowBookVisit(true)} />
 
       <main>
         <Hero onOpenEnquiry={() => setShowBookVisit(true)} />
@@ -72,7 +93,7 @@ export default function Home() {
         <Clubhouse />
 
         <FloorPlans
-          onOpenEnquiry={() => setShowEnquiry(true)}
+          onOpenEnquiry={() => setShowBookVisit(true)}
           setPendingDownload={setPendingDownload}
         />
         <Gallery />
