@@ -22,7 +22,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                     />
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="fixed inset-0 z-[102] pointer-events-none p-4 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-36 md:pt-0"
+                        className="fixed inset-0 z-[102] pointer-events-none p-4 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-22 md:pt-0"
                     >
                         <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-white/10 max-h-[calc(100vh-5rem)] md:max-h-[85vh] rounded-xl md:rounded-2xl">
                             {/* Modal Header */}
