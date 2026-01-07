@@ -77,7 +77,9 @@ export function Hero({ onOpenEnquiry }) {
                         >
                             Schedule Visit
                         </button>
-                        <button className="px-10 py-4 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[200px] flex items-center justify-center gap-3">
+                        <button 
+                            onClick={() => window.open('https://youtu.be/MbQAPR1iFS4?si=Xp1EC3fkorthF-Va', '_blank')}
+                            className="px-10 py-4 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[200px] flex items-center justify-center gap-3">
                             <Play className="w-3 h-3 fill-current" />
                             <span>Watch Film</span>
                         </button>
@@ -94,10 +96,10 @@ export function Hero({ onOpenEnquiry }) {
                         >
                             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
                                 {[
-                                    { label: "Acres", val: "12+", sub: "Expansive Greenery" },
-                                    { label: "Units", val: "50+", sub: "Luxury Residences" },
-                                    { label: "Location", val: "Pune", sub: "Falcon Street" },
-                                    { label: "Possession", val: "2028", sub: "Target Date" },
+                                    { label: "Acres", val: "10.5", sub: "Expansive Greenery" },
+                                    { label: "Units", val: "1100+", sub: "Luxury Residences" },
+                                    { label: "Location", val: "Hadapsar", sub: "Upscale" },
+                                    { label: "Possession", val: "2028", sub: "onwards" },
                                 ].map((stat, i) => (
                                     <div key={i} className="py-6 px-4 md:px-8 flex flex-col justify-center group hover:bg-white/5 transition-colors cursor-default">
                                         <div className="flex items-baseline gap-2 mb-1">

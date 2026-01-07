@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 
-export function AboutLegacy() {
+export function AboutLegacy({ onOpenEnquiry }) {
     const textVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: (i) => ({
@@ -49,7 +49,7 @@ export function AboutLegacy() {
                         <div className="w-20 h-1 bg-accent mb-8" />
                         <h2 className="heading-display">
                             <div className="inline-block">
-                                {"A Legacy of".split("").map((char, i) => (
+                                {"A Promise of".split("").map((char, i) => (
                                     <motion.span
                                         key={i}
                                         custom={i}
@@ -67,21 +67,25 @@ export function AboutLegacy() {
                             <span className="text-accent italic font-light">Uncompromising Quality.</span>
                         </h2>
                         <p className="body-lg text-white/60 max-w-md leading-relaxed">
-                            With over two decades of excellence, Vyom Sigma Developers has redefined the skyline of Pune.
-                            We don't just build homes; we curate lifestyles for those who seek the extraordinary.
+                        Built on a strong foundation of expertise, Vyom Sigma Developers stands for purposeful design, lasting quality, and homes crafted with intent. Rooted in deep industry understanding, we go beyond construction to create lifestyle-driven spaces for discerning homeowners.
                         </p>
 
-                        <div className="flex items-center gap-6 pt-6">
-                            <div className="flex flex-col">
-                                <span className="text-4xl font-serif text-white">20+</span>
-                                <span className="text-xs uppercase tracking-widest text-white/40">Years</span>
-                            </div>
-                            <div className="w-px h-12 bg-white/10" />
-                            <div className="flex flex-col">
-                                <span className="text-4xl font-serif text-white">15+</span>
-                                <span className="text-xs uppercase tracking-widest text-white/40">Landmarks</span>
-                            </div>
-                        </div>
+                        <button 
+                            onClick={onOpenEnquiry}
+                            className="group flex items-center gap-4 pt-6 cursor-pointer"
+                        >
+                            <span className="text-2xl font-serif text-white group-hover:text-accent transition-colors duration-300">
+                                Explore Avinea by Vyom Sigma
+                            </span>
+                            <svg 
+                                className="w-8 h-8 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
                     </div>
                 </Reveal>
 
@@ -93,7 +97,7 @@ export function AboutLegacy() {
                         transition={{ duration: 0.8 }}
                         className="absolute top-0 right-0 w-[60%] h-[70%] z-10"
                     >
-                        <Image src="/gallery5.png" alt="Legacy 1" fill className="object-cover rounded-none" />
+                        <Image src="/gall5.jpg" alt="Legacy 1" fill className="object-cover rounded-none" />
                     </motion.div>
 
                     <motion.div

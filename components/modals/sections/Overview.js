@@ -81,7 +81,7 @@ export function Overview() {
                     <Reveal>
                         <div className="relative aspect-square lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
                             <Image
-                                src="/gallery2.jpg"
+                                src="/ga2.jpg"
                                 alt="Overview"
                                 fill
                                 className="object-cover"
@@ -103,7 +103,7 @@ export function Overview() {
                             </div>
                             <div>
                                 <p className="text-sm font-bold text-black font-serif">RERA Approved</p>
-                                <p className="text-[10px] text-black/50 tracking-wider">P52100000000</p>
+                                <p className="text-[10px] text-black/50 tracking-wider">P52100079047</p>
                             </div>
                         </div>
                         <p className="text-xs text-black/60 leading-relaxed max-w-[200px]">

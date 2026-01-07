@@ -35,6 +35,24 @@ export function Clubhouse() {
                         </Reveal>
                     ))}
                 </div>
+
+                {/* Clubhouse Info */}
+                <Reveal delay={0.3}>
+                    <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 p-8 bg-white rounded-2xl shadow-lg">
+                        <div className="text-center md:text-left">
+                            <span className="text-3xl md:text-4xl font-serif text-[#d4af37]">3</span>
+                            <span className="text-lg md:text-xl text-gray-600 ml-2 font-medium">Clubhouses:</span>
+                            <p className="text-xl md:text-2xl font-serif text-gray-900 mt-1">
+                                Citadel, Castle, Manor
+                            </p>
+                        </div>
+                        <div className="hidden md:block w-px h-16 bg-gray-200" />
+                        <div className="text-center md:text-left">
+                            <span className="text-3xl md:text-4xl font-serif text-[#d4af37]">3</span>
+                            <span className="text-lg md:text-xl text-gray-600 ml-2 font-medium">Swimming Pools</span>
+                        </div>
+                    </div>
+                </Reveal>
             </div>
         </Section>
     );

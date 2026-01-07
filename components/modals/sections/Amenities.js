@@ -4,19 +4,19 @@
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { Badge } from "@/components/modals/ui/Badge";
-import { Music, Waves, Dumbbell, Trees, Baby, Church } from "lucide-react";
+import { Waves, Dumbbell, Baby, House, Utensils, Sprout, Flag } from "lucide-react";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
 
 export function Amenities() {
     const amenitiesList = [
-        { title: "Infinity Pool", icon: <Waves className="w-6 h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/pool.jpg" },
-        { title: "Sky Gym", icon: <Dumbbell className="w-6 h-6" />, desc: "State of the art fitness center with view.", image: "/gym.jpg" },
-        { title: "Zen Gardens", icon: <Trees className="w-6 h-6" />, desc: "Landscaped meditation zones.", image: "/dog park.jpg" },
-        { title: "Kids Arena", icon: <Baby className="w-6 h-6" />, desc: "Safe and engaging play areas.", image: "/indoor.jpg" },
-        { title: "Amphitheatre", icon: <Music className="w-6 h-6" />, desc: "Open air cultural space.", image: "/hall.jpg" },
-        { title: "Temple", icon: <Church className="w-6 h-6" />, desc: "Spiritual corner for peace.", image: "/gallery5.png" },
+        { title: "3 Swimming Pools", icon: <Waves className="w-6 h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/Swimming pool.jpg" },
+        { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-6 h-6" />, desc: "State of the art fitness center with view.", image: "/Fitness Centre.jpg" },
+        { title: "Kids Arena", icon: <Baby className="w-6 h-6" />, desc: "Safe and engaging play areas.", image: "/Kids Arena.jpg" },
+        { title: "3 Clubhouses", icon: <House className="w-6 h-6" />, desc: "Landscaped meditation zones.", image: "/Clubhouses.jpg" },
+{ title: "Gourmet Dining Experiences", icon: <Utensils className="w-6 h-6" />, desc: "Open air cultural space.", image: "/hall.jpg" },
+{ title: "Mini Golf Course", icon: <Flag className="w-6 h-6" />, desc: "Spiritual corner for peace.", image: "/Mini Golf.jpg" },
     ];
 
     const textVariants = {
@@ -89,7 +89,7 @@ export function Amenities() {
                         &nbsp; <span className="text-accent italic font-serif">Amenities</span>
                     </div>
                     <p className="body-lg text-white/60 mt-6 max-w-2xl mx-auto font-light leading-loose">
-                        30+ curated experiences designed to elevate your everyday living.
+                        60+ curated experiences designed to elevate your everyday living.
                         A collection of spaces that inspire and rejuvenate.
                     </p>
                 </Reveal>

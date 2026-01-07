@@ -11,7 +11,9 @@ import {
     Plane,
     Train,
     GraduationCap,
-    Stethoscope
+    Stethoscope,
+    Book,
+    DoorClosed,
 } from "lucide-react";
 
 export const navLinks = [
@@ -35,101 +37,110 @@ export const galleryImages = [
 ];
 
 export const clubhouseImages = [
-    { src: "/pool.jpg", label: "Swimming Pools" },
-    { src: "/spa.jpg", label: "Spa & Salon" },
-    { src: "/gym.jpg", label: "Gym" },
-    { src: "/hall.jpg", label: "Banquet Hall" },
-    { src: "/indoor.jpg", label: "Indoor Games" },
-    { src: "/guest.jpg", label: "Guest Room" },
-    { src: "/dog park.jpg", label: "Dog Park" },
-    { src: "/working space.jpg", label: "Co-working Space" },
+    { src: "/CB 1.jpg", label: "" },
+    { src: "/CB 2.jpg", label: "" },
+    { src: "/CB 3.jpg", label: "" },
+    { src: "/CB 4.jpg", label: "" },
+    { src: "/SP 1.jpg", label: " " },
+    { src: "/SP 2.jpg", label: " " },
+    { src: "/SP 3.jpg", label: " " },
+    { src: "/SP 4.jpg", label: " " },
 ];
 
 
 export const floorPlans = [
-    { title: "2 BHK", image: "/2bhk.png", size: "Approx. 1000–1100 sq.ft", features: ["Cross ventilation", "Balcony views"] },
-    { title: "3 BHK", image: "/3bhk.png", size: "Approx. 1350–1450 sq.ft", features: ["Spacious Living", "Optimized"] },
-    { title: "4 BHK", image: "/4bhk.png", size: "Approx. 1700–2000 sq.ft", features: ["Family Living", "Premium Views"] },
-    { title: "5 BHK (PentHouse)", image: "/5bhk.png", size: "Approx. 2300–2600 sq.ft", features: ["Luxury Space", "Multiple Balconies"] },
-    { title: "6 BHK (PentHouse)", image: "/6bhk.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra Luxury", "Penthouse Style"] },
+    { title: "2 BHK", image: "/2bhk2.png", size: "Approx. 1000–1100 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
+    { title: "2 BHK", image: "/2bhk1.png", size: "Approx. 1000–1100 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
+    { title: "3 BHK", image: "/3bhk1.png", size: "Approx. 1350–1450 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/3bhk2.png", size: "Approx. 1350–1450 sq.ft", features: ["Power backup", "Video door phone"] },
+    { title: "3 BHK", image: "/3bhk3.png", size: "Approx. 1350–1450 sq.ft", features: ["Italian flooring", "Designer lights"] },
+    { title: "3 BHK", image: "/3bhk4.png", size: "Approx. 1350–1450 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
+    { title: "3 BHK", image: "/3bhk5.png", size: "Approx. 1350–1450 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
+    { title: "4 BHK", image: "/4bhk1.png", size: "Approx. 1700–2000 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
+    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "Approx. 2300–2600 sq.ft", features: ["Private terrace", "Grand entry"] },
+    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra premium", "Exclusive access"] },
 ];
 
 export const specs = {
     living: {
-        title: "Living & Bedrooms",
+        title: "Internal Finish",
         points: [
-            "Italian marble in living/dining; wooden laminate in bedrooms",
-            "UPVC/Aluminium large sliders for light & ventilation",
-            "Premium matte-finish internal doors & hardware",
+            "600 × 1200 mm vitrified tiles for flooring (AGL / equivalent)",
+            "Anti-skid floor tiles for balconies / terraces",
+            "Gypsum finish for walls and ceiling",
+            "OBD paint finish for hall (Asian / Nerolac or equivalent)",
+            "Building internal floor lobby halls – texture paint",
         ],
         icon: Sparkles,
-    },
-    bath: {
-        title: "Bathrooms",
-        points: [
-            "Anti-skid vitrified tiles with designer dado",
-            "Premium sanitary ware & fittings with glass shower partition",
-            "Geyser & exhaust provisions; granite counters",
-        ],
-        icon: Droplets,
     },
     kitchen: {
         title: "Kitchen",
         points: [
-            "Granite platform with SS sink & premium CP fittings",
-            "Provision for water purifier, chimney & hob",
-            "Dedicated washing machine & dishwasher points",
+            "AGL or equivalent full-body slab for kitchen platform with S.S. sink",
+            "Tiles for kitchen dado up to 2 feet",
+            "Provision for washing machine in dry terrace",
+            "Gas leak detector (for MNGL)",
+            "Gas pipeline (MNGL)",
         ],
         icon: Utensils,
     },
-    structure: {
-        title: "Structure & Flooring",
+    bath: {
+        title: "Bathrooms",
         points: [
-            "Earthquake-resistant RCC frame structure",
-            "600x600 vitrified tiles in circulation areas",
-            "Low-VOC paints for healthier indoors",
+            "600 × 1200 mm dado tiles and 600 × 600 flooring (AGL / equivalent)",
+            "Kohler or equivalent bathroom fittings",
+            "Solar water supply only in master bedroom",
         ],
-        icon: Building,
+        icon: Droplets,
+    },
+    structure: {
+        title: "Doors / Windows",
+        points: [
+            "Both-side laminated flush door",
+            "Powder-coated aluminium sliding windows / sliding door with mosquito net",
+            "Marble / granite / full-body tile sill",
+            "Video door phone",
+            "Biometric lock",
+        ],
+        icon: DoorClosed,
     },
     safety: {
-        title: "Safety & Security",
+        title: "Electrical",
         points: [
-            "Smart access control & video door phone",
-            "24x7 CCTV in common areas & fire detection systems",
-            "Sprinklers/hydrants as per norms; refuge areas planned",
+            "Legrand or equivalent switchboards",
+            "AC provision in all rooms with outdoor ledge",
+            "Polycab or equivalent cables for electrical wiring",
+            "Provision for automation (limited points)",
+            "Inverter provision",
+            "Internet provision",
         ],
         icon: Shield,
     },
-    comfort: {
-        title: "Comfort & Sustainability",
-        points: [
-            "VRV/VRF-ready AC provision; cross-ventilated plans",
-            "DG back-up for common areas & essential points",
-            "Rainwater harvesting, sewage treatment, solar utilities",
-        ],
-        icon: Leaf,
-    },
     logistics: {
-        title: "Elevators & Parking",
+        title: "Common Area",
         points: [
-            "High-speed elevators with ARD and auto rescue",
-            "Ample podium/covered parking with EV charging readiness",
-            "Well-lit driveways with anti-skid paving",
+            "4-tier security – main gate, lobby gate, CCTV in common areas, biometric locks",
+            "Firefighting – wet risers, sprinklers, smoke detectors and fire alarm systems in flat and common areas as per norms",
+            "Designated society office",
+            "Sewage treatment plant",
+            "Common parking for guests",
+            
         ],
-        icon: Route,
+        icon: Shield,
     }
 };
 
 export const locationHighlights = [
-    { name: "Seasons Mall", distance: "500 mtr", icon: <ShoppingBag className="h-4 w-4" /> },
-    { name: "Amanora Mall", distance: "500 mtr", icon: <ShoppingBag className="h-4 w-4" /> },
-    { name: "Magarpatta City", distance: "700 mtr", icon: <Building className="h-4 w-4" /> },
-    { name: "Solapur Highway", distance: "300 mtr", icon: <Route className="h-4 w-4" /> },
-    { name: "EON IT Park", distance: "4 km", icon: <Building className="h-4 w-4" /> },
-    { name: "WTC", distance: "4 km", icon: <Building className="h-4 w-4" /> },
-    { name: "Koregaon Park", distance: "5 km", icon: <Trees className="h-4 w-4" /> },
-    { name: "Pune Int. Airport", distance: "8 km", icon: <Plane className="h-4 w-4" /> },
-    { name: "Pune Camp", distance: "8 km", icon: <Train className="h-4 w-4" /> },
-    { name: "HDFC School", distance: "500 mtr", icon: <GraduationCap className="h-4 w-4" /> },
-    { name: "Nobel Hospital", distance: "600 mtr", icon: <Stethoscope className="h-4 w-4" /> },
+    { name: "Seasons Mall", distance: "5 Mins", icon: <ShoppingBag className="h-4 w-4" /> },
+    { name: "Amanora Mall", distance: "4 Mins", icon: <ShoppingBag className="h-4 w-4" /> },
+    { name: "Magarpatta IT Park", distance: "5 Mins", icon: <Building className="h-4 w-4" /> },
+    { name: "Wisdom World School", distance: "1 Min", icon: <Book className="h-4 w-4" /> },
+    { name: "EON IT Park", distance: "20 Mins", icon: <Building className="h-4 w-4" /> },
+    { name: "WTC", distance: "25 Mins", icon: <Building className="h-4 w-4" /> },
+    { name: "Koregaon Park", distance: "18 Mins", icon: <Trees className="h-4 w-4" /> },
+    { name: "Umang Hospital", distance: "1 Min", icon: <Stethoscope className="h-4 w-4" /> },
+    { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-4 w-4" /> },
+    { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-4 w-4" /> },
+    { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-4 w-4" /> },
+    { name: "Nobel Hospital", distance: "7 Min", icon: <Stethoscope className="h-4 w-4" /> },
 ];

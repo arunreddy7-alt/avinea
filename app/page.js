@@ -18,6 +18,7 @@ import { FinalCTA } from "@/components/modals/sections/FinalCTA";
 import { Footer } from "@/components/modals/sections/Footer";
 import { EnquiryModal } from "@/components/modals/EnquiryModal";
 import { SuccessModal } from "@/components/modals/SuccessModal";
+import { FAQ } from "@/components/modals/sections/FAQ";
 
 import { StickyCTA } from "@/components/modals/ui/StickyCTA";
 
@@ -28,22 +29,11 @@ export default function Home() {
   const [pendingDownload, setPendingDownload] = useState(null);
   const [hasAutoPopupShown, setHasAutoPopupShown] = useState(false);
 
-  // Auto-popup form after 6 seconds
+  // Auto-popup form after 5 seconds
   useEffect(() => {
-    // Check if popup has already been shown in this session
-    if (typeof window !== 'undefined' && sessionStorage.getItem('autoPopupShown')) {
-      return;
-    }
-
     const timer = setTimeout(() => {
       setShowBookVisit(true);
-      setHasAutoPopupShown(true);
-      
-      // Store in sessionStorage to prevent showing again in this session
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('autoPopupShown', 'true');
-      }
-    }, 6000); // 6 seconds
+    }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -98,7 +88,7 @@ export default function Home() {
         />
         <Gallery />
         <ClientVoices />
-        <AboutLegacy />
+        <AboutLegacy onOpenEnquiry={() => setShowBookVisit(true)} />
         <FinalCTA
           onBookVisit={() => setShowBookVisit(true)}
           onRequestDetails={() => {
@@ -106,6 +96,7 @@ export default function Home() {
             setShowEnquiry(true);
           }}
         />
+        <FAQ />
         <Footer onScrollTo={handleSmoothScroll} />
       </main>
 

@@ -17,10 +17,10 @@ export function Specifications() {
         living: "/living&bedroom.jpg",
         bath: "/bathroom.jpg", // No replacement found
         kitchen: "/kitchen.jpg",
-        structure: "/structure&flooring.jpg",
-        safety: "/safety&security.jpg",
+        structure: "/door.jpg",
+        safety: "/switch.jpg",
         comfort: "/comformt&sustainability.jpg",
-        logistics: "/elevators&parking.jpg"
+        logistics: "/security.jpg"
     };
 
     return (

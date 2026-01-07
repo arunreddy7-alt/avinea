@@ -11,7 +11,7 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                     <div className="md:col-span-5 space-y-8">
                         <div className="relative w-[180px] h-[60px]">
                             <Image
-                                src="/avinea-logo.png"
+                                src="/logo1.png"
                                 alt="Avinea"
                                 fill
                                 className="object-contain object-left"
@@ -21,9 +21,19 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                             A private sanctuary crafted for modern connoisseurs. Experience the pinnacle of urban living in Pune's most coveted address.
                         </p>
                         <div className="pt-8">
-                            <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent-dark mb-3">Location</p>
-                            <p className="text-2xl font-serif text-black/90">Falcon Street, Near IT Park, Pune</p>
-                        </div>
+                            <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent-dark mb-3">Address</p>
+                       <div className="w-full h-[320px] rounded-xl overflow-hidden border border-black/10 shadow-sm">
+    <iframe
+        title="Avinea Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4000.2842870029667!2d73.93910847542801!3d18.505383982585244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c2036c153b03%3A0xf9ecf7df3e351657!2sDP%20Rd%2C%20Hadapsar%2C%20Pune%2C%20Maharashtra%20411028!5e1!3m2!1sen!2sin!4v1767798426730!5m2!1sen!2sin"
+        className="w-full h-full border-0"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+    />
+</div>
+
+                         </div>
                     </div>
 
                     <div className="md:col-span-2 md:col-start-7">
@@ -42,8 +52,8 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                     <div className="md:col-span-3">
                         <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-black/40 mb-8 border-b border-black/5 pb-4">Connect</h4>
                         <ul className="space-y-4 text-base font-normal text-black/70">
-                            <li><a href="tel:+910000000000" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">+91 000 000 0000</a></li>
-                            <li><a href="mailto:sales@avinea.com" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">sales@avinea.com</a></li>
+                            <li><a href="tel:+919121772320" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">+91 9121772320</a></li>
+                            <li><a href="mailto:crm@spacesphere.in" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">crm@spacesphere.in</a></li>
                         </ul>
                     </div>
                 </div>
