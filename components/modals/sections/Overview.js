@@ -76,10 +76,10 @@ export function Overview() {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-                <div className="relative pl-6 pt-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+                <div className="relative pl-0 lg:pl-6 pt-0 lg:pt-6">
                     <Reveal>
-                        <div className="relative aspect-square lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
+                        <div className="relative aspect-square lg:aspect-[4/3] rounded-xl lg:rounded-[2rem] overflow-hidden shadow-xl lg:shadow-2xl border-4 lg:border-8 border-white">
                             <Image
                                 src="/ga2.jpg"
                                 alt="Overview"
@@ -87,23 +87,23 @@ export function Overview() {
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                            <div className="absolute bottom-6 left-8 text-white">
-                                <p className="text-2xl font-serif tracking-wide">Designed for Life.</p>
+                            <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-8 text-white">
+                                <p className="text-lg lg:text-2xl font-serif tracking-wide">Designed for Life.</p>
                             </div>
                         </div>
                     </Reveal>
-                    {/* Floating Card */}
+                    {/* Floating Card - Hidden on mobile, shown on md+ */}
                     <Reveal
                         delay={0.2}
-                        className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] max-w-xs hidden md:block border border-black/5"
+                        className="absolute -bottom-4 -right-4 bg-white p-4 lg:p-6 rounded-xl shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] max-w-[200px] lg:max-w-xs hidden md:block border border-black/5"
                     >
-                        <div className="flex items-center gap-4 mb-2">
-                            <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg">
-                                <Shield className="w-5 h-5" />
+                        <div className="flex items-center gap-3 lg:gap-4 mb-2">
+                            <div className="w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-accent text-white flex items-center justify-center shadow-lg">
+                                <Shield className="w-4 lg:w-5 h-4 lg:h-5" />
                             </div>
                             <div>
-                                <p className="text-sm font-bold text-black font-serif">RERA Approved</p>
-                                <p className="text-[10px] text-black/50 tracking-wider">P52100079047</p>
+                                <p className="text-xs lg:sm font-bold text-black font-serif">RERA Approved</p>
+                                <p className="text-[10px] lg:text-[10px] text-black/50 tracking-wider">P52100079047</p>
                             </div>
                         </div>
                         <p className="text-xs text-black/60 leading-relaxed max-w-[200px]">
@@ -112,10 +112,10 @@ export function Overview() {
                     </Reveal>
                 </div>
 
-                <div className="space-y-10">
+                <div className="space-y-6 lg:space-y-10 px-2 lg:px-0">
                     <Reveal>
                         <Badge>The Vision</Badge>
-                        <h2 className="heading-section mt-6 text-5xl">
+                        <h2 className="heading-section mt-4 text-3xl sm:text-4xl lg:text-5xl">
                             <div className="block">
                                 {"Where Future".split("").map((char, i) => (
                                     <motion.span
@@ -130,7 +130,7 @@ export function Overview() {
                                     </motion.span>
                                 ))}
                             </div>
-                            <div className="block mt-2">
+                            <div className="block mt-1 lg:mt-2">
                                 {"Meets".split("").map((char, i) => (
                                     <motion.span
                                         key={`l2-${i}`}
@@ -160,7 +160,7 @@ export function Overview() {
                                 </span>
                             </div>
                         </h2>
-                        <p className="body-main text-text-body mt-6 border-l-2 border-accent/20 pl-6">
+                        <p className="body-main text-text-body mt-4 lg:mt-6 border-l-2 border-accent/20 pl-4 lg:pl-6 text-sm sm:text-base">
                             Avinea is more than a residence; it's a meticulously crafted
                             ecosystem. Spanning 12 acres of prime landscape, we offer a
                             sanctuary that balances the pulse of the city with the calm of
@@ -168,19 +168,19 @@ export function Overview() {
                         </p>
                     </Reveal>
 
-                    <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 pt-2 lg:pt-4">
                         {[
-                            { label: "Vastu Compliant", icon: <Star className="w-4 h-4" /> },
-                            { label: "Smart Homes", icon: <Trophy className="w-4 h-4" /> },
-                            { label: "Community First", icon: <Users className="w-4 h-4" /> },
-                            { label: "24/7 Security", icon: <Shield className="w-4 h-4" /> },
+                            { label: "Vastu Compliant", icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                            { label: "Smart Homes", icon: <Trophy className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                            { label: "Community First", icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                            { label: "24/7 Security", icon: <Shield className="w-4 h-4 sm:w-5 sm:h-5" /> },
                         ].map((feature, i) => (
                             <Reveal key={i} delay={0.2 + i * 0.1}>
-                                <div className="flex items-center gap-3 p-4 rounded-lg bg-white border border-black/5 hover:border-accent hover:shadow-lg transition-all group cursor-default">
-                                    <div className="text-accent-dark group-hover:text-accent transition-colors">
+                                <div className="flex items-center gap-2 p-2 sm:p-3 lg:p-4 rounded-lg bg-white border border-black/5 hover:border-accent hover:shadow-lg transition-all group cursor-default">
+                                    <div className="text-accent-dark group-hover:text-accent transition-colors shrink-0">
                                         {feature.icon}
                                     </div>
-                                    <span className="font-bold text-black text-sm uppercase tracking-wider">
+                                    <span className="font-bold text-black text-xs sm:text-xs uppercase tracking-wider">
                                         {feature.label}
                                     </span>
                                 </div>

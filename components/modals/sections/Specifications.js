@@ -15,7 +15,7 @@ export function Specifications() {
     // Images map to key
     const images = {
         living: "/living&bedroom.jpg",
-        bath: "/bathroom.jpg", // No replacement found
+        bath: "/bathroom.jpg",
         kitchen: "/kitchen.jpg",
         structure: "/door.jpg",
         safety: "/switch.jpg",
@@ -24,21 +24,21 @@ export function Specifications() {
     };
 
     return (
-        <Section className="bg-[#f9f8f6] py-24 relative overflow-hidden" id="specifications">
+        <Section className="bg-[#f9f8f6] py-16 lg:py-24 relative overflow-hidden" id="specifications">
             {/* Background Atmosphere */}
             <div className="absolute inset-0 pointer-events-none opacity-40">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[100px]" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[100px]" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-20 items-start">
 
                     {/* Left Column: Navigation & Header */}
-                    <div className="lg:col-span-4 space-y-12">
+                    <div className="lg:col-span-4 space-y-8">
                         <Reveal>
                             <div className="space-y-4">
-                                <h2 className="heading-section text-black mb-4">
+                                <h2 className="heading-section text-3xl sm:text-4xl lg:text-5xl text-black mb-4">
                                     <div className="block">
                                         {"Curated".split("").map((char, i) => (
                                             <motion.span
@@ -70,7 +70,7 @@ export function Specifications() {
                                         </span>
                                     </div>
                                 </h2>
-                                <p className="body-sm text-black/60 font-light">
+                                <p className="body-sm text-black/60 font-light text-sm">
                                     Every inch designed for the discerning. Select a category to explore the standard of luxury.
                                 </p>
                             </div>
@@ -85,13 +85,13 @@ export function Specifications() {
                                     <button
                                         key={key}
                                         onClick={() => setActiveTab(key)}
-                                        className={`flex items-center gap-6 group py-3 px-2 rounded-xl transition-all duration-300 text-left relative z-10 ${activeTab === key ? "bg-white shadow-lg" : "hover:bg-white/50"
+                                        className={`flex items-center gap-4 sm:gap-6 group py-3 px-2 rounded-xl transition-all duration-300 text-left relative z-10 ${activeTab === key ? "bg-white shadow-lg" : "hover:bg-white/50"
                                             }`}
                                     >
-                                        <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 shrink-0 ${activeTab === key ? "border-accent bg-accent scale-110" : "border-black/10 bg-[#f9f8f6] group-hover:border-accent/50"
+                                        <div className={`w-3 sm:w-4 h-3 sm:h-4 rounded-full border-2 transition-all duration-300 shrink-0 ${activeTab === key ? "border-accent bg-accent scale-110" : "border-black/10 bg-[#f9f8f6] group-hover:border-accent/50"
                                             }`} />
                                         <div className="flex-1">
-                                            <span className={`block text-sm uppercase tracking-widest font-bold transition-colors duration-300 ${activeTab === key ? "text-accent" : "text-black/60 group-hover:text-black"
+                                            <span className={`block text-xs sm:text-sm uppercase tracking-widest font-bold transition-colors duration-300 ${activeTab === key ? "text-accent" : "text-black/60 group-hover:text-black"
                                                 }`}>
                                                 {category.title}
                                             </span>
@@ -103,8 +103,8 @@ export function Specifications() {
                     </div>
 
                     {/* Right Column: Interaction Card */}
-                    <div className="lg:col-span-8 min-h-[500px] relative">
-                        <div className="sticky top-24">
+                    <div className="lg:col-span-8 min-h-[400px] lg:min-h-[500px] relative mt-8 lg:mt-0">
+                        <div className="lg:sticky lg:top-24">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeTab}
@@ -112,11 +112,11 @@ export function Specifications() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.4, ease: "easeOut" }}
-                                    className="bg-white rounded-[2rem] p-3 shadow-2xl border border-white/40 ring-1 ring-black/5"
+                                    className="bg-white rounded-xl sm:rounded-[2rem] p-3 sm:p-4 shadow-xl sm:shadow-2xl border border-white/40 ring-1 ring-black/5"
                                 >
-                                    <div className="grid md:grid-cols-2 gap-8 h-full">
+                                    <div className="grid md:grid-cols-2 gap-6 sm:gap-8 h-full">
                                         {/* Dynamic Image */}
-                                        <div className="relative aspect-[4/5] md:aspect-auto md:h-[450px] rounded-[1.5rem] overflow-hidden bg-black/5">
+                                        <div className="relative aspect-[4/5] md:aspect-auto md:h-[350px] lg:h-[450px] rounded-lg sm:rounded-[1.5rem] overflow-hidden bg-black/5">
                                             <Image
                                                 src={images[activeTab] || "/gallery1.png"}
                                                 alt={specs[activeTab].title}
@@ -124,34 +124,34 @@ export function Specifications() {
                                                 className="object-cover"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                                            <div className="absolute bottom-6 left-6 text-white">
+                                            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-white">
                                                 {(() => {
                                                     const Icon = specs[activeTab].icon;
-                                                    return <Icon className="w-8 h-8 mb-3 opacity-90" />;
+                                                    return <Icon className="w-6 h-6 sm:w-8 sm:h-8 mb-2 sm:mb-3 opacity-90" />;
                                                 })()}
                                             </div>
                                         </div>
 
                                         {/* Dynamic Content */}
-                                        <div className="py-6 pr-6 flex flex-col justify-center space-y-8">
+                                        <div className="py-4 sm:py-6 pr-4 sm:pr-6 flex flex-col justify-center space-y-4 sm:space-y-6">
                                             <div>
-                                                <h3 className="text-3xl font-serif text-black mb-2">
+                                                <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif text-black mb-2">
                                                     {specs[activeTab].title}
                                                 </h3>
-                                                <div className="w-12 h-0.5 bg-accent" />
+                                                <div className="w-10 sm:w-12 h-0.5 bg-accent" />
                                             </div>
 
-                                            <ul className="space-y-6">
+                                            <ul className="space-y-4 sm:space-y-5">
                                                 {specs[activeTab].points.map((point, i) => (
                                                     <motion.li
                                                         key={point}
                                                         initial={{ opacity: 0, y: 10 }}
                                                         animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: 0.1 * i }}
-                                                        className="flex gap-4 items-start"
+                                                        className="flex gap-3 sm:gap-4 items-start"
                                                     >
-                                                        <span className="text-accent font-serif text-lg italic opacity-40 mt-0.5">0{i + 1}</span>
-                                                        <p className="text-black/70 leading-relaxed font-light">
+                                                        <span className="text-accent font-serif text-sm sm:text-lg italic opacity-40 mt-0.5 shrink-0">0{i + 1}</span>
+                                                        <p className="text-black/70 leading-relaxed font-light text-sm">
                                                             {point}
                                                         </p>
                                                     </motion.li>
@@ -168,3 +168,4 @@ export function Specifications() {
         </Section>
     );
 }
+

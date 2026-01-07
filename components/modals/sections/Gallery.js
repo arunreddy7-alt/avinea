@@ -37,27 +37,27 @@ export function Gallery() {
                     </div>
                 </Reveal>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-[600px] md:h-[500px]">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-[500px] md:h-[500px]">
                     {/* Main Featured Image */}
                     <motion.div
                         key={galleryIndex}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="md:col-span-8 relative rounded-3xl overflow-hidden h-full shadow-lg"
+                        className="md:col-span-8 relative rounded-xl md:rounded-3xl overflow-hidden h-full"
                     >
                         <Image src={galleryImages[galleryIndex]} alt="Gallery Main" fill className="object-cover" />
                     </motion.div>
 
                     {/* Thumbnails */}
-                    <div className="md:col-span-4 grid grid-rows-3 gap-4 h-full">
+                    <div className="md:col-span-4 grid grid-rows-3 gap-2 md:gap-4 h-full mt-4 md:mt-0">
                         {[1, 2, 3].map((offset) => {
                             const idx = (galleryIndex + offset) % galleryImages.length;
                             return (
                                 <button
                                     key={idx}
                                     onClick={() => setGalleryIndex(idx)}
-                                    className="relative rounded-2xl overflow-hidden w-full h-full opacity-60 hover:opacity-100 transition-opacity"
+                                    className="relative rounded-lg md:rounded-2xl overflow-hidden w-full h-full opacity-60 hover:opacity-100 transition-opacity"
                                 >
                                     <Image src={galleryImages[idx]} alt="Thumbnail" fill className="object-cover" />
                                 </button>

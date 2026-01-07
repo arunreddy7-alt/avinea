@@ -29,29 +29,28 @@ export function Header({ onOpenEnquiry }) {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled
-                ? "bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-black/5"
-                : "bg-transparent py-8 border-transparent"
+            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${isScrolled
+                ? "bg-white/90 backdrop-blur-md py-3 sm:py-4 shadow-sm border-b border-black/5"
+                : "bg-transparent py-5 sm:py-8 border-transparent"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                <div className="flex items-center gap-2 relative z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center relative">
+                <div className="flex items-center gap-2 relative z-[110]">
                     <Image
                         src="/logo.png"
                         alt="Avinea"
-                        width={140}
-                        height={50}
-                        className="object-contain"
+                        width={100} height={40}
+                        className="object-contain w-[100px] sm:w-[140px]"
                     />
                 </div>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-10">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-10">
                     {navLinks.map((link) => (
                         <button
                             key={link.href}
                             onClick={() => handleSmoothScroll(link.href.slice(1))}
-                            className={`text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 relative group ${isScrolled
+                            className={`text-[10px] lg:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 relative group ${isScrolled
                                 ? "text-black/60 hover:text-black"
                                 : "text-white/70 hover:text-white"
                                 }`}
@@ -62,7 +61,7 @@ export function Header({ onOpenEnquiry }) {
                     ))}
                     <button
                         onClick={onOpenEnquiry}
-                        className={`px-8 py-3 rounded-none border text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
+                        className={`px-6 lg:px-8 py-2.5 lg:py-3 rounded-none border text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
                             ? "border-black text-black hover:bg-black hover:text-white"
                             : "border-white/30 text-white hover:bg-white hover:text-black hover:border-white"
                             }`}
@@ -73,11 +72,11 @@ export function Header({ onOpenEnquiry }) {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden relative z-50 p-2"
+                    className="md:hidden relative z-[110] p-2"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? (
-                        <X className={isScrolled ? "text-black" : "text-white"} />
+                        <X className="text-black" />
                     ) : (
                         <Menu className={isScrolled ? "text-black" : "text-white"} />
                     )}
@@ -90,26 +89,26 @@ export function Header({ onOpenEnquiry }) {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="absolute top-0 left-0 right-0 bg-white p-6 pt-24 pb-12 shadow-xl md:hidden border-b border-black/5 flex flex-col gap-6"
+                            className="fixed top-0 left-0 right-0 bg-white p-4 pt-28 pb-8 shadow-xl md:hidden border-b border-black/5 flex flex-col gap-3 z-[100] max-h-screen overflow-y-auto"
                         >
                             {navLinks.map((link) => (
                                 <button
                                     key={link.href}
                                     onClick={() => handleSmoothScroll(link.href.slice(1))}
-                                    className="text-lg font-serif text-black/80 text-left border-b border-black/5 pb-2"
+                                    className="text-base font-serif text-black/80 text-left border-b border-black/5 pb-2"
                                 >
                                     {link.label}
                                 </button>
                             ))}
                             <button
                                 onClick={onOpenEnquiry}
-                                className="w-full py-4 bg-accent text-white font-bold uppercase tracking-widest rounded-lg"
+                                className="w-full py-3 bg-accent text-white font-bold uppercase tracking-widest rounded-lg text-xs mt-2"
                             >
                                 Schedule Visit
                             </button>
-                            <div className="flex items-center gap-3 text-sm text-black/60 pt-4">
+                            <div className="flex items-center gap-3 text-sm text-black/60 pt-2">
                                 <Phone className="w-4 h-4" />
-                                <span>+91 000 000 0000</span>
+                                <span>+91 9121772320</span>
                             </div>
                         </motion.div>
                     )}
@@ -118,3 +117,4 @@ export function Header({ onOpenEnquiry }) {
         </header>
     );
 }
+
