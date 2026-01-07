@@ -17,16 +17,16 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                 <>
                     <motion.div
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-[#0c0a08]/95 backdrop-blur-md z-[60]"
+                        className="fixed inset-0 bg-[#0c0a08]/95 backdrop-blur-md z-[101]"
                         onClick={onClose}
                     />
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="fixed inset-0 flex items-center justify-center z-[61] p-4 pointer-events-none"
+                        className="fixed inset-0 z-[102] pointer-events-none p-4 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-36 md:pt-0"
                     >
-                        <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-lg overflow-hidden flex flex-col shadow-2xl border border-white/10">
+                        <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-md overflow-hidden flex flex-col shadow-2xl border border-white/10 max-h-[calc(100vh-5rem)] md:max-h-[85vh] rounded-xl md:rounded-2xl">
                             {/* Modal Header */}
-                            <div className="p-8 border-b border-white/5 flex justify-between items-center bg-black/20">
+                            <div className="p-4 md:p-8 border-b border-white/5 flex justify-between items-center bg-black/20">
                                 <div>
                                     <p className="text-xs font-bold uppercase tracking-widest text-accent mb-2">
                                         {isVisit ? "Private Tour" : "Project Enquiry"}
@@ -44,7 +44,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                             </div>
 
                             {/* Modal Body */}
-                            <div className="p-8 max-h-[70vh] overflow-y-auto">
+                            <div className="p-4 md:p-8 max-h-[calc(100vh-12rem)] md:max-h-[70vh] overflow-y-auto">
                                 <form className="space-y-5" onSubmit={handleSubmit}>
 
                                     <div className="space-y-4">
@@ -55,7 +55,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
 
                                     {isVisit ? (
                                         <div className="space-y-6 pt-4">
-                                            <div className="grid grid-cols-2 gap-4">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div>
                                                     <label className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2 block">Date</label>
                                                     <input type="date" required className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-none focus:outline-none focus:border-accent text-sm" />

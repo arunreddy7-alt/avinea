@@ -1,13 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 import { Reveal } from "@/components/modals/ui/Reveal";
 
 export function VideoHighlight() {
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const playVideo = async () => {
+            try {
+                video.muted = true;
+                await video.play();
+            } catch (err) {
+                console.log("Autoplay prevented:", err);
+            }
+        };
+
+        playVideo();
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'visible') {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    }, []);
+
     return (
         <section className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px] overflow-hidden bg-black">
             <video
+                ref={videoRef}
                 src="/highlights.mp4"
                 autoPlay
                 muted
