@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export function Amenities() {
     const amenitiesList = [
-        { title: "3 Swimming Pools", icon: <Waves className="w-6 h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/Swimming pool.jpg" },
+        { title: "3 Swimming Pools", icon: <Waves className="w-6 h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/Swimming1.jpg" },
         { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-6 h-6" />, desc: "State of the art fitness center with view.", image: "/Fitness Centre.jpg" },
         { title: "Kids Arena", icon: <Baby className="w-6 h-6" />, desc: "Safe and engaging play areas.", image: "/Kids Arena.jpg" },
         { title: "3 Clubhouses", icon: <House className="w-6 h-6" />, desc: "Landscaped meditation zones.", image: "/Clubhouses.jpg" },
