@@ -55,22 +55,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
 
                                     {isVisit ? (
                                         <div className="space-y-6 pt-4">
-                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <label className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2 block">Date</label>
-                                                    <input type="date" required className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-none focus:outline-none focus:border-accent text-sm" />
-                                                </div>
-                                                <div>
-                                                    <label className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2 block">Time</label>
-                                                    <select className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-none focus:outline-none focus:border-accent text-sm">
-                                                        <option className="text-black">10:00 AM</option>
-                                                        <option className="text-black">11:00 AM</option>
-                                                        <option className="text-black">01:00 PM</option>
-                                                        <option className="text-black">03:00 PM</option>
-                                                        <option className="text-black">05:00 PM</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                           
 
                                             <div className="p-4 bg-white/5 border border-white/10">
                                                 <p className="text-xs font-bold uppercase tracking-widest text-accent mb-3">Interests</p>

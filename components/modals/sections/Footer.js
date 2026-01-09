@@ -20,6 +20,14 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                         <p className="text-sm sm:text-lg font-light leading-relaxed text-black/80 max-w-sm">
                             A private sanctuary crafted for modern connoisseurs. Experience the pinnacle of urban living in Pune's most coveted address.
                         </p>
+                        {/* Mobile-only: Connect section after description, before Address */}
+                        <div className="block sm:hidden">
+                            <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-black/40 mb-4 border-b border-black/5 pb-3">Connect</h4>
+                            <ul className="space-y-3 text-sm font-normal text-black/70">
+                                <li><a href="tel:+919121772320" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">+91 9121772320</a></li>
+                                <li><a href="mailto:crm@spacesphere.in" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">crm@spacesphere.in</a></li>
+                            </ul>
+                        </div>
                         <div className="pt-4 lg:pt-8">
                             <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-accent-dark mb-3">Address</p>
                             <div className="w-full h-[200px] sm:h-[280px] lg:h-[320px] rounded-xl overflow-hidden border border-black/10 shadow-sm">
@@ -48,7 +56,7 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                         </ul>
                     </div>
 
-                    <div className="sm:col-span-1 lg:col-span-3">
+                    <div className="hidden sm:block sm:col-span-1 lg:col-span-3">
                         <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-black/40 mb-4 lg:mb-8 border-b border-black/5 pb-3 lg:pb-4">Connect</h4>
                         <ul className="space-y-3 lg:space-y-4 text-sm sm:text-base font-normal text-black/70">
                             <li><a href="tel:+919121772320" className="hover:text-accent-dark transition-colors block py-1 border-b border-black/5 hover:border-accent/30">+91 9121772320</a></li>

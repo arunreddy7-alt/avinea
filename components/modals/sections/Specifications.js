@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
@@ -11,6 +12,7 @@ import { specs } from "@/app/data";
 export function Specifications() {
     // Default to first category
     const [activeTab, setActiveTab] = useState(Object.keys(specs)[0]);
+    const [isMobileOpen, setIsMobileOpen] = useState(null);
 
     // Images map to key
     const images = {
@@ -21,6 +23,13 @@ export function Specifications() {
         safety: "/switch.jpg",
         comfort: "/comformt&sustainability.jpg",
         logistics: "/security.jpg"
+    };
+
+    // Get spec keys as array for iteration
+    const specKeys = Object.keys(specs);
+
+    const toggleMobileAccordion = (key) => {
+        setIsMobileOpen(isMobileOpen === key ? null : key);
     };
 
     return (
@@ -76,7 +85,70 @@ export function Specifications() {
                             </div>
                         </Reveal>
 
-                        <Reveal delay={0.2}>
+                        {/* Mobile Accordion List - visible only on mobile */}
+                        <div className="lg:hidden space-y-3">
+                            {specKeys.map((key) => {
+                                const category = specs[key];
+                                const isOpen = isMobileOpen === key;
+                                return (
+                                    <div key={key} className="bg-white rounded-xl border border-black/5 overflow-hidden">
+                                        <button
+                                            onClick={() => toggleMobileAccordion(key)}
+                                            className="w-full flex items-center justify-between p-4"
+                                        >
+                                            <span className="text-sm uppercase tracking-widest font-bold text-black">
+                                                {category.title}
+                                            </span>
+                                            <ChevronDown className={`w-5 h-5 text-black/40 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+                                        <AnimatePresence>
+                                            {isOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="p-4 pt-0 space-y-4">
+                                                        {/* Image */}
+                                                        <div className="relative aspect-video rounded-lg overflow-hidden bg-black/5">
+                                                            <Image
+                                                                src={images[key] || "/gallery1.png"}
+                                                                alt={category.title}
+                                                                fill
+                                                                className="object-cover"
+                                                            />
+                                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                                                        </div>
+                                                        {/* Points */}
+                                                        <ul className="space-y-3">
+                                                            {category.points.map((point, i) => (
+                                                                <motion.li
+                                                                    key={point}
+                                                                    initial={{ opacity: 0, y: 10 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    transition={{ delay: 0.1 * i }}
+                                                                    className="flex gap-3 items-start"
+                                                                >
+                                                                    <span className="text-accent font-serif text-sm italic opacity-40 mt-0.5 shrink-0">0{i + 1}</span>
+                                                                    <p className="text-black/70 leading-relaxed font-light text-sm">
+                                                                        {point}
+                                                                    </p>
+                                                                </motion.li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Desktop Tab Navigation - hidden on mobile, visible on lg+ */}
+                        <Reveal delay={0.2} className="hidden lg:block">
                             <div className="flex flex-col gap-2 relative">
                                 {/* Vertical line track */}
                                 <div className="absolute left-[7px] top-4 bottom-4 w-px bg-black/5" />
@@ -85,13 +157,13 @@ export function Specifications() {
                                     <button
                                         key={key}
                                         onClick={() => setActiveTab(key)}
-                                        className={`flex items-center gap-4 sm:gap-6 group py-3 px-2 rounded-xl transition-all duration-300 text-left relative z-10 ${activeTab === key ? "bg-white shadow-lg" : "hover:bg-white/50"
+                                        className={`flex items-center gap-6 group py-3 px-2 rounded-xl transition-all duration-300 text-left relative z-10 ${activeTab === key ? "bg-white shadow-lg" : "hover:bg-white/50"
                                             }`}
                                     >
-                                        <div className={`w-3 sm:w-4 h-3 sm:h-4 rounded-full border-2 transition-all duration-300 shrink-0 ${activeTab === key ? "border-accent bg-accent scale-110" : "border-black/10 bg-[#f9f8f6] group-hover:border-accent/50"
+                                        <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 shrink-0 ${activeTab === key ? "border-accent bg-accent scale-110" : "border-black/10 bg-[#f9f8f6] group-hover:border-accent/50"
                                             }`} />
                                         <div className="flex-1">
-                                            <span className={`block text-xs sm:text-sm uppercase tracking-widest font-bold transition-colors duration-300 ${activeTab === key ? "text-accent" : "text-black/60 group-hover:text-black"
+                                            <span className={`block text-sm uppercase tracking-widest font-bold transition-colors duration-300 ${activeTab === key ? "text-accent" : "text-black/60 group-hover:text-black"
                                                 }`}>
                                                 {category.title}
                                             </span>
@@ -102,8 +174,8 @@ export function Specifications() {
                         </Reveal>
                     </div>
 
-                    {/* Right Column: Interaction Card */}
-                    <div className="lg:col-span-8 min-h-[400px] lg:min-h-[500px] relative mt-8 lg:mt-0">
+                    {/* Right Column: Interaction Card - hidden on mobile, visible on lg+ */}
+                    <div className="lg:col-span-8 min-h-[400px] lg:min-h-[500px] relative mt-8 lg:mt-0 hidden lg:block">
                         <div className="lg:sticky lg:top-24">
                             <AnimatePresence mode="wait">
                                 <motion.div

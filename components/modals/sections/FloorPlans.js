@@ -85,11 +85,11 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                     onClick={() => openBHK(title)}
                                     className="group relative transition-colors hover:bg-white/[0.02] cursor-pointer"
                                 >
-                                    <div className="grid md:grid-cols-12 gap-4 p-4 md:p-8 items-center">
+                                    <div className="grid md:grid-cols-12 gap-4 p-5 md:p-6 items-center">
 
                                         {/* Configuration */}
-                                        <div className="col-span-5 flex items-center gap-3 md:gap-6">
-                                            <div className="relative w-14 h-14 md:w-20 md:h-20 shrink-0 bg-white/5 rounded-lg overflow-hidden border border-white/10 group-hover:border-accent/40 transition-colors">
+                                        <div className="col-span-5 flex items-center gap-4 md:gap-6">
+                                            <div className="relative w-20 h-20 md:w-20 md:h-20 shrink-0 bg-white/5 rounded-lg overflow-hidden border border-white/10 group-hover:border-accent/40 transition-colors">
                                                 <Image
                                                     src={plans[0].image}
                                                     alt={title}
@@ -98,18 +98,18 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                 />
                                             </div>
                                             <div>
-                                                <h3 className="text-base md:text-xl font-serif text-white group-hover:text-accent transition-colors flex items-center gap-2 md:gap-3">
+                                                <h3 className="text-xl md:text-xl font-serif text-white group-hover:text-accent transition-colors flex items-center gap-2 md:gap-3">
                                                     {title}
                                                     {plans.length > 1 && (
-                                                        <span className="text-[8px] md:text-[10px] bg-accent/20 text-accent px-1.5 md:px-2 py-0.5 rounded-full">
+                                                        <span className="text-[10px] md:text-[10px] bg-accent/20 text-accent px-2 py-0.5 rounded-full">
                                                             {plans.length} options
                                                         </span>
                                                     )}
                                                     <Maximize2 className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-white/50 shrink-0" />
                                                 </h3>
-                                                <div className="flex flex-wrap gap-1 md:gap-2 mt-1 md:mt-2">
+                                                <div className="flex flex-wrap gap-1.5 mt-2">
                                                     {plans[0].features.slice(0, 2).map((feat, idx) => (
-                                                        <span key={idx} className="text-[8px] md:text-[10px] uppercase font-bold text-white/40 border border-white/10 px-1.5 md:px-2 py-0.5 rounded-full">
+                                                        <span key={idx} className="text-[10px] uppercase font-bold text-white/40 border border-white/10 px-2 py-0.5 rounded-full">
                                                             {feat}
                                                         </span>
                                                     ))}
@@ -120,7 +120,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         {/* Area */}
                                         <div className="col-span-3">
                                             <div className="md:hidden text-[10px] uppercase font-bold text-white/40 mb-1">Carpet Area</div>
-                                            <p className="text-white/80 font-mono text-xs md:text-sm">{plans[0].size}</p>
+                                            <p className="text-white/80 font-mono text-sm">{plans[0].size}</p>
                                         </div>
 
                                         {/* Price / Action */}
@@ -130,15 +130,15 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                 handleUnlock();
                                             }}>
                                                 <div className="flex items-center gap-2 md:gap-3 blur-sm select-none opacity-50 group-hover/price:opacity-20 transition-opacity">
-                                                    <span className="text-lg md:text-xl font-serif text-white">₹ 1.45 Cr</span>
-                                                    <span className="text-xs text-white/50">Onwards</span>
+                                                    <span className="text-xl font-serif text-white">₹ 1.45 Cr</span>
+                                                    <span className="text-sm text-white/50">Onwards</span>
                                                 </div>
                                                 <div className="absolute inset-0 flex items-center justify-end">
                                                     <button
-                                                        className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300 transform scale-90 group-hover/price:scale-100"
+                                                        className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300"
                                                     >
-                                                        <Lock className="w-2.5 md:w-3 h-2.5 md:h-3" />
-                                                        <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest">Unlock Price</span>
+                                                        <Lock className="w-3 h-3" />
+                                                        <span className="text-[10px] font-bold uppercase tracking-widest">Unlock</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -200,19 +200,19 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="fixed inset-0 z-[71] p-4 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-20 md:pt-33"
+                            className="fixed inset-0 z-[71] p-3 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-20 md:pt-33"
                         >
-                            <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-5rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto relative flex flex-col md:flex-row">
+                            <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto relative flex flex-col md:flex-row">
 
                                 <button
                                     onClick={closeModal}
-                                    className="absolute top-3 right-3 md:top-4 md:right-4 z-10 p-2 bg-black/50 hover:bg-white text-white hover:text-black rounded-full transition-all duration-300"
+                                    className="absolute top-2 right-2 md:top-4 md:right-4 z-10 p-2 bg-black/50 hover:bg-white text-white hover:text-black rounded-full transition-all duration-300"
                                 >
                                     <X className="w-4 h-4 md:w-5 md:h-5" />
                                 </button>
 
                                 {/* Image Container with Navigation Arrows */}
-                                <div className="relative w-full md:w-2/3 h-[40vh] md:h-[80vh] bg-white/5 p-4 md:p-8 flex items-center justify-center">
+                                <div className="relative w-full md:w-2/3 h-[30vh] md:h-[80vh] bg-white/5 p-4 md:p-8 flex items-center justify-center">
                                     {/* Navigation Arrows */}
                                     {currentPlans.length > 1 && (
                                         <>
