@@ -120,7 +120,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         {/* Area */}
                                         <div className="col-span-3">
                                             <div className="md:hidden text-[10px] uppercase font-bold text-white/40 mb-1">Carpet Area</div>
-                                            <p className="text-white/80 font-mono text-sm">{plans[0].size}</p>
+                                            <p className="text-white/80 font-mono text-sm whitespace-pre-line">{plans[0].size}</p>
                                         </div>
 
                                         {/* Price / Action */}
@@ -204,17 +204,18 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             transition={{ duration: 0.3, ease: "easeOut" }}
                             className="fixed inset-0 flex items-start justify-center z-[71] p-4 pt-24 md:pt-32 pointer-events-none"
                         >
-                            <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto flex flex-col md:flex-row">
+                            <div className="relative bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto flex flex-col md:flex-row">
+
+                                {/* Close Button - Top for Mobile, Corner for Desktop */}
+                                <button
+                                    onClick={closeModal}
+                                    className="absolute top-2 right-2 md:top-4 md:right-4 z-20 p-2 bg-black/50 hover:bg-accent text-white hover:text-black rounded-full transition-all duration-300"
+                                >
+                                    <X className="w-4 h-4 md:w-5 md:h-5" />
+                                </button>
 
                                 {/* Image Container with Navigation Arrows */}
                                 <div className="relative w-full md:w-2/3 h-[30vh] md:h-[80vh] bg-white/5 p-4 md:p-8 flex items-center justify-center">
-                                    {/* Close Button - Top Right for Mobile */}
-                                    <button
-                                        onClick={closeModal}
-                                        className="absolute top-2 right-2 md:top-4 md:right-4 p-2 bg-black/50 hover:bg-accent text-white hover:text-black rounded-full transition-all duration-300 z-20"
-                                    >
-                                        <X className="w-4 h-4 md:w-5 md:h-5" />
-                                    </button>
                                     {/* Navigation Arrows */}
                                     {currentPlans.length > 1 && (
                                         <>
@@ -285,9 +286,9 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         <div className="py-4 md:py-6 border-y border-white/10 space-y-3 md:space-y-4">
                                             <div>
                                                 <p className="text-[10px] md:text-xs uppercase font-bold text-white/40 mb-1">Carpet Area</p>
-                                                <p className="text-white font-mono text-sm md:text-lg">
-                                                    {currentPlan.size.split('|')[0].trim()}{!currentPlan.size.split('|')[0].trim().endsWith('sq.ft') ? ' sq.ft' : ''}
-                                                </p>
+                                                <div className="text-white font-mono text-sm md:text-lg whitespace-pre-line">
+                                                    {currentPlan.size}
+                                                </div>
                                             </div>
                                             <div>
                                                 <p className="text-[10px] md:text-xs uppercase font-bold text-white/40 mb-2">Key Features</p>
@@ -331,4 +332,3 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
         </Section>
     );
 }
-

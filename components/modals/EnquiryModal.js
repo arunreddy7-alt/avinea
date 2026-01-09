@@ -29,10 +29,10 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                             <div className="p-4 md:p-8 border-b border-white/5 flex justify-between items-center bg-black/20">
                                 <div>
                                     <p className="text-xs font-bold uppercase tracking-widest text-accent mb-2">
-                                        {isVisit ? "Private Tour" : "Project Enquiry"}
+                                        {isVisit ? "" : "Project Enquiry"}
                                     </p>
                                     <h3 className="font-serif text-2xl text-white">
-                                        {isVisit ? "Schedule Your Visit" : "Get In Touch"}
+                                        {isVisit ? "Enquire Now" : "Enquire Form"}
                                     </h3>
                                 </div>
                                 <button
@@ -50,13 +50,12 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                     <div className="space-y-4">
                                         <input type="text" placeholder="Full Name" required className="w-full px-0 py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-lg text-white transition-colors" />
                                         <input type="tel" placeholder="Phone Number" required className="w-full px-0 py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-lg text-white transition-colors" />
+                                        <input type="tel" placeholder="WhatsApp Number" className="w-full px-0 py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-lg text-white transition-colors" />
                                         <input type="email" placeholder="Email Address" required className="w-full px-0 py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-lg text-white transition-colors" />
                                     </div>
 
                                     {isVisit ? (
-                                        <div className="space-y-6 pt-4">
-                                           
-
+                                        <div className="space-y-4">
                                             <div className="p-4 bg-white/5 border border-white/10">
                                                 <p className="text-xs font-bold uppercase tracking-widest text-accent mb-3">Interests</p>
                                                 <div className="grid grid-cols-2 gap-2">
@@ -71,13 +70,15 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                                     ))}
                                                 </div>
                                             </div>
+
+                                           
                                         </div>
                                     ) : (
-                                        <textarea rows={3} placeholder="Tell us about your requirements..." className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-none focus:border-accent placeholder:text-white/30 resize-none" />
+                                        <textarea rows={3} placeholder="Tell us about your requirements..." className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg focus:border-accent placeholder:text-white/30 resize-none" />
                                     )}
 
                                     <button type="submit" className="w-full py-5 bg-accent hover:bg-white text-black font-bold uppercase tracking-[0.2em] transition-all duration-500 mt-4 group">
-                                        {isVisit ? "Confirm Appointment" : "Send Enquiry"}
+                                        {isVisit ? "Submit" : "Send Enquiry"}
                                     </button>
                                 </form>
                             </div>

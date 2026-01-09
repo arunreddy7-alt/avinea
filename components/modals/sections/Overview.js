@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { Shield, Trophy, Users, Star } from "lucide-react";
+import { Shield, Trophy, Users, Star, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { Badge } from "@/components/modals/ui/Badge";
 
-export function Overview() {
+export function Overview({ onWatchFilm }) {
     return (
         <Section id="overview" className="relative overflow-hidden">
             {/* Background Geometry - Fluid Ribbons (strictly horizontal flow) */}
@@ -187,6 +187,18 @@ export function Overview() {
                             </Reveal>
                         ))}
                     </div>
+
+                    <Reveal delay={0.6}>
+                        <div className="flex justify-center">
+                            <button 
+                                onClick={onWatchFilm}
+                                className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-black/20 text-black hover:bg-black hover:text-white font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[180px] sm:min-w-[200px] flex items-center justify-center gap-2 sm:gap-3"
+                            >
+                                <Play className="w-3 h-3 fill-current" />
+                                <span>View Project Video</span>
+                            </button>
+                        </div>
+                    </Reveal>
                 </div>
             </div>
         </Section>

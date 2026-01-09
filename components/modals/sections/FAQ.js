@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import Image from "next/image";
 
 import { Section } from "@/components/modals/ui/Section";
@@ -15,7 +15,7 @@ const faqs = [
     },
     {
         question: "Who is the developer of Avinea, Hadapsar?",
-        answer: "Avinea is developed by Vyom Sigma Developers, bringing a refined approach to modern living in Pune. The developer is known for quality construction, on-schedule delivery, and lifestyle-driven design."
+        answer: "Avinea is developed by Vyom Sigma Developers, bringing a refined approach to modern living in Pune. Rooted in a strong foundation of industry expertise and understanding, the developer is known for quality construction, on-schedule delivery, and lifestyle-driven design."
     },
     {
         question: "What types of apartments are available at Avinea?",
@@ -69,11 +69,25 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
     );
 }
 
-export function FAQ({ onBookVisit }) {
+export function FAQ({ onBookVisit, onOpenEnquiry }) {
     const [openIndex, setOpenIndex] = useState(0);
+    const [showScheduleForm, setShowScheduleForm] = useState(false);
+    const [showBrochureForm, setShowBrochureForm] = useState(false);
 
     const toggleFAQ = (index) => {
         setOpenIndex(openIndex === index ? -1 : index);
+    };
+
+    const handleScheduleSubmit = (e) => {
+        e.preventDefault();
+        alert("Thank you! We will contact you shortly to confirm your visit.");
+        setShowScheduleForm(false);
+    };
+
+    const handleBrochureSubmit = (e) => {
+        e.preventDefault();
+        alert("Thank you! Your brochure will be sent to your email.");
+        setShowBrochureForm(false);
     };
 
     return (
@@ -81,7 +95,7 @@ export function FAQ({ onBookVisit }) {
             {/* Background Image with Black Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/faq-bg.jpg"
+                    src="/faq-bg2.jpg"
                     alt="FAQ Background"
                     fill
                     className="object-cover"
@@ -111,17 +125,119 @@ export function FAQ({ onBookVisit }) {
                 </Reveal>
 
                 <Reveal delay={0.2}>
-                    <div className="text-center mt-8">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
                         <button
-                            onClick={onBookVisit}
+                            onClick={() => setShowScheduleForm(true)}
                             className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
                         >
                             <span className="relative z-10 flex items-center gap-2">
                                 Schedule a Visit
                             </span>
                         </button>
+                        
                     </div>
                 </Reveal>
+
+                {/* Popup Modal */}
+                <AnimatePresence>
+                    {showScheduleForm && (
+                        <>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100]"
+                                onClick={() => setShowScheduleForm(false)}
+                            />
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                                className="fixed inset-0 z-[101] pointer-events-none p-4 md:p-8 overflow-y-auto flex items-start justify-center pt-28 md:pt-32"
+                            >
+                                <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-md overflow-hidden shadow-2xl border border-white/10 rounded-xl">
+                                    {/* Modal Header */}
+                                    <div className="p-6 border-b border-white/10 flex justify-between items-center bg-black/20">
+                                        <div>
+                                            <h3 className="font-serif text-xl text-white">Schedule Your Visit</h3>
+                                            <p className="text-xs text-white/50 mt-1">Fill in your details and we'll contact you</p>
+                                        </div>
+                                        <button
+                                            onClick={() => setShowScheduleForm(false)}
+                                            className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                                        >
+                                            <X className="w-5 h-5 text-white/40" />
+                                        </button>
+                                    </div>
+
+                                    {/* Modal Body */}
+                                    <div className="p-6">
+<form onSubmit={handleScheduleSubmit} className="space-y-4">
+                                            <input
+                                                type="text"
+                                                placeholder="Full Name"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="tel"
+                                                placeholder="Phone Number"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="tel"
+                                                placeholder="WhatsApp Number"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="email"
+                                                placeholder="Email Address"
+                                                required
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <input
+                                                    type="time"
+                                                    required
+                                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                />
+                                                <input
+                                                    type="date"
+                                                    required
+                                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                />
+                                            </div>
+                                            <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
+                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-3">Interests</p>
+                                                <div className="grid grid-cols-2 gap-2">
+                                                    {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
+                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group">
+                                                            <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    className="opacity-0 w-full h-full cursor-pointer peer"
+                                                                />
+                                                                <div className="w-2 h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                            </div>
+                                                            <span className="text-sm text-white/70">{item}</span>
+                                                        </label>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                className="w-full py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
+                                            >
+                                                Submit
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </>
+                    )}
+                </AnimatePresence>
             </div>
         </Section>
     );

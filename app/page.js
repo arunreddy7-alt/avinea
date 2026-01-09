@@ -86,7 +86,12 @@ export default function Home() {
           setShowBookVisit(true);
         }}
       />
-        <Overview />
+        <Overview 
+          onWatchFilm={() => {
+            setPendingVideoUrl('https://youtu.be/MbQAPR1iFS4?si=Xp1EC3fkorthF-Va');
+            setShowBookVisit(true);
+          }}
+        />
         <Amenities />
         <Specifications />
         <VideoHighlight />
@@ -108,7 +113,14 @@ export default function Home() {
         />
         <Gallery />
         
-        <FAQ onBookVisit={() => setShowBookVisit(true)} />
+        <FAQ 
+          onBookVisit={() => setShowBookVisit(true)}
+          setPendingDownload={setPendingDownload}
+          onOpenEnquiry={() => {
+            setPendingDownload('brochure');
+            setShowEnquiry(true);
+          }}
+        />
         <Footer onScrollTo={handleSmoothScroll} />
       </main>
 

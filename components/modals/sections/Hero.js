@@ -10,11 +10,20 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
     return (
         <section className="relative h-screen w-full overflow-hidden">
             <div className="absolute inset-0 z-0">
+                {/* Desktop Hero Image */}
                 <Image
                     src="/hero.jpg"
                     alt="Hero"
                     fill
-                    className="object-cover"
+                    className="hidden md:block object-cover"
+                    priority
+                />
+                {/* Mobile Hero Image */}
+                <Image
+                    src="/mobhero1.jpg"
+                    alt="Hero Mobile"
+                    fill
+                    className="md:hidden object-cover"
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
@@ -71,14 +80,9 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
                             onClick={onOpenEnquiry}
                             className="px-8 sm:px-10 py-3 sm:py-4 bg-white text-black hover:bg-accent hover:text-white font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[180px] sm:min-w-[200px]"
                         >
-                            Enquire
+                            Enquire Now
                         </button>
-                        <button 
-                            onClick={onWatchFilm}
-                            className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-white/30 text-white hover:bg-white hover:text-black font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[180px] sm:min-w-[200px] flex items-center justify-center gap-2 sm:gap-3">
-                            <Play className="w-3 h-3 fill-current" />
-                            <span>Watch Film</span>
-                        </button>
+                        
                     </Reveal>
                 </div>
 

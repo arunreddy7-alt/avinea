@@ -26,14 +26,14 @@ export const navLinks = [
 ];
 
 export const galleryImages = [
-    "/gallery1.jpg",
-    "/gal2.jpg",
-    "/gal3.jpg",
-    "/gal4.jpg",
-    "/gal5.jpg",
-    "/gal6.jpg",
-    "/gal7.jpg",
-    "/gal8.jpg",
+    "/gall1.jpg",
+    "/gall2.jpg",
+    "/gall3.jpg",
+    "/gall4.jpg",
+    "/gall5.jpg",
+    "/gall6.jpg",
+    "/gall7.jpg",
+    "/gall8.jpg",
 ];
 
 export const clubhouseImages = [
@@ -51,7 +51,7 @@ export const clubhouseImages = [
 export const floorPlans = [
     { title: "2 BHK", image: "/2bhk2.png", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
     { title: "2 BHK", image: "/2bhk1.png", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
-    { title: "3 BHK", image: "/3bhk1.png", size: "1213 | 1226 | 1232 | 1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/3bhk1.png", size: "1213 | 1226 | 1232 |\n1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
     { title: "3 BHK", image: "/3bhk2.png", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
     { title: "3 BHK", image: "/3bhk3.png", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
     { title: "3 BHK", image: "/3bhk4.png", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
@@ -144,3 +144,4 @@ export const locationHighlights = [
     { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-4 w-4" /> },
     { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-4 w-4" /> },
 ];
+

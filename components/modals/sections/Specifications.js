@@ -18,11 +18,11 @@ export function Specifications() {
     const images = {
         living: "/living&bedroom.jpg",
         bath: "/bathroom.jpg",
-        kitchen: "/kitchen.jpg",
-        structure: "/door.jpg",
-        safety: "/switch.jpg",
+        kitchen: "/kitchen1.png",
+        structure: "/doors.jpg",
+        safety: "/switch1.jpg",
         comfort: "/comformt&sustainability.jpg",
-        logistics: "/security.jpg"
+        logistics: "/security1.jpg"
     };
 
     // Get spec keys as array for iteration
