@@ -81,7 +81,7 @@ export function Overview({ onWatchFilm }) {
                     <Reveal>
                         <div className="relative aspect-square lg:aspect-[4/3] rounded-xl lg:rounded-[2rem] overflow-hidden shadow-xl lg:shadow-2xl border-4 lg:border-8 border-white">
                             <Image
-                                src="/ga2.jpg"
+                                src="/ga3.jpg"
                                 alt="Overview"
                                 fill
                                 className="object-cover"
