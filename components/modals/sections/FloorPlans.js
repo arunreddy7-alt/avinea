@@ -125,16 +125,17 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
 
                                         {/* Price / Action */}
                                         <div className="col-span-4 flex flex-col md:items-end justify-center gap-2 md:gap-3">
-                                            <div className="relative group/price" onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleUnlock();
-                                            }}>
+                                            <div className="relative group/price">
                                                 <div className="flex items-center gap-2 md:gap-3 blur-sm select-none opacity-50 group-hover/price:opacity-20 transition-opacity">
                                                     <span className="text-xl font-serif text-white">₹ 1.45 Cr</span>
                                                     <span className="text-sm text-white/50">Onwards</span>
                                                 </div>
                                                 <div className={`absolute inset-0 flex items-center ${title === '3 BHK' ? '' : 'md:justify-end'}`}>
                                                     <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleUnlock();
+                                                        }}
                                                         className={`flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300 ${title === '3 BHK' ? 'md:ml-1' : 'md:ml-0'}`}
                                                     >
                                                         <Lock className="w-3 h-3" />
@@ -200,18 +201,20 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="fixed inset-0 flex items-start justify-center z-[71] p-4 pt-24 md:pt-32 pointer-events-none"
                         >
-                            <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto relative flex flex-col md:flex-row">
-
-                                <button
-                                    onClick={closeModal}
-                                    className="absolute top-2 right-2 md:top-4 md:right-4 z-10 p-2 bg-black/50 hover:bg-white text-white hover:text-black rounded-full transition-all duration-300"
-                                >
-                                    <X className="w-4 h-4 md:w-5 md:h-5" />
-                                </button>
+                            <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto flex flex-col md:flex-row">
 
                                 {/* Image Container with Navigation Arrows */}
                                 <div className="relative w-full md:w-2/3 h-[30vh] md:h-[80vh] bg-white/5 p-4 md:p-8 flex items-center justify-center">
+                                    {/* Close Button - Top Right for Mobile */}
+                                    <button
+                                        onClick={closeModal}
+                                        className="absolute top-2 right-2 md:top-4 md:right-4 p-2 bg-black/50 hover:bg-accent text-white hover:text-black rounded-full transition-all duration-300 z-20"
+                                    >
+                                        <X className="w-4 h-4 md:w-5 md:h-5" />
+                                    </button>
                                     {/* Navigation Arrows */}
                                     {currentPlans.length > 1 && (
                                         <>
