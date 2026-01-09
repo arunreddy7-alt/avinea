@@ -151,7 +151,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                 </Reveal>
 
                 <div className="mt-8 text-center">
-                    <div className="mt-6 max-w-2xl mx-auto">
+                    <div className="mt-6 max-w-4xl mx-auto">
                         <div 
                             onClick={() => {
                                 setPendingDownload('masterlayout');
@@ -162,8 +162,8 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             <Image
                                 src="/masterlayout.jpg"
                                 alt="Master Layout"
-                                width={800}
-                                height={600}
+                                width={1200}
+                                height={900}
                                 className="w-full h-auto blur-md opacity-60 transition-all duration-500"
                             />
                             <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />

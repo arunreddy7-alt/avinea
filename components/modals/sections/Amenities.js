@@ -14,7 +14,7 @@ export function Amenities() {
         { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "State of the art fitness center with view.", image: "/Fitness Centre.jpg" },
         { title: "Kids Arena", icon: <Baby className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Safe and engaging play areas.", image: "/Kids Arena.jpg" },
         { title: "3 Clubhouses", icon: <House className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Landscaped meditation zones.", image: "/Clubhouses.jpg" },
-        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/hall.jpg" },
+        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/hall2.jpg" },
         { title: "Mini Golf Course", icon: <Flag className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Spiritual corner for peace.", image: "/Mini Golf.jpg" },
     ];
 

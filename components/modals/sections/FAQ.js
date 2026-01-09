@@ -36,17 +36,17 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="border-b border-white/10"
+            className="border-b border-[#d4af37]/20"
         >
             <button
                 onClick={onToggle}
                 className="w-full py-5 flex items-center justify-between text-left group"
             >
-                <span className="text-lg font-medium text-white group-hover:text-accent transition-colors pr-4">
+                <span className="text-lg font-medium text-[#f5f0e8] group-hover:text-[#d4af37] transition-colors pr-4">
                     {faq.question}
                 </span>
                 <ChevronDown 
-                    className={`w-5 h-5 text-accent transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
+                    className={`w-5 h-5 text-[#d4af37] transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
                 />
             </button>
             <AnimatePresence>
@@ -58,7 +58,7 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <p className="pb-5 text-white/70 leading-relaxed whitespace-pre-line">
+                        <p className="pb-5 text-[#f5f0e8]/70 leading-relaxed whitespace-pre-line">
                             {faq.answer}
                         </p>
                     </motion.div>
@@ -76,15 +76,39 @@ export function FAQ() {
     };
 
     return (
-        <Section className="bg-[#0c0a08]" dark>
-            <div className="max-w-4xl mx-auto">
+        <Section className="bg-[#1a1612] relative" dark>
+            {/* Luxury textured background with gold accents */}
+            <div 
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 25% 75%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
+                        radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
+                        radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0)
+                    `,
+                    backgroundSize: '100% 100%, 100% 100%, 100% 100%, 20px 20px'
+                }}
+            />
+            {/* Subtle pattern overlay */}
+            <div 
+                className="absolute inset-0 pointer-events-none opacity-20"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(90deg, transparent 49%, rgba(212, 175, 55, 0.1) 49%, rgba(212, 175, 55, 0.1) 51%, transparent 51%),
+                        linear-gradient(transparent 49%, rgba(212, 175, 55, 0.1) 49%, rgba(212, 175, 55, 0.1) 51%, transparent 51%)
+                    `,
+                    backgroundSize: '100px 100px'
+                }}
+            />
+            <div className="max-w-4xl mx-auto relative z-10">
                 <Reveal className="text-center mb-12">
-                    <h2 className="heading-section text-white">Frequently Asked Questions</h2>
-                    <p className="text-white/60 mt-4">Find answers to common questions about Avinea</p>
+                    <h2 className="heading-section text-[#f5f0e8]">Frequently Asked Questions</h2>
+                    <p className="text-[#f5f0e8]/60 mt-4">Find answers to common questions about Avinea</p>
                 </Reveal>
 
                 <Reveal delay={0.1}>
-                    <div className="bg-white/5 rounded-2xl p-6 md:p-8">
+                    <div className="bg-[#2a231c]/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[#d4af37]/10">
                         {faqs.map((faq, index) => (
                             <FAQItem
                                 key={index}

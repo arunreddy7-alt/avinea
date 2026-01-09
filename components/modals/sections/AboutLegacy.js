@@ -74,17 +74,20 @@ export function AboutLegacy({ onOpenEnquiry }) {
                             onClick={onOpenEnquiry}
                             className="group flex items-center gap-4 pt-6 cursor-pointer"
                         >
-                            <span className="text-2xl font-serif text-white group-hover:text-accent transition-colors duration-300">
-                                Explore Avinea by Vyom Sigma
-                            </span>
+                            {/* Arrow before - always visible */}
                             <svg 
-                                className="w-8 h-8 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" 
+                                className="w-8 h-8 text-accent transition-all duration-300" 
                                 fill="none" 
                                 stroke="currentColor" 
                                 viewBox="0 0 24 24"
                             >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
                             </svg>
+                            <span className="text-2xl font-serif text-white group-hover:text-accent transition-colors duration-300 group-hover:underline decoration-accent underline-offset-4 underline">
+                                Explore Avinea by Vyom Sigma
+                            </span>
+                            {/* Arrow after - appears on hover */}
+                            
                         </button>
                     </div>
                 </Reveal>

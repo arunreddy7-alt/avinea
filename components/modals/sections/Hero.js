@@ -98,7 +98,7 @@ export function Hero({ onOpenEnquiry }) {
                                 {[
                                     { label: "Acres", val: "10.5", sub: "Expansive Greenery" },
                                     { label: "Units", val: "1100+", sub: "Luxury Residences" },
-                                    { label: "Location", val: "Hadapsar", sub: "Upscale" },
+                                    { label: "Location", val: "Upscale", sub: "Hadapsar" },
                                     { label: "Possession", val: "2028", sub: "onwards" },
                                 ].map((stat, i) => (
                                     <div key={i} className="py-3 sm:py-4 md:py-6 px-3 sm:px-4 md:px-8 flex flex-col justify-center group hover:bg-white/5 transition-colors cursor-default">

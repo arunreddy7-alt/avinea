@@ -49,16 +49,16 @@ export const clubhouseImages = [
 
 
 export const floorPlans = [
-    { title: "2 BHK", image: "/2bhk2.png", size: "Approx. 1000–1100 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
-    { title: "2 BHK", image: "/2bhk1.png", size: "Approx. 1000–1100 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
-    { title: "3 BHK", image: "/3bhk1.png", size: "Approx. 1350–1450 sq.ft", features: ["Smart home ready", "High ceilings"] },
-    { title: "3 BHK", image: "/3bhk2.png", size: "Approx. 1350–1450 sq.ft", features: ["Power backup", "Video door phone"] },
-    { title: "3 BHK", image: "/3bhk3.png", size: "Approx. 1350–1450 sq.ft", features: ["Italian flooring", "Designer lights"] },
-    { title: "3 BHK", image: "/3bhk4.png", size: "Approx. 1350–1450 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
-    { title: "3 BHK", image: "/3bhk5.png", size: "Approx. 1350–1450 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
-    { title: "4 BHK", image: "/4bhk1.png", size: "Approx. 1700–2000 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
-    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "Approx. 2300–2600 sq.ft", features: ["Private terrace", "Grand entry"] },
-    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "Approx. 2600–2900 sq.ft", features: ["Ultra premium", "Exclusive access"] },
+    { title: "2 BHK", image: "/2bhk2.png", size: "Approx. 946 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
+    { title: "2 BHK", image: "/2bhk1.png", size: "Approx. 960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
+    { title: "3 BHK", image: "/3bhk1.png", size: "Approx. 1213 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/3bhk2.png", size: "Approx. 1226 sq.ft", features: ["Power backup", "Video door phone"] },
+    { title: "3 BHK", image: "/3bhk3.png", size: "Approx. 1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
+    { title: "3 BHK", image: "/3bhk4.png", size: "Approx. 1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
+    { title: "3 BHK", image: "/3bhk5.png", size: "Approx. 1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
+    { title: "4 BHK", image: "/4bhk1.png", size: "Approx. 1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
+    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "Approx. 1940 sq.ft", features: ["Private terrace", "Grand entry"] },
+    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "Approx. 2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
 ];
 
 export const specs = {
