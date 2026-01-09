@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
@@ -36,17 +37,17 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="border-b border-[#d4af37]/20"
+            className="border-b border-white/10"
         >
             <button
                 onClick={onToggle}
                 className="w-full py-5 flex items-center justify-between text-left group"
             >
-                <span className="text-lg font-medium text-[#f5f0e8] group-hover:text-[#d4af37] transition-colors pr-4">
+                <span className="text-lg font-medium text-[#f5f0e8] group-hover:text-white transition-colors pr-4">
                     {faq.question}
                 </span>
                 <ChevronDown 
-                    className={`w-5 h-5 text-[#d4af37] transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
+                    className={`w-5 h-5 text-white/60 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} 
                 />
             </button>
             <AnimatePresence>
@@ -68,7 +69,7 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
     );
 }
 
-export function FAQ() {
+export function FAQ({ onBookVisit }) {
     const [openIndex, setOpenIndex] = useState(0);
 
     const toggleFAQ = (index) => {
@@ -77,30 +78,18 @@ export function FAQ() {
 
     return (
         <Section className="bg-[#1a1612] relative" dark>
-            {/* Luxury textured background with gold accents */}
-            <div 
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    backgroundImage: `
-                        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 25% 75%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
-                        radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.02) 0%, transparent 40%),
-                        radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0)
-                    `,
-                    backgroundSize: '100% 100%, 100% 100%, 100% 100%, 20px 20px'
-                }}
-            />
-            {/* Subtle pattern overlay */}
-            <div 
-                className="absolute inset-0 pointer-events-none opacity-20"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(90deg, transparent 49%, rgba(212, 175, 55, 0.1) 49%, rgba(212, 175, 55, 0.1) 51%, transparent 51%),
-                        linear-gradient(transparent 49%, rgba(212, 175, 55, 0.1) 49%, rgba(212, 175, 55, 0.1) 51%, transparent 51%)
-                    `,
-                    backgroundSize: '100px 100px'
-                }}
-            />
+            {/* Background Image with Black Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/faq-bg.jpg"
+                    alt="FAQ Background"
+                    fill
+                    className="object-cover"
+                />
+                {/* Black gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+            </div>
+
             <div className="max-w-4xl mx-auto relative z-10">
                 <Reveal className="text-center mb-12">
                     <h2 className="heading-section text-[#f5f0e8]">Frequently Asked Questions</h2>
@@ -108,7 +97,7 @@ export function FAQ() {
                 </Reveal>
 
                 <Reveal delay={0.1}>
-                    <div className="bg-[#2a231c]/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[#d4af37]/10">
+                    <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10">
                         {faqs.map((faq, index) => (
                             <FAQItem
                                 key={index}
@@ -118,6 +107,19 @@ export function FAQ() {
                                 onToggle={() => toggleFAQ(index)}
                             />
                         ))}
+                    </div>
+                </Reveal>
+
+                <Reveal delay={0.2}>
+                    <div className="text-center mt-8">
+                        <button
+                            onClick={onBookVisit}
+                            className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
+                        >
+                            <span className="relative z-10 flex items-center gap-2">
+                                Schedule a Visit
+                            </span>
+                        </button>
                     </div>
                 </Reveal>
             </div>

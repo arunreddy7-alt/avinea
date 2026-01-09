@@ -15,7 +15,7 @@ export function StickyCTA({ onOpen }) {
             >
                 <Calendar className="w-5 h-5 text-black mb-4 group-hover:text-black transition-colors rotate-0" />
                 <span className="writing-mode-vertical text-[10px] font-bold uppercase tracking-[0.3em] text-black group-hover:text-black">
-                    Schedule Visit
+                    Enquire
                 </span>
             </motion.button>
 

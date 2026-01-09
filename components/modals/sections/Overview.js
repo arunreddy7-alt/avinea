@@ -162,7 +162,7 @@ export function Overview() {
                         </h2>
                         <p className="body-main text-text-body mt-4 lg:mt-6 border-l-2 border-accent/20 pl-4 lg:pl-6 text-sm sm:text-base">
                             Avinea is more than a residence; it's a meticulously crafted
-                            ecosystem. Spanning 12 acres of prime landscape, we offer a
+                            ecosystem. Spanning 10.5 acres of prime landscape, we offer a
                             sanctuary that balances the pulse of the city with the calm of
                             nature.
                         </p>

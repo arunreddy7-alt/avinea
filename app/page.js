@@ -27,18 +27,19 @@ export default function Home() {
   const [showBookVisit, setShowBookVisit] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [pendingDownload, setPendingDownload] = useState(null);
+  const [pendingVideoUrl, setPendingVideoUrl] = useState(null);
   const [hasAutoPopupShown, setHasAutoPopupShown] = useState(false);
 
-  // Auto-popup form after 5 seconds
+  // Auto-popup form after 12 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBookVisit(true);
-    }, 5000); // 5 seconds
+    }, 12000); // 12 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
-  // Handle auto-download when enquiry is submitted
+  // Handle auto-download/enquiry when enquiry is submitted
   const handleEnquirySubmit = () => {
     // Show success modal instead of alert
     setShowSuccess(true);
@@ -51,11 +52,16 @@ export default function Home() {
       link.click();
       document.body.removeChild(link);
     }
-    // Logic for other downloads can be added here
+
+    // Open video URL if pending
+    if (pendingVideoUrl) {
+      window.open(pendingVideoUrl, '_blank');
+    }
 
     setShowEnquiry(false);
     setShowBookVisit(false);
     setPendingDownload(null);
+    setPendingVideoUrl(null);
   };
 
   const handleSmoothScroll = (id) => {
@@ -73,7 +79,13 @@ export default function Home() {
       <Header onOpenEnquiry={() => setShowBookVisit(true)} />
 
       <main>
-        <Hero onOpenEnquiry={() => setShowBookVisit(true)} />
+      <Hero 
+        onOpenEnquiry={() => setShowBookVisit(true)}
+        onWatchFilm={() => {
+          setPendingVideoUrl('https://youtu.be/MbQAPR1iFS4?si=Xp1EC3fkorthF-Va');
+          setShowBookVisit(true);
+        }}
+      />
         <Overview />
         <Amenities />
         <Specifications />
@@ -86,9 +98,7 @@ export default function Home() {
           onOpenEnquiry={() => setShowBookVisit(true)}
           setPendingDownload={setPendingDownload}
         />
-        <Gallery />
         <ClientVoices />
-        <AboutLegacy onOpenEnquiry={() => setShowBookVisit(true)} />
         <FinalCTA
           onBookVisit={() => setShowBookVisit(true)}
           onRequestDetails={() => {
@@ -96,7 +106,9 @@ export default function Home() {
             setShowEnquiry(true);
           }}
         />
-        <FAQ />
+        <Gallery />
+        
+        <FAQ onBookVisit={() => setShowBookVisit(true)} />
         <Footer onScrollTo={handleSmoothScroll} />
       </main>
 

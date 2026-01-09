@@ -37,28 +37,28 @@ export const galleryImages = [
 ];
 
 export const clubhouseImages = [
-    { src: "/CB 1.jpg", label: "" },
-    { src: "/CB 2.jpg", label: "" },
-    { src: "/CB 3.jpg", label: "" },
-    { src: "/CB 4.jpg", label: "" },
-    { src: "/SP 1.jpg", label: " " },
-    { src: "/SP 2.jpg", label: " " },
-    { src: "/SP 3.jpg", label: " " },
-    { src: "/SP 4.jpg", label: " " },
+    { src: "", label: "3 Clubhouses", sublabel: "Citadel, Castle, Manor" },
+    { src: "/CB 1.jpg", label: "Citadel" },
+    { src: "/CB 2.jpg", label: "Castle" },
+    { src: "/CB 3.jpg", label: "Manor" },
+    { src: "", label: "3 Swimming Pools", sublabel: "" },
+    { src: "/SP 1.jpg", label: "Swimming Pool 1" },
+    { src: "/SP 2.jpg", label: "Swimming Pool 2" },
+    { src: "/SP 3.jpg", label: "Swimming Pool 3" },
 ];
 
 
 export const floorPlans = [
-    { title: "2 BHK", image: "/2bhk2.png", size: "Approx. 946 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
-    { title: "2 BHK", image: "/2bhk1.png", size: "Approx. 960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
-    { title: "3 BHK", image: "/3bhk1.png", size: "Approx. 1213 sq.ft", features: ["Smart home ready", "High ceilings"] },
-    { title: "3 BHK", image: "/3bhk2.png", size: "Approx. 1226 sq.ft", features: ["Power backup", "Video door phone"] },
-    { title: "3 BHK", image: "/3bhk3.png", size: "Approx. 1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
-    { title: "3 BHK", image: "/3bhk4.png", size: "Approx. 1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
-    { title: "3 BHK", image: "/3bhk5.png", size: "Approx. 1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
-    { title: "4 BHK", image: "/4bhk1.png", size: "Approx. 1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
-    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "Approx. 1940 sq.ft", features: ["Private terrace", "Grand entry"] },
-    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "Approx. 2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
+    { title: "2 BHK", image: "/2bhk2.png", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
+    { title: "2 BHK", image: "/2bhk1.png", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
+    { title: "3 BHK", image: "/3bhk1.png", size: "1213 | 1226 | 1232 | 1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/3bhk2.png", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
+    { title: "3 BHK", image: "/3bhk3.png", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
+    { title: "3 BHK", image: "/3bhk4.png", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
+    { title: "3 BHK", image: "/3bhk5.png", size: "1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
+    { title: "4 BHK", image: "/4bhk1.png", size: "1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
+    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "1940 sq.ft", features: ["Private terrace", "Grand entry"] },
+    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
 ];
 
 export const specs = {
@@ -142,5 +142,5 @@ export const locationHighlights = [
     { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-4 w-4" /> },
     { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-4 w-4" /> },
     { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-4 w-4" /> },
-    { name: "Nobel Hospital", distance: "7 Min", icon: <Stethoscope className="h-4 w-4" /> },
+    { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-4 w-4" /> },
 ];
