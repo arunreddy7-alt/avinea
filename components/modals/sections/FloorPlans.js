@@ -133,12 +133,12 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                     <span className="text-xl font-serif text-white">₹ 1.45 Cr</span>
                                                     <span className="text-sm text-white/50">Onwards</span>
                                                 </div>
-                                                <div className="absolute inset-0 flex items-center justify-end">
+                                                <div className={`absolute inset-0 flex items-center ${title === '3 BHK' ? '' : 'md:justify-end'}`}>
                                                     <button
-                                                        className="flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300"
+                                                        className={`flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300 ${title === '3 BHK' ? 'md:ml-1' : 'md:ml-0'}`}
                                                     >
                                                         <Lock className="w-3 h-3" />
-                                                        <span className="text-[10px] font-bold uppercase tracking-widest">Unlock</span>
+                                                        <span className="text-[10px] font-bold uppercase tracking-widest">Unlock Price</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -200,7 +200,6 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="fixed inset-0 z-[71] p-3 md:p-8 overflow-y-auto md:overflow-hidden flex items-start md:items-center justify-center pt-32 md:pt-33"
                         >
                             <div className="bg-[#1a1a1a] w-full max-w-4xl max-h-[calc(100vh-10rem)] md:max-h-[90vh] overflow-y-auto md:overflow-hidden rounded-xl md:rounded-3xl shadow-2xl border border-white/10 pointer-events-auto relative flex flex-col md:flex-row">
 

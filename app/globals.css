@@ -167,6 +167,17 @@ h6 {
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Enhanced Smooth Scroll for all anchor links */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scroll anchor targeting */
+:target {
+  scroll-margin-top: 100px;
 }
 
 /* Custom Scrollbar */
