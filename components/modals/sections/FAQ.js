@@ -197,20 +197,14 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <div className="grid grid-cols-2 gap-2.5 md:gap-4">
-                                                {/* Mobile: Custom placeholder with native picker on focus */}
-                                                <div className="relative md:hidden">
+                                                {/* Mobile: Native time input */}
+                                                <div className="relative">
                                                     <input
-                                                        type="text"
+                                                        type="time"
                                                         required
-                                                        placeholder="Time"
-                                                        onFocus={(e) => { e.target.type = 'time'; }}
-                                                        onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                        className="w-full px-3 py-2 pl-9 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
+                                                        className="w-full px-3 py-2 pl-7 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
-                                                    <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
-                                                    </svg>
+                                                    
                                                 </div>
                                                 {/* Desktop: Native time input */}
                                                 <div className="relative hidden md:block">
@@ -224,20 +218,14 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                         <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
                                                     </svg>
                                                 </div>
-                                                {/* Mobile: Custom placeholder with native picker on focus */}
-                                                <div className="relative md:hidden">
+                                                {/* Mobile: Native date input */}
+                                                <div className="relative">
                                                     <input
-                                                        type="text"
+                                                        type="date"
                                                         required
-                                                        placeholder="Date"
-                                                        onFocus={(e) => { e.target.type = 'date'; }}
-                                                        onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                        className="w-full px-3 py-2 pl-9 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
+                                                        className="w-full px-3 py-2 pl-7 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
-                                                    <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
-                                                    </svg>
+                                                   
                                                 </div>
                                                 {/* Desktop: Native date input */}
                                                 <div className="relative hidden md:block">
