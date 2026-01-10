@@ -70,7 +70,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                 </Reveal>
 
                 <Reveal>
-                    <div className="bg-white/[0.03] border border-white/10 rounded-xl lg:rounded-3xl overflow-hidden backdrop-blur-sm">
+                    <div className="bg-white/[0.03] border border-white/10 rounded-xl lg:rounded-3xl overflow-hidden backdrop-blur-sm -mx-3 md:mx-0 px-3 md:px-0">
                         {/* Table Header - Hidden on small screens, shown on md+ */}
                         <div className="hidden md:grid grid-cols-12 gap-6 p-6 border-b border-white/10 text-xs font-bold uppercase tracking-widest text-white/40">
                             <div className="col-span-5">Configuration</div>
@@ -85,7 +85,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                     onClick={() => openBHK(title)}
                                     className="group relative transition-colors hover:bg-white/[0.02] cursor-pointer"
                                 >
-                                    <div className="grid md:grid-cols-12 gap-4 p-5 md:p-6 items-center">
+                                    <div className="grid md:grid-cols-12 gap-3 md:gap-6 p-4 md:p-6 items-center">
 
                                         {/* Configuration */}
                                         <div className="col-span-5 flex items-center gap-4 md:gap-6">
