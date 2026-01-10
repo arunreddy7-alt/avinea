@@ -30,14 +30,17 @@ export default function Home() {
   const [pendingVideoUrl, setPendingVideoUrl] = useState(null);
   const [hasAutoPopupShown, setHasAutoPopupShown] = useState(false);
 
-  // Auto-popup form after 12 seconds
+  // Handle body scroll lock when modals are open
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowBookVisit(true);
-    }, 12000); // 12 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (showEnquiry || showBookVisit || showSuccess) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showEnquiry, showBookVisit, showSuccess]);
 
   // Handle auto-download/enquiry when enquiry is submitted
   const handleEnquirySubmit = () => {

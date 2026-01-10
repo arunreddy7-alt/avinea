@@ -18,7 +18,7 @@ export function Specifications() {
     const images = {
         living: "/living&bedroom.jpg",
         bath: "/bathroom.jpg",
-        kitchen: "/kitchen1.png",
+        kitchen: "/kitchen2.png",
         structure: "/doors.jpg",
         safety: "/switch1.jpg",
         comfort: "/comformt&sustainability.jpg",

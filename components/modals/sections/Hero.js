@@ -20,7 +20,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
                 />
                 {/* Mobile Hero Image */}
                 <Image
-                    src="/mobhero1.jpg"
+                    src="/banner.jpg"
                     alt="Hero Mobile"
                     fill
                     className="md:hidden object-cover"

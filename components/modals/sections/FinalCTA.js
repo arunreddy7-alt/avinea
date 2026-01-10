@@ -84,7 +84,7 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
 
                             <button
                                 onClick={onBookVisit}
-                                className="group relative px-8 py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold"
+                                className="group relative px-6 sm:px-8 py-4 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 mr-8 sm:mr-0 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
                                     Download Brochure

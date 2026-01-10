@@ -16,6 +16,18 @@ export function Header({ onOpenEnquiry }) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [mobileMenuOpen]);
+
     const handleSmoothScroll = (id) => {
         setMobileMenuOpen(false);
         const element = document.getElementById(id);
@@ -72,13 +84,13 @@ export function Header({ onOpenEnquiry }) {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden relative z-[110] p-2"
+                    className="md:hidden relative z-[110] p-2 ml-auto"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? (
-                        <X className="text-black" />
+                        <X className="text-black w-6 h-6" />
                     ) : (
-                        <Menu className={isScrolled ? "text-black" : "text-white"} />
+                        <Menu className={`${isScrolled ? 'text-black' : 'text-white'} w-6 h-6`} />
                     )}
                 </button>
 

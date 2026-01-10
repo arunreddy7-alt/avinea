@@ -153,7 +153,7 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="fixed inset-0 z-[101] pointer-events-none p-2 md:p-8 overflow-y-auto flex items-start justify-center pt-36 -ml-10 md:pt-32"
+                                className="fixed inset-0 z-[101] pointer-events-none p-2 md:p-8 overflow-y-auto flex items-start justify-center pt-36 ml-2 md:ml-0 md:pt-32"
                             >
                                 <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-[280px] md:max-w-md overflow-hidden shadow-2xl border border-white/10 rounded-xl">
                                     {/* Modal Header */}
