@@ -172,91 +172,66 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
 
                                     {/* Modal Body */}
                                     <div className="p-4 md:p-6">
-  <form onSubmit={handleScheduleSubmit} className="space-y-3 md:space-y-4">
-
-    <input
-      type="text"
-      placeholder="Full Name"
-      required
-      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg"
-    />
-
-    <input
-      type="tel"
-      placeholder="Phone Number"
-      required
-      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg"
-    />
-
-    <input
-      type="tel"
-      placeholder="WhatsApp Number"
-      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg"
-    />
-
-    <input
-      type="email"
-      placeholder="Email Address"
-      required
-      className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg"
-    />
-
-    {/* DATE & TIME — MOBILE FIXED */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-
-      <div className="flex flex-col gap-1">
-        <label className="text-[10px] md:text-xs text-white/60 uppercase tracking-widest">
-          Preferred Time
-        </label>
-        <input
-          type="time"
-          required
-          className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 text-white rounded-lg focus:border-[#997B29] focus:outline-none [color-scheme:dark]"
-        />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <label className="text-[10px] md:text-xs text-white/60 uppercase tracking-widest">
-          Preferred Date
-        </label>
-        <input
-          type="date"
-          required
-          className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 text-white rounded-lg focus:border-[#997B29] focus:outline-none [color-scheme:dark]"
-        />
-      </div>
-
-    </div>
-
-    {/* INTERESTS */}
-    <div className="p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
-      <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2 md:mb-3">
-        Interests
-      </p>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-        {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
-          <label key={item} className="flex items-center gap-2 cursor-pointer">
-            <div className="w-4 h-4 border border-white/20 flex items-center justify-center">
-              <input type="checkbox" className="peer hidden" />
-              <div className="w-2 h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100" />
-            </div>
-            <span className="text-xs sm:text-sm text-white/70">{item}</span>
-          </label>
-        ))}
-      </div>
-    </div>
-
-    {/* SUBMIT */}
-    <button
-      type="submit"
-      className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 text-[10px]"
-    >
-      Submit
-    </button>
-
-  </form>
-
+                                        <form onSubmit={handleScheduleSubmit} className="space-y-3 md:space-y-4">
+                                            <input
+                                                type="text"
+                                                placeholder="Full Name"
+                                                required
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="tel"
+                                                placeholder="Phone Number"
+                                                required
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="tel"
+                                                placeholder="WhatsApp Number"
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <input
+                                                type="email"
+                                                placeholder="Email Address"
+                                                required
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                            />
+                                            <div className="grid grid-cols-2 gap-3 md:gap-4">
+                                                <input
+                                                    type="time"
+                                                    required
+                                                    className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                />
+                                                <input
+                                                    type="date"
+                                                    required
+                                                    className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                />
+                                            </div>
+                                            <div className="p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
+                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2 md:mb-3">Interests</p>
+                                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                                    {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
+                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group">
+                                                            <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    className="opacity-0 w-full h-full cursor-pointer peer"
+                                                                />
+                                                                <div className="w-2 h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                            </div>
+                                                            <span className="text-xs sm:text-sm text-white/70 truncate">{item}</span>
+                                                        </label>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
+                                            >
+                                                Submit
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </motion.div>
