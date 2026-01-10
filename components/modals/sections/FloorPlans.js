@@ -70,7 +70,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                 </Reveal>
 
                 <Reveal>
-                    <div className="bg-white/[0.03] border border-white/10 rounded-xl lg:rounded-3xl overflow-hidden backdrop-blur-sm -mx-3 md:mx-0 px-3 md:px-0">
+                    <div className="bg-white/[0.03] border border-white/10 rounded-xl lg:rounded-3xl overflow-hidden backdrop-blur-sm mx-0 md:mx-0 px-0 md:px-0">
                         {/* Table Header - Hidden on small screens, shown on md+ */}
                         <div className="hidden md:grid grid-cols-12 gap-6 p-6 border-b border-white/10 text-xs font-bold uppercase tracking-widest text-white/40">
                             <div className="col-span-5">Configuration</div>
@@ -153,12 +153,12 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
 
                 <div className="mt-8 text-center">
                     <div className="mt-6 max-w-full mx-0 md:max-w-4xl md:mx-auto px-0 md:px-4">
-                        <div 
+                    <div 
                             onClick={() => {
                                 setPendingDownload('masterlayout');
                                 onOpenEnquiry(true);
                             }}
-                            className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group ml-[-12px] mr-[-12px] md:ml-0 md:mr-0"
+                            className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group mx-0 md:mx-0"
                         >
                             <Image
                                 src="/masterlayout.jpg"

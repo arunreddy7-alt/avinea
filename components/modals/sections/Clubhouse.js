@@ -37,19 +37,19 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
         const reverseDiff = (currentIndex - index + items.length) % items.length;
         
         if (diff === 0) {
-            return { scale: 1, x: 0, zIndex: 10, opacity: 1, width: '65%' };
+            return { scale: 1.05, x: 0, zIndex: 10, opacity: 1, width: '65%' };
         }
         if (diff === 1) {
-            return { scale: 0.95, x: 70, zIndex: 5, opacity: 1, width: '55%' };
+            return { scale: 0.88, x: 85, zIndex: 5, opacity: 1, width: '70%' };
         }
         if (reverseDiff === 1) {
-            return { scale: 0.95, x: -70, zIndex: 5, opacity: 1, width: '55%' };
+            return { scale: 0.88, x: -85, zIndex: 5, opacity: 1, width: '70%' };
         }
-        return { scale: 0.8, x: diff > 1 ? 100 : -100, zIndex: 0, opacity: 0.6, width: '40%' };
+        return { scale: 0.85, x: diff > 1 ? 50 : -50, zIndex: 0, opacity: 1, width: '70%' };
     };
 
     return (
-        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] flex items-center justify-center overflow-hidden rounded-xl md:rounded-2xl -ml-0 -mr-0 md:mx-0">
+        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] flex items-center justify-center overflow-hidden rounded-xl md:rounded-2xl">
             {items.map((item, index) => {
                 const style = getPositionStyle(index);
                 return (
@@ -153,7 +153,7 @@ export function Clubhouse() {
                 </div>
 
                 {/* Mobile View - Carousel with Subheadings */}
-                <div className="lg:hidden space-y-12 -mx-22">
+                <div className="lg:hidden space-y-12 -mx-10">
                     {/* Clubhouses Section */}
                     <div>
                         <h3 className="text-xl font-serif text-center -mb-2 text-gray-800">3 Clubhouses</h3>

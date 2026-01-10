@@ -57,7 +57,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                     {isVisit ? (
                                        <div className="p-3 sm:p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
                                        <p className="text-[10px] font-bold uppercase tracking-widest text-[#997B29] mb-2">Interests</p>
-                                       <div className="grid grid-cols-2 gap-2">
+                                       <div className="grid grid-cols-3 gap-2">
                                            {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                <label key={item} className="flex items-center gap-1.5 cursor-pointer group relative">
                                                    <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">

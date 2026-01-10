@@ -238,7 +238,7 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                             </div>
                                             <div className="p-2.5 md:p-4 bg-white/5 border border-white/10 rounded-lg">
                                                 <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2">Interests</p>
-                                                <div className="grid grid-cols-2 gap-2">
+                                                <div className="grid grid-cols-3 gap-2">
                                                     {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                         <label key={item} className="flex items-center gap-1.5 cursor-pointer group">
                                                             <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">

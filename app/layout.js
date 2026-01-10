@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${playfair.variable} ${lato.variable} antialiased font-sans overflow-x-hidden`}
         suppressHydrationWarning
+        style={{ overflowX: 'hidden', maxWidth: '100vw' }}
       >
         {children}
       </body>
