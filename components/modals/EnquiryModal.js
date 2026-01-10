@@ -57,20 +57,20 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                     {isVisit ? (
                                        <div className="p-3 sm:p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
                                        <p className="text-[10px] font-bold uppercase tracking-widest text-[#997B29] mb-2">Interests</p>
-                                       <div className="grid grid-cols-3 gap-2">
+<div className="grid grid-cols-3 gap-2">
                                            {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                <label key={item} className="flex items-center gap-1.5 cursor-pointer group">
-                                                   <div className="relative w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
+                                                   <div className="relative w-5 h-5 sm:w-4 sm:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                        <input
                                                            type="checkbox"
                                                            className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                        />
                                                        <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
-                                                       <svg className="absolute w-2.5 h-2.5 sm:w-3 sm:h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                       <svg className="absolute w-3 h-3 sm:w-3 sm:h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                            <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
                                                        </svg>
                                                    </div>
-                                                   <span className="text-[10px] sm:text-sm text-white/70 truncate">{item}</span>
+                                                   <span className="text-xs sm:text-sm text-white/70 truncate">{item}</span>
                                                </label>
                                            ))}
                                        </div>
