@@ -4,6 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Lock } from "lucide-react";
 import Image from "next/image";
 
+// Helper function to get only the first sqft value
+function getSingleSize(sizeStr) {
+  if (!sizeStr) return "";
+  // Split by | and get the first value, then clean up whitespace
+  return sizeStr.split("|")[0].trim();
+}
+
 export function FloorPlanModal({ plan, isOpen, onClose, onUnlock }) {
   if (!plan) return null;
 
@@ -78,7 +85,7 @@ export function FloorPlanModal({ plan, isOpen, onClose, onUnlock }) {
                         Carpet Area
                       </p>
                       <p className="text-white font-mono text-lg">
-                        {plan.size}
+                        {plan.size.split("|")[0].trim()}{plan.size.split("|")[0].includes("sq") ? "" : " sq. ft"}
                       </p>
                     </div>
 

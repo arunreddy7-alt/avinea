@@ -286,8 +286,8 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         <div className="py-4 md:py-6 border-y border-white/10 space-y-3 md:space-y-4">
                                             <div>
                                                 <p className="text-[10px] md:text-xs uppercase font-bold text-white/40 mb-1">Carpet Area</p>
-                                                <div className="text-white font-mono text-sm md:text-lg whitespace-pre-line">
-                                                    {currentPlan.size}
+                                                <div className="text-white font-mono text-sm md:text-lg">
+                                                    {currentPlan.size.split("|")[0].trim()}{currentPlan.size.split("|")[0].includes("sq") ? "" : " sq.ft"}
                                                 </div>
                                             </div>
                                             <div>

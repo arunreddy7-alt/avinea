@@ -153,13 +153,13 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="fixed inset-0 z-[101] pointer-events-none p-4 md:p-8 overflow-y-auto flex items-start justify-center pt-28 md:pt-32"
+                                className="fixed inset-0 z-[101] pointer-events-none p-3 md:p-8 overflow-y-auto flex items-start justify-center pt-24 md:pt-32"
                             >
                                 <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-md overflow-hidden shadow-2xl border border-white/10 rounded-xl">
                                     {/* Modal Header */}
-                                    <div className="p-6 border-b border-white/10 flex justify-between items-center bg-black/20">
+                                    <div className="p-4 md:p-6 border-b border-white/10 flex justify-between items-center bg-black/20">
                                         <div>
-                                            <h3 className="font-serif text-xl text-white">Schedule Your Visit</h3>
+                                            <h3 className="font-serif text-lg md:text-xl text-white">Schedule Your Visit</h3>
                                             <p className="text-xs text-white/50 mt-1">Fill in your details and we'll contact you</p>
                                         </div>
                                         <button
@@ -171,63 +171,63 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                     </div>
 
                                     {/* Modal Body */}
-                                    <div className="p-6">
-<form onSubmit={handleScheduleSubmit} className="space-y-4">
+                                    <div className="p-4 md:p-6">
+<form onSubmit={handleScheduleSubmit} className="space-y-3 md:space-y-4">
                                             <input
                                                 type="text"
                                                 placeholder="Full Name"
                                                 required
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
                                             />
                                             <input
                                                 type="tel"
                                                 placeholder="Phone Number"
                                                 required
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
                                             />
                                             <input
                                                 type="tel"
                                                 placeholder="WhatsApp Number"
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
                                             />
                                             <input
                                                 type="email"
                                                 placeholder="Email Address"
                                                 required
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
+                                                className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
                                             />
-                                            <div className="grid grid-cols-2 gap-4">
+                                            <div className="grid grid-cols-2 gap-3 md:gap-4">
                                                 <input
                                                     type="time"
                                                     required
-                                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                    className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
                                                 />
                                                 <input
                                                     type="date"
                                                     required
-                                                    className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
+                                                    className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
                                                 />
                                             </div>
-                                            <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
-                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-3">Interests</p>
-                                                <div className="grid grid-cols-2 gap-2">
+                                            <div className="p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
+                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2 md:mb-3">Interests</p>
+                                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                     {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                         <label key={item} className="flex items-center gap-2 cursor-pointer group">
-                                                            <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors">
+                                                            <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">
                                                                 <input
                                                                     type="checkbox"
                                                                     className="opacity-0 w-full h-full cursor-pointer peer"
                                                                 />
                                                                 <div className="w-2 h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100 transition-opacity" />
                                                             </div>
-                                                            <span className="text-sm text-white/70">{item}</span>
+                                                            <span className="text-xs sm:text-sm text-white/70 truncate">{item}</span>
                                                         </label>
                                                     ))}
                                                 </div>
                                             </div>
                                             <button
                                                 type="submit"
-                                                className="w-full py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
+                                                className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px]"
                                             >
                                                 Submit
                                             </button>
