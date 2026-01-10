@@ -202,9 +202,12 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                     <input
                                                         type="time"
                                                         required
-                                                        className="w-full px-3 py-2 pl-7 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                        className="w-full px-2 py-1.5 pl-6 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-xs [color-scheme:dark]"
                                                     />
-                                                    
+                                                    <svg className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
+                                                    </svg>
                                                 </div>
                                                 {/* Desktop: Native time input */}
                                                 <div className="relative hidden md:block">
@@ -223,9 +226,12 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                     <input
                                                         type="date"
                                                         required
-                                                        className="w-full px-3 py-2 pl-7 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                        className="w-full px-2 py-1.5 pl-6 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-xs [color-scheme:dark]"
                                                     />
-                                                   
+                                                    <svg className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
+                                                    </svg>
                                                 </div>
                                                 {/* Desktop: Native date input */}
                                                 <div className="relative hidden md:block">
