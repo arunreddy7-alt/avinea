@@ -201,14 +201,14 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                     <input
                                                         type="time"
                                                         required
-                                                        className="w-full px-3 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
                                                 </div>
                                                 <div className="relative">
                                                     <input
                                                         type="date"
                                                         required
-                                                        className="w-full px-3 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
                                                 </div>
                                             </div>
