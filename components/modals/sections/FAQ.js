@@ -196,7 +196,7 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 required
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
-                                            <div className="grid grid-cols-2 gap-3">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                 <div className="relative">
                                                     <input
                                                         type="time"
