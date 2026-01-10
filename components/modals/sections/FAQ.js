@@ -197,16 +197,44 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 className="w-full px-3 md:px-4 py-2.5 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors"
                                             />
                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-  <input
-    type="time"
-    required
-    className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
-  />
-  <input
-    type="date"
-    required
-    className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark]"
-  />
+                                           <input
+  type="time"
+  required
+  className="
+    w-full
+    px-3 md:px-4
+    py-2 md:py-3
+    bg-white/5
+    border border-white/10
+    text-white
+    focus:border-[#997B29]
+    focus:outline-none
+    rounded-lg
+    transition-colors
+    [color-scheme:dark]
+    md:text-white
+  "
+/>
+
+<input
+  type="date"
+  required
+  className="
+    w-full
+    px-3 md:px-4
+    py-2 md:py-3
+    bg-white/5
+    border border-white/10
+    text-white
+    focus:border-[#997B29]
+    focus:outline-none
+    rounded-lg
+    transition-colors
+    [color-scheme:dark]
+    md:text-white
+  "
+/>
+
 </div>
 
                                             <div className="p-3 md:p-4 bg-white/5 border border-white/10 rounded-lg">
