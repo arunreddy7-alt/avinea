@@ -131,17 +131,17 @@ export const specs = {
 };
 
 export const locationHighlights = [
-    { name: "Seasons Mall", distance: "5 Mins", icon: <ShoppingBag className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Amanora Mall", distance: "4 Mins", icon: <ShoppingBag className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Magarpatta IT Park", distance: "5 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Wisdom World School", distance: "1 Min", icon: <Book className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "EON IT Park", distance: "20 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "WTC", distance: "25 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Koregaon Park", distance: "18 Mins", icon: <Trees className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Umang Hospital", distance: "1 Min", icon: <Stethoscope className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-5 w-5 md:h-4 md:w-4" /> },
-    { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Seasons Mall", distance: "5 Mins", icon: <ShoppingBag className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Amanora Mall", distance: "4 Mins", icon: <ShoppingBag className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Magarpatta IT Park", distance: "5 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Wisdom World School", distance: "1 Min", icon: <Book className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "EON IT Park", distance: "20 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "WTC", distance: "25 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Koregaon Park", distance: "18 Mins", icon: <Trees className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Umang Hospital", distance: "1 Min", icon: <Stethoscope className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-6 w-6 md:h-4 md:w-4" /> },
 ];
 

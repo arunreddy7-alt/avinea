@@ -225,44 +225,21 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <div className="grid grid-cols-2 gap-3">
-                                                {/* Mobile: Dropdown Time */}
+                                                {/* Mobile: Time Picker */}
                                                 <div className="relative block md:hidden">
-                                                    <select
+                                                    <input
+                                                        type="time"
                                                         required
-                                                        defaultValue=""
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
-                                                    >
-                                                        <option value="" disabled className="bg-black text-white">Time</option>
-                                                        <option value="09:00" className="bg-black text-white">09:00 AM</option>
-                                                        <option value="10:00" className="bg-black text-white">10:00 AM</option>
-                                                        <option value="11:00" className="bg-black text-white">11:00 AM</option>
-                                                        <option value="12:00" className="bg-black text-white">12:00 PM</option>
-                                                        <option value="14:00" className="bg-black text-white">02:00 PM</option>
-                                                        <option value="15:00" className="bg-black text-white">03:00 PM</option>
-                                                        <option value="16:00" className="bg-black text-white">04:00 PM</option>
-                                                        <option value="17:00" className="bg-black text-white">05:00 PM</option>
-                                                    </select>
-                                                    <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
-                                                    </svg>
+                                                        className="w-full px-4 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                    />
                                                 </div>
-                                                {/* Mobile: Dropdown Date */}
+                                                {/* Mobile: Date Picker */}
                                                 <div className="relative block md:hidden">
-                                                    <select
+                                                    <input
+                                                        type="date"
                                                         required
-                                                        defaultValue=""
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
-                                                    >
-                                                        <option value="" disabled className="bg-black text-white">Date</option>
-                                                        {dateOptions.map((opt) => (
-                                                            <option key={opt.value} value={opt.value} className="bg-black text-white">
-                                                                {opt.label}
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                    <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
-                                                    </svg>
+                                                        className="w-full px-4 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
+                                                    />
                                                 </div>
                                                 {/* Desktop: Native Time */}
                                                 <div className="relative hidden md:block">

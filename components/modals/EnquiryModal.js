@@ -47,7 +47,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                             <div className="p-4 sm:p-4 md:p-8 max-h-[calc(100vh-12rem)] md:max-h-[70vh] overflow-y-auto">
                                 <form className="space-y-3 sm:space-y-5" onSubmit={handleSubmit}>
 
-                                    <div className="space-y-2 sm:space-y-3">
+                                    <div className="space-y-6 sm:space-y-3">
                                         <input type="text" placeholder="Full Name" required className="w-full px-0 py-2 sm:py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-sm sm:text-lg text-white transition-colors" />
                                         <input type="tel" placeholder="Phone Number" required className="w-full px-0 py-2 sm:py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-sm sm:text-lg text-white transition-colors" />
                                         <input type="tel" placeholder="WhatsApp Number" className="w-full px-0 py-2 sm:py-3 bg-transparent border-b border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-sm sm:text-lg text-white transition-colors" />

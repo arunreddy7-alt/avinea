@@ -78,14 +78,14 @@ export function Location() {
                 <Reveal delay={0.2}>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-2 lg:gap-4">
                         {locationHighlights.map((loc, i) => (
-                            <div key={i} className="flex items-center justify-between text-xs sm:text-sm py-3 lg:py-4 border-b border-white/5 group hover:border-accent/30 transition-colors">
+                            <div key={i} className="flex items-center justify-between text-sm md:text-sm py-3 lg:py-4 border-b border-white/5 group hover:border-accent/30 transition-colors">
                                 <div className="flex items-center gap-3 lg:gap-4">
                                     <span className="text-accent/60 group-hover:text-accent transition-colors shrink-0">
                                         {loc.icon}
                                     </span>
                                     <span className="text-white/70 group-hover:text-white transition-colors font-light">{loc.name}</span>
                                 </div>
-                                <span className="text-accent font-bold tracking-wider text-[10px] uppercase shrink-0 ml-2">{loc.distance}</span>
+                                <span className="text-accent font-bold tracking-wider text-xs uppercase shrink-0 ml-2">{loc.distance}</span>
                             </div>
                         ))}
                     </div>

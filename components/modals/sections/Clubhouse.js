@@ -37,15 +37,15 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
         const reverseDiff = (currentIndex - index + items.length) % items.length;
         
         if (diff === 0) {
-            return { scale: 1.05, x: 0, zIndex: 10, opacity: 1, width: '65%' };
+            return { scale: 1.05, x: 0, zIndex: 10, opacity: 1, width: '60%' };
         }
         if (diff === 1) {
-            return { scale: 0.88, x: 85, zIndex: 5, opacity: 1, width: '70%' };
+            return { scale: 0.65, x: 185, zIndex: 5, opacity: 0.6, width: '40%' };
         }
         if (reverseDiff === 1) {
-            return { scale: 0.88, x: -85, zIndex: 5, opacity: 1, width: '70%' };
+            return { scale: 0.65, x: -185, zIndex: 5, opacity: 0.6, width: '40%' };
         }
-        return { scale: 0.85, x: diff > 1 ? 50 : -50, zIndex: 0, opacity: 1, width: '70%' };
+        return { scale: 0.6, x: diff > 1 ? 110 : -110, zIndex: 0, opacity: 1, width: '40%' };
     };
 
     return (
@@ -79,7 +79,7 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
                                 fill
                                 className="object-cover"
                             />
-                            {style.scale === 1 && (
+                            {style.x === 0 && (
                                 <>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                     <div className="absolute bottom-0 left-0 right-0 p-3">
