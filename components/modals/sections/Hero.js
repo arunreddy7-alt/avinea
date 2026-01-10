@@ -12,7 +12,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
             <div className="absolute inset-0 z-0">
                 {/* Desktop Hero Image */}
                 <Image
-                    src="/hero.jpg"
+                    src="/hero1.jpg"
                     alt="Hero"
                     fill
                     className="hidden md:block object-cover"
