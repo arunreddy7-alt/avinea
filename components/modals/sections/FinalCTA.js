@@ -155,13 +155,16 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                                                 <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2 md:mb-3">Interests</p>
                                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                     {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
-                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group relative">
-                                                            <div className="w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">
+                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group">
+                                                            <div className="relative w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                                 <input
                                                                     type="checkbox"
-                                                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer peer"
+                                                                    className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                                 />
-                                                                <div className="w-2 h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                                <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
+                                                                <svg className="absolute w-2.5 h-2.5 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
+                                                                </svg>
                                                             </div>
                                                             <span className="text-xs sm:text-sm text-white/70 truncate">{item}</span>
                                                         </label>

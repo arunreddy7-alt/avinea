@@ -221,6 +221,17 @@ html {
   }
 }
 
+/* Custom Checkbox Styles */
+/* Using :has() selector to detect checkbox state from parent label */
+label:has(input[type="checkbox"]:checked) .checkbox-bg {
+  background-color: #997B29 !important;
+  border-color: #997B29 !important;
+}
+
+label:has(input[type="checkbox"]:checked) .checkbox-check {
+  opacity: 1 !important;
+}
+
 
 
 

@@ -205,16 +205,24 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                         placeholder="Time"
                                                         onFocus={(e) => { e.target.type = 'time'; }}
                                                         onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                        className="w-full px-3 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
+                                                        className="w-full px-3 py-2 pl-9 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
                                                     />
+                                                    <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
+                                                    </svg>
                                                 </div>
                                                 {/* Desktop: Native time input */}
                                                 <div className="relative hidden md:block">
                                                     <input
                                                         type="time"
                                                         required
-                                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
+                                                        className="w-full px-4 py-3 pl-10 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
                                                     />
+                                                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
+                                                    </svg>
                                                 </div>
                                                 {/* Mobile: Custom placeholder with native picker on focus */}
                                                 <div className="relative md:hidden">
@@ -224,16 +232,24 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                         placeholder="Date"
                                                         onFocus={(e) => { e.target.type = 'date'; }}
                                                         onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                        className="w-full px-3 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
+                                                        className="w-full px-3 py-2 pl-9 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm placeholder:text-white/30"
                                                     />
+                                                    <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
+                                                    </svg>
                                                 </div>
                                                 {/* Desktop: Native date input */}
                                                 <div className="relative hidden md:block">
                                                     <input
                                                         type="date"
                                                         required
-                                                        className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
+                                                        className="w-full px-4 py-3 pl-10 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
                                                     />
+                                                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
+                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
+                                                    </svg>
                                                 </div>
                                             </div>
                                             <div className="p-2.5 md:p-4 bg-white/5 border border-white/10 rounded-lg">
@@ -241,12 +257,15 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 <div className="grid grid-cols-3 gap-2">
                                                     {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
                                                         <label key={item} className="flex items-center gap-1.5 cursor-pointer group">
-                                                            <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0">
+                                                            <div className="relative w-3.5 h-3.5 md:w-4 md:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                                 <input
                                                                     type="checkbox"
-                                                                    className="opacity-0 w-full h-full cursor-pointer peer"
+                                                                    className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                                 />
-                                                                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#997B29] opacity-0 peer-checked:opacity-100 transition-opacity" />
+                                                                <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
+                                                                <svg className="absolute w-2.5 h-2.5 md:w-3 md:h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
+                                                                </svg>
                                                             </div>
                                                             <span className="text-[10px] md:text-sm text-white/70 truncate">{item}</span>
                                                         </label>

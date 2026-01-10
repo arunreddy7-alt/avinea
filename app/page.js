@@ -42,6 +42,18 @@ export default function Home() {
     };
   }, [showEnquiry, showBookVisit, showSuccess]);
 
+  // Auto popup enquiry modal after 11 seconds (shows "Enquire Now" form)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!hasAutoPopupShown) {
+        setShowBookVisit(true);
+        setHasAutoPopupShown(true);
+      }
+    }, 11000);
+
+    return () => clearTimeout(timer);
+  }, [hasAutoPopupShown]);
+
   // Handle auto-download/enquiry when enquiry is submitted
   const handleEnquirySubmit = () => {
     // Show success modal instead of alert
