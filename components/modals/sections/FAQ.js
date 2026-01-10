@@ -153,14 +153,14 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="fixed inset-0 z-[101] pointer-events-none p-2 md:p-8 overflow-y-auto flex items-start justify-center pt-36 ml-2 md:ml-0 md:pt-32"
+                                className="fixed inset-0 z-[101] pointer-events-none p-3 md:p-8 overflow-y-auto flex items-start justify-center pt-20 md:pt-32"
                             >
-                                <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-[280px] md:max-w-md overflow-hidden shadow-2xl border border-white/10 rounded-xl">
+                                <div className="bg-[#1a1a1a] pointer-events-auto w-full max-w-sm md:max-w-md overflow-hidden shadow-2xl border border-white/10 rounded-xl mx-3 md:mx-0">
                                     {/* Modal Header */}
-                                    <div className="p-3 md:p-6 border-b border-white/10 flex justify-between items-center bg-black/20">
+                                    <div className="p-4 md:p-6 border-b border-white/10 flex justify-between items-center bg-black/20">
                                         <div>
-                                            <h3 className="font-serif text-base md:text-xl text-white">Schedule Your Visit</h3>
-                                            <p className="text-[10px] md:text-xs text-white/50 mt-0.5 md:mt-1">Fill in your details</p>
+                                            <h3 className="font-serif text-lg md:text-xl text-white">Schedule Your Visit</h3>
+                                            <p className="text-xs md:text-xs text-white/50 mt-1">Fill in your details</p>
                                         </div>
                                         <button
                                             onClick={() => setShowScheduleForm(false)}
@@ -171,104 +171,70 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                     </div>
 
                                     {/* Modal Body */}
-                                    <div className="p-3 md:p-6">
-                                        <form onSubmit={handleScheduleSubmit} className="space-y-2.5 md:space-y-4">
+                                    <div className="p-4 md:p-6">
+                                        <form onSubmit={handleScheduleSubmit} className="space-y-4">
                                             <input
                                                 type="text"
                                                 placeholder="Full Name"
                                                 required
-                                                className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="tel"
                                                 placeholder="Phone Number"
                                                 required
-                                                className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="tel"
                                                 placeholder="WhatsApp Number"
-                                                className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="email"
                                                 placeholder="Email Address"
                                                 required
-                                                className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
-                                            <div className="grid grid-cols-2 gap-2.5 md:gap-4">
-                                                {/* Mobile: Native time input */}
+                                            <div className="grid grid-cols-2 gap-3">
                                                 <div className="relative">
                                                     <input
                                                         type="time"
                                                         required
-                                                        className="w-full px-2 py-1.5 pl-6 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-xs [color-scheme:dark]"
+                                                        className="w-full px-3 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
-                                                    <svg className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
-                                                    </svg>
                                                 </div>
-                                                {/* Desktop: Native time input */}
-                                                <div className="relative hidden md:block">
-                                                    <input
-                                                        type="time"
-                                                        required
-                                                        className="w-full px-4 py-3 pl-10 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
-                                                    />
-                                                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
-                                                    </svg>
-                                                </div>
-                                                {/* Mobile: Native date input */}
                                                 <div className="relative">
                                                     <input
                                                         type="date"
                                                         required
-                                                        className="w-full px-2 py-1.5 pl-6 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-xs [color-scheme:dark]"
+                                                        className="w-full px-3 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
-                                                    <svg className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
-                                                    </svg>
-                                                </div>
-                                                {/* Desktop: Native date input */}
-                                                <div className="relative hidden md:block">
-                                                    <input
-                                                        type="date"
-                                                        required
-                                                        className="w-full px-4 py-3 pl-10 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors [color-scheme:dark] text-sm"
-                                                    />
-                                                    <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <rect x="3" y="4" width="18" height="18" rx="2" strokeWidth="2"/>
-                                                        <path strokeWidth="2" strokeLinecap="round" d="M3 10h18M8 2v4M16 2v4"/>
-                                                    </svg>
                                                 </div>
                                             </div>
-                                            <div className="p-2.5 md:p-4 bg-white/5 border border-white/10 rounded-lg">
-                                                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-[#997B29] mb-2">Interests</p>
-                                                <div className="grid grid-cols-3 gap-2">
+                                            <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
+                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-3">Interests</p>
+                                                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                                     {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
-                                                        <label key={item} className="flex items-center gap-1.5 cursor-pointer group">
-                                                            <div className="relative w-3.5 h-3.5 md:w-4 md:h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
+                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group">
+                                                            <div className="relative w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                                 <input
                                                                     type="checkbox"
                                                                     className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                                 />
                                                                 <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
-                                                                <svg className="absolute w-2.5 h-2.5 md:w-3 md:h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <svg className="absolute w-3 h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                     <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
                                                                 </svg>
                                                             </div>
-                                                            <span className="text-[10px] md:text-sm text-white/70 truncate">{item}</span>
+                                                            <span className="text-sm text-white/70 truncate">{item}</span>
                                                         </label>
                                                     ))}
                                                 </div>
                                             </div>
                                             <button
                                                 type="submit"
-                                                className="w-full py-2.5 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 text-[10px]"
+                                                className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 text-xs"
                                             >
                                                 Submit
                                             </button>
