@@ -198,3 +198,15 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
+
+/* Hide gold gradient on desktop for Download Brochure button */
+@media (min-width: 640px) {
+  .download-btn-gold {
+    background: transparent !important;
+    background-image: none !important;
+  }
+}
+
+
+
+

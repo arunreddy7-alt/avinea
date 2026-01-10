@@ -152,13 +152,13 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                 </Reveal>
 
                 <div className="mt-8 text-center">
-                    <div className="mt-6 max-w-4xl mx-auto">
+                    <div className="mt-6 max-w-full mx-0 md:max-w-4xl md:mx-auto px-0 md:px-4">
                         <div 
                             onClick={() => {
                                 setPendingDownload('masterlayout');
                                 onOpenEnquiry(true);
                             }}
-                            className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group"
+                            className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group ml-[-12px] mr-[-12px] md:ml-0 md:mr-0"
                         >
                             <Image
                                 src="/masterlayout.jpg"

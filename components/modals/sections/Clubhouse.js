@@ -37,7 +37,7 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
         const reverseDiff = (currentIndex - index + items.length) % items.length;
         
         if (diff === 0) {
-            return { scale: 1, x: 0, zIndex: 10, opacity: 1, width: '80%' };
+            return { scale: 1, x: 0, zIndex: 10, opacity: 1, width: '65%' };
         }
         if (diff === 1) {
             return { scale: 0.95, x: 70, zIndex: 5, opacity: 1, width: '55%' };
@@ -49,7 +49,7 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
     };
 
     return (
-        <div ref={containerRef} className="relative w-full aspect-[4/3] flex items-center justify-center overflow-hidden rounded-2xl">
+        <div ref={containerRef} className="relative w-full aspect-[4/3] md:aspect-[16/10] flex items-center justify-center overflow-hidden rounded-xl md:rounded-2xl -ml-0 -mr-0 md:mx-0">
             {items.map((item, index) => {
                 const style = getPositionStyle(index);
                 return (
@@ -72,7 +72,7 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
                         onClick={() => goToSlide(index)}
                         style={{ width: style.width }}
                     >
-                        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
+                        <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl md:rounded-xl shadow-lg">
                             <Image
                                 src={item.src}
                                 alt={item.label}
@@ -153,19 +153,19 @@ export function Clubhouse() {
                 </div>
 
                 {/* Mobile View - Carousel with Subheadings */}
-                <div className="lg:hidden space-y-10">
+                <div className="lg:hidden space-y-12 -mx-22">
                     {/* Clubhouses Section */}
                     <div>
-                        <h3 className="text-xl font-serif text-center mb-4 text-gray-800">3 Clubhouses</h3>
-                        <div className="rounded-2xl">
+                        <h3 className="text-xl font-serif text-center -mb-2 text-gray-800">3 Clubhouses</h3>
+                        <div className="rounded-2xl overflow-hidden">
                             <Carousel3D items={clubhouseGroup} autoSlide={true} slideInterval={4000} />
                         </div>
                     </div>
 
                     {/* Swimming Pools Section */}
                     <div>
-                        <h3 className="text-xl font-serif text-center mb-4 text-gray-800">3 Swimming Pools</h3>
-                        <div className="rounded-2xl">
+                        <h3 className="text-xl font-serif text-center -mb-2 text-gray-800">3 Swimming Pools</h3>
+                        <div className="rounded-2xl overflow-hidden">
                             <Carousel3D items={poolsGroup} autoSlide={true} slideInterval={4000} />
                         </div>
                     </div>

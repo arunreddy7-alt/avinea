@@ -33,7 +33,7 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                             <div className="w-full h-[200px] sm:h-[280px] lg:h-[320px] rounded-xl overflow-hidden border border-black/10 shadow-sm">
                                 <iframe
                                     title="Avinea Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4000.2842870029667!2d73.93910847542801!3d18.505383982585244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c2036c153b03%3A0xf9ecf7df3e351657!2sDP%20Rd%2C%20Hadapsar%2C%20Pune%2C%20Maharashtra%20411028!5e1!3m2!1sen!2sin!4v1767798426730!5m2!1sen!2sin"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4000.184061634295!2d73.93900887542819!3d18.509672482581706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c30050ade865%3A0xea1bbb321a9810ff!2sVyom%20Sigma%20Avinea!5e1!3m2!1sen!2sin!4v1768035808980!5m2!1sen!2sin"
                                     className="w-full h-full border-0"
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"

@@ -77,18 +77,18 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                         <Reveal delay={0.2} className="flex flex-col sm:flex-row gap-4">
                             <button
                                 onClick={onBookVisit}
-                                className="group relative px-8 py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(212,175,55,0.6)] text-[10px] w-full sm:w-auto"
+                                className="hidden sm:block group relative px-8 py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-[10px] w-full sm:w-auto bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black"
                             >
-                                <span className="relative z-10 flex items-center justify-center gap-2">
-                                    Enquire Now <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                                </span>
+                                Enquire Now
                             </button>
 
                             <button
                                 onClick={onBookVisit}
-                                className="px-8 py-4 bg-transparent border border-white/10 text-white/70 hover:bg-white/5 hover:border-white/30 hover:text-white rounded-full font-bold uppercase tracking-widest transition-all duration-300 backdrop-blur-sm text-[10px] w-full sm:w-auto"
+                                className="group relative px-8 py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold"
                             >
-                                Download Brochure
+                                <span className="relative z-10 flex items-center justify-center gap-2">
+                                    Download Brochure
+                                </span>
                             </button>
                         </Reveal>
                     </div>
