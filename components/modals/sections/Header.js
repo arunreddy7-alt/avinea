@@ -28,14 +28,12 @@ export function Header({ onOpenEnquiry }) {
         };
     }, [mobileMenuOpen]);
 
-    const handleSmoothScroll = (id) => {
+const handleSmoothScroll = (id) => {
         setMobileMenuOpen(false);
         const element = document.getElementById(id);
         if (element) {
-            window.scrollTo({
-                top: element.offsetTop - 80,
-                behavior: "smooth",
-            });
+            // Lenis handles smooth scroll natively with scrollIntoView
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
@@ -49,7 +47,7 @@ export function Header({ onOpenEnquiry }) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center relative">
                 <div className="flex items-center gap-2 relative z-[110]">
                     <Image
-                        src="/logo.png"
+                        src="/avinea-hadapsar-pune/logo.png"
                         alt="Avinea"
                         width={100} height={40}
                         className="object-contain w-[100px] sm:w-[140px]"

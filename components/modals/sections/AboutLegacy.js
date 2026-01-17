@@ -100,7 +100,7 @@ export function AboutLegacy({ onOpenEnquiry }) {
                         transition={{ duration: 0.8 }}
                         className="absolute top-0 right-0 w-[60%] h-[70%] z-10"
                     >
-                        <Image src="/gall5.jpg" alt="Legacy 1" fill className="object-cover rounded-none" />
+                        <Image src="/gall5.jpg" alt="Legacy 1" fill className="object-cover rounded-none" sizes="(max-width: 1024px) 100vw, 50vw" />
                     </motion.div>
 
                     <motion.div
@@ -109,7 +109,7 @@ export function AboutLegacy({ onOpenEnquiry }) {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="absolute bottom-0 left-10 w-[50%] h-[50%] z-20 shadow-2xl border-[8px] border-[#0c0a08]"
                     >
-                        <Image src="/img4.jpg" alt="Legacy 2" fill className="object-cover" />
+                        <Image src="/img4.jpg" alt="Legacy 2" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 40vw" />
                     </motion.div>
 
                     <div className="absolute top-[20%] left-0 w-[30%] h-[30%] opacity-20 z-0 bg-accent mix-blend-color-dodge" />

@@ -46,7 +46,13 @@ export function Gallery() {
                         transition={{ duration: 0.5 }}
                         className="md:col-span-8 relative rounded-xl md:rounded-3xl overflow-hidden h-full"
                     >
-                        <Image src={galleryImages[galleryIndex]} alt="Gallery Main" fill className="object-cover" />
+                        <Image 
+                            src={galleryImages[galleryIndex]} 
+                            alt="Gallery Main" 
+                            fill 
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 66vw"
+                        />
                     </motion.div>
 
                     {/* Thumbnails */}
@@ -59,7 +65,13 @@ export function Gallery() {
                                     onClick={() => setGalleryIndex(idx)}
                                     className="relative rounded-lg md:rounded-2xl overflow-hidden w-full h-full opacity-60 hover:opacity-100 transition-opacity"
                                 >
-                                    <Image src={galleryImages[idx]} alt="Thumbnail" fill className="object-cover" />
+                                    <Image 
+                                        src={galleryImages[idx]} 
+                                        alt="Thumbnail" 
+                                        fill 
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
                                 </button>
                             );
                         })}

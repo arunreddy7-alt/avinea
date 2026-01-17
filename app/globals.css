@@ -58,6 +58,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   max-width: 100vw;
+  /* Disable default smooth scroll - Lenis handles it */
+  scroll-behavior: auto !important;
 }
 
 /* Mobile overflow protection */
@@ -65,6 +67,7 @@ body {
   body {
     overflow-x: hidden;
     max-width: 100vw;
+    scroll-behavior: auto !important;
   }
   
   * {
@@ -178,18 +181,10 @@ h6 {
   animation: fadeIn 0.7s ease-out forwards;
 }
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
+/* Smooth Scroll - Handled by Lenis */
+/* Removed conflicting CSS scroll-behavior to let Lenis handle smooth scrolling */
 
-/* Enhanced Smooth Scroll for all anchor links */
-* {
-  scroll-behavior: smooth;
-}
-
-/* Smooth scroll anchor targeting */
+/* Smooth scroll anchor targeting - managed by Lenis */
 :target {
   scroll-margin-top: 100px;
 }

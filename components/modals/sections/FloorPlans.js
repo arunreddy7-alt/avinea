@@ -95,6 +95,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                     alt={title}
                                                     fill
                                                     className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+                                                    sizes="80px"
                                                 />
                                             </div>
                                             <div>
@@ -161,11 +162,12 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group mx-0 md:mx-0"
                         >
                             <Image
-                                src="/masterlayout.jpg"
+                                src="/avinea-hadapsar-pune/masterlayout.webp"
                                 alt="Master Layout"
                                 width={1200}
                                 height={900}
                                 className="w-full h-auto blur-md opacity-60 transition-all duration-500"
+                                sizes="(max-width: 768px) 100vw, 800px"
                             />
                             <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
 
@@ -247,7 +249,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                         </>
                                     )}
 
-                                    <AnimatePresence mode="wait">
+                                        <AnimatePresence mode="wait">
                                         <motion.div
                                             key={`${selectedBHK}-${selectedIndex}`}
                                             initial={{ opacity: 0, x: 20 }}
@@ -261,6 +263,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                 alt={`${selectedBHK} - Option ${selectedIndex + 1}`}
                                                 fill
                                                 className="object-contain"
+                                                sizes="(max-width: 1024px) 100vw, 66vw"
                                             />
                                         </motion.div>
                                     </AnimatePresence>

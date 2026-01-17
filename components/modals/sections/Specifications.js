@@ -16,13 +16,13 @@ export function Specifications() {
 
     // Images map to key
     const images = {
-        living: "/living&bedroom.jpg",
-        bath: "/bathroom.jpg",
-        kitchen: "/kitchen2.png",
-        structure: "/doors.jpg",
-        safety: "/switch1.jpg",
-        comfort: "/comformt&sustainability.jpg",
-        logistics: "/security1.jpg"
+        living: "/avinea-hadapsar-pune/living&bedroom.webp",
+        bath: "/avinea-hadapsar-pune/bathroom.webp",
+        kitchen: "/avinea-hadapsar-pune/kitchen2.webp",
+        structure: "/avinea-hadapsar-pune/doors.webp",
+        safety: "/avinea-hadapsar-pune/switch1.webp",
+        comfort: "/avinea-hadapsar-pune/comformt&sustainability.webp",
+        logistics: "/avinea-hadapsar-pune/security1.webp"
     };
 
     // Get spec keys as array for iteration
@@ -114,7 +114,7 @@ export function Specifications() {
                                                         {/* Image */}
                                                         <div className="relative aspect-video rounded-lg overflow-hidden bg-black/5">
                                                             <Image
-                                                                src={images[key] || "/gallery1.png"}
+                                                                src={images[key] || "/avinea-hadapsar-pune/gallery1.png"}
                                                                 alt={category.title}
                                                                 fill
                                                                 className="object-cover"
@@ -190,7 +190,7 @@ export function Specifications() {
                                         {/* Dynamic Image */}
                                         <div className="relative aspect-[4/5] md:aspect-auto md:h-[350px] lg:h-[450px] rounded-lg sm:rounded-[1.5rem] overflow-hidden bg-black/5">
                                             <Image
-                                                src={images[activeTab] || "/gallery1.png"}
+                                                src={images[activeTab] || "/avinea-hadapsar-pune/gallery1.png"}
                                                 alt={specs[activeTab].title}
                                                 fill
                                                 className="object-cover"

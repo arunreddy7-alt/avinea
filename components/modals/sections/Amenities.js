@@ -10,12 +10,12 @@ import Image from "next/image";
 
 export function Amenities() {
     const amenitiesList = [
-        { title: "3 Swimming Pools", icon: <Waves className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/Swimming1.jpg" },
-        { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "State of the art fitness center with view.", image: "/Fitness Centre.jpg" },
-        { title: "Kids Arena", icon: <Baby className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Safe and engaging play areas.", image: "/Kids Arena.jpg" },
-        { title: "3 Clubhouses", icon: <House className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Landscaped meditation zones.", image: "/Clubhouses.jpg" },
-        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/hall2.jpg" },
-        { title: "Mini Golf Course", icon: <Flag className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Spiritual corner for peace.", image: "/Mini Golf.jpg" },
+        { title: "3 Swimming Pools", icon: <Waves className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/avinea-hadapsar-pune/Swimming1.webp" },
+        { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "State of the art fitness center with view.", image: "/avinea-hadapsar-pune/Fitness Centre.webp" },
+        { title: "Kids Arena", icon: <Baby className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Safe and engaging play areas.", image: "/avinea-hadapsar-pune/Kids Arena.webp" },
+        { title: "3 Clubhouses", icon: <House className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Landscaped meditation zones.", image: "/avinea-hadapsar-pune/Clubhouses.webp" },
+        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/avinea-hadapsar-pune/hall2.webp" },
+        { title: "Mini Golf Course", icon: <Flag className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Spiritual corner for peace.", image: "/avinea-hadapsar-pune/Mini Golf.webp" },
     ];
 
     const textVariants = {
@@ -104,6 +104,7 @@ export function Amenities() {
                                         alt={item.title}
                                         fill
                                         className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                                 </div>

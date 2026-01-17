@@ -6,15 +6,20 @@ import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 
 import { Reveal } from "@/components/modals/ui/Reveal";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqqzoab";
+const BROCHURE_URL = "/AVINEA%20by%20Vyom-Sigma%20(6).pdf";
 
 export function FinalCTA({ onBookVisit, onRequestDetails }) {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
+        whatsapp: "",
         email: "",
-        message: ""
+        interests: []
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
 
     const handleChange = (e) => {
         setFormData({
@@ -23,14 +28,64 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleInterestChange = (interest) => {
+        setFormData(prev => ({
+            ...prev,
+            interests: prev.interests.includes(interest)
+                ? prev.interests.filter(i => i !== interest)
+                : [...prev.interests, interest]
+        }));
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate form submission
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
-            setFormData({ name: "", phone: "", email: "", message: "" });
-        }, 3000);
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        try {
+            const emailData = {
+                ...formData,
+                interests: formData.interests.join(", ") || "Not specified",
+                formType: "enquiry"
+            };
+
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(emailData)
+            });
+            if (response.ok) {
+                setIsSubmitted(true);
+                setFormData({ name: "", phone: "", whatsapp: "", email: "", interests: [] });
+
+                // Trigger brochure download after successful form submission
+                try {
+                    const link = document.createElement("a");
+                    link.href = BROCHURE_URL;
+                    link.download = "";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } catch (downloadError) {
+                    console.error("Brochure download error:", downloadError);
+                }
+
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                }, 3000);
+            } else {
+                const result = await response.json().catch(() => ({}));
+                setSubmitError(result?.error || "Failed to send email. Please try again.");
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setSubmitError("An error occurred. Please try again or contact us directly.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -41,7 +96,7 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                 <div 
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: 'url(/img.jpg)',
+                        backgroundImage: 'url(/avinea-hadapsar-pune/img.webp)',
                     }}
                 />
                 {/* Black Gradient Overlay */}
@@ -83,8 +138,9 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                             </button>
 
                             <button
-                                onClick={onBookVisit}
-                                className="group relative px-6 sm:px-8 py-4 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 mr-8 sm:mr-0 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold"
+                                type="button"
+                                onClick={onRequestDetails}
+                                className="group relative px-6 sm:px-8 py-4 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 mr-8 sm:mr-0 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold text-center"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
                                     Download Brochure
@@ -107,7 +163,12 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                                     <p className="text-white/60">Our team will contact you shortly.</p>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-5">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-5"
+                                    action={FORMSPREE_ENDPOINT}
+                                    method="POST"
+                                >
                                     <div className="text-center mb-6">
                                         <h3 className="text-xl font-serif text-white">Enquire Now</h3>
                                         <p className="text-white/50 text-sm mt-1">Fill in your details and we'll call you back</p>
@@ -134,11 +195,10 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                                         />
                                         <input 
                                             type="tel" 
-                                            name="phone"
-                                            value={formData.phone}
+                                            name="whatsapp"
+                                            value={formData.whatsapp}
                                             onChange={handleChange}
                                             placeholder="WhatsApp Number" 
-                                            required
                                             className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-accent focus:outline-none placeholder:text-white/30 text-white transition-colors rounded-lg"
                                         />
                                         
@@ -159,10 +219,12 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                                                             <div className="relative w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                                 <input
                                                                     type="checkbox"
+                                                                    checked={formData.interests.includes(item)}
+                                                                    onChange={() => handleInterestChange(item)}
                                                                     className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                                 />
-                                                                <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
-                                                                <svg className="absolute w-2.5 h-2.5 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <div className={`w-full h-full bg-[#997B29] transition-opacity pointer-events-none checkbox-bg-fill ${formData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} />
+                                                                <svg className={`absolute w-2.5 h-2.5 text-white transition-opacity pointer-events-none checkbox-check ${formData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                     <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
                                                                 </svg>
                                                             </div>
@@ -173,11 +235,16 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                                             </div>
                                     </div>
 
+                                    {submitError && (
+                                        <div className="text-red-400 text-sm mt-2">{submitError}</div>
+                                    )}
+
                                     <button 
                                         type="submit" 
-                                        className="w-full py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest transition-all duration-500 hover:scale-[1.02] text-[10px] rounded-lg"
+                                        disabled={isSubmitting}
+                                        className="w-full py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest transition-all duration-500 hover:scale-[1.02] text-[10px] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        Submit Enquiry
+                                        {isSubmitting ? "Sending..." : "Submit Enquiry"}
                                     </button>
                                 </form>
                             )}

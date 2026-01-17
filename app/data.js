@@ -26,39 +26,39 @@ export const navLinks = [
 ];
 
 export const galleryImages = [
-    "/gall1.jpg",
-    "/gall2.jpg",
-    "/gall3.jpg",
-    "/gall4.jpg",
-    "/gall5.jpg",
-    "/gall6.jpg",
-    "/gall7.jpg",
-    "/gall8.jpg",
+    "/avinea-hadapsar-pune/gall1.webp",
+    "/avinea-hadapsar-pune/gall2.webp",
+    "/avinea-hadapsar-pune/gall3.webp",
+    "/avinea-hadapsar-pune/gall4.webp",
+    "/avinea-hadapsar-pune/gall5.webp",
+    "/avinea-hadapsar-pune/gall6.webp",
+    "/avinea-hadapsar-pune/gall7.webp",
+    "/avinea-hadapsar-pune/gall8.webp",
 ];
 
 export const clubhouseImages = [
     { src: "", label: "3 Clubhouses", sublabel: "Citadel, Castle, Manor" },
-    { src: "/CB 1.jpg", label: "Citadel" },
-    { src: "/CB 2.jpg", label: "Castle" },
-    { src: "/CB 3.jpg", label: "Manor" },
+    { src: "/avinea-hadapsar-pune/CB 1.webp", label: "Citadel" },
+    { src: "/avinea-hadapsar-pune/CB 2.webp", label: "Castle" },
+    { src: "/avinea-hadapsar-pune/CB 3.webp", label: "Manor" },
     { src: "", label: "3 Swimming Pools", sublabel: "" },
-    { src: "/SP 1.jpg", label: "Swimming Pool 1" },
-    { src: "/SP 2.jpg", label: "Swimming Pool 2" },
-    { src: "/SP 3.jpg", label: "Swimming Pool 3" },
+    { src: "/avinea-hadapsar-pune/SP 1.webp", label: "Swimming Pool 1" },
+    { src: "/avinea-hadapsar-pune/SP 2.webp", label: "Swimming Pool 2" },
+    { src: "/avinea-hadapsar-pune/SP 3.webp", label: "Swimming Pool 3" },
 ];
 
 
 export const floorPlans = [
-    { title: "2 BHK", image: "/2bhk2.png", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
-    { title: "2 BHK", image: "/2bhk1.png", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
-    { title: "3 BHK", image: "/3bhk1.png", size: "1213 | 1226 | 1232 |\n1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
-    { title: "3 BHK", image: "/3bhk2.png", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
-    { title: "3 BHK", image: "/3bhk3.png", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
-    { title: "3 BHK", image: "/3bhk4.png", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
-    { title: "3 BHK", image: "/3bhk5.png", size: "1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
-    { title: "4 BHK", image: "/4bhk1.png", size: "1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
-    { title: "5 BHK (Couplet)", image: "/5bhk2.png", size: "1940 sq.ft", features: ["Private terrace", "Grand entry"] },
-    { title: "6 BHK (Couplet)", image: "/6bhk2.png", size: "2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
+    { title: "2 BHK", image: "/avinea-hadapsar-pune/2bhk2.webp", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
+    { title: "2 BHK", image: "/avinea-hadapsar-pune/2bhk1.webp", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
+    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk1.webp", size: "1213 | 1226 | 1232 |\n1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk2.webp", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
+    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk3.webp", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
+    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk4.webp", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
+    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk5.webp", size: "1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
+    { title: "4 BHK", image: "/avinea-hadapsar-pune/4bhk1.webp", size: "1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
+    { title: "5 BHK (Couplet)", image: "/avinea-hadapsar-pune/5bhk2.webp", size: "1940 sq.ft", features: ["Private terrace", "Grand entry"] },
+    { title: "6 BHK (Couplet)", image: "/avinea-hadapsar-pune/6bhk2.webp", size: "2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
 ];
 
 export const specs = {
@@ -131,17 +131,17 @@ export const specs = {
 };
 
 export const locationHighlights = [
-    { name: "Seasons Mall", distance: "5 Mins", icon: <ShoppingBag className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Amanora Mall", distance: "4 Mins", icon: <ShoppingBag className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Magarpatta IT Park", distance: "5 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Wisdom World School", distance: "1 Min", icon: <Book className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "EON IT Park", distance: "20 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "WTC", distance: "25 Mins", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Koregaon Park", distance: "18 Mins", icon: <Trees className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Umang Hospital", distance: "1 Min", icon: <Stethoscope className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-6 w-6 md:h-4 md:w-4" /> },
-    { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-6 w-6 md:h-4 md:w-4" /> },
+    { name: "Seasons Mall", distance: "5 Mins", icon: <ShoppingBag className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Amanora Mall", distance: "4 Mins", icon: <ShoppingBag className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Magarpatta IT Park", distance: "5 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Wisdom World School", distance: "1 Min", icon: <Book className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "EON IT Park", distance: "20 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "WTC", distance: "25 Mins", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Koregaon Park", distance: "18 Mins", icon: <Trees className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Umang Hospital", distance: "1 Min", icon: <Stethoscope className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Pune Int. Airport", distance: "35 Mins", icon: <Plane className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Falcon Street", distance: "0 Min", icon: <Building className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "HDFC School", distance: "4 Mins", icon: <GraduationCap className="h-5 w-5 md:h-4 md:w-4" /> },
+    { name: "Noble Hospital", distance: "7 Min", icon: <Stethoscope className="h-5 w-5 md:h-4 md:w-4" /> },
 ];
 

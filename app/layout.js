@@ -1,5 +1,6 @@
 import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         style={{ overflowX: 'hidden', maxWidth: '100vw' }}
       >
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

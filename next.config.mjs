@@ -5,8 +5,22 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
+  output: "export",
+  basePath: "/avinea-hadapsar-pune",
+  assetPrefix: "/avinea-hadapsar-pune/",
+
+  images: {
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
+  },
+
   turbopack: {
-    // Explicitly set the workspace root to avoid multi-lockfile inference warnings
     root: __dirname,
   },
 };

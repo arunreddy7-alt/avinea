@@ -78,6 +78,7 @@ function Carousel3D({ items, autoSlide = true, slideInterval = 4000 }) {
                                 alt={item.label}
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 60vw"
                             />
                             {style.x === 0 && (
                                 <>
@@ -128,6 +129,7 @@ export function Clubhouse() {
                                         alt={img.label}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, 25vw"
                                     />
                                 ) : (
                                     <div className="flex flex-col items-center justify-center h-full text-center p-4">

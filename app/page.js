@@ -19,6 +19,7 @@ import { Footer } from "@/components/modals/sections/Footer";
 import { EnquiryModal } from "@/components/modals/EnquiryModal";
 import { SuccessModal } from "@/components/modals/SuccessModal";
 import { FAQ } from "@/components/modals/sections/FAQ";
+import { ScrollProgress } from "@/components/modals/ui/ScrollProgress";
 
 import { StickyCTA } from "@/components/modals/ui/StickyCTA";
 
@@ -61,7 +62,7 @@ export default function Home() {
 
     if (pendingDownload === 'brochure') {
       const link = document.createElement('a');
-      link.href = '/brochure.pdf';
+      link.href = '/AVINEA by Vyom-Sigma (6).pdf';
       link.download = 'Avinea_Brochure.pdf';
       document.body.appendChild(link);
       link.click();
@@ -79,18 +80,17 @@ export default function Home() {
     setPendingVideoUrl(null);
   };
 
-  const handleSmoothScroll = (id) => {
+const handleSmoothScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: "smooth",
-      });
+        // Lenis handles smooth scroll natively with scrollTo
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+};
 
-  return (
+return (
     <div className="bg-bg-light min-h-screen selection:bg-accent selection:text-white font-sans">
+      <ScrollProgress />
       <Header onOpenEnquiry={() => setShowBookVisit(true)} />
 
       <main>
@@ -122,8 +122,9 @@ export default function Home() {
         <FinalCTA
           onBookVisit={() => setShowBookVisit(true)}
           onRequestDetails={() => {
-            setPendingDownload('costsheet');
-            setShowEnquiry(true);
+            setPendingDownload('brochure');
+            // Open the Book Visit (visit mode) form, not the generic enquiry form
+            setShowBookVisit(true);
           }}
         />
         <Gallery />

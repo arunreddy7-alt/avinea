@@ -12,7 +12,22 @@ export function Location() {
     return (
         <Section id="location" className="bg-[#0c0a08] relative overflow-hidden py-16 lg:py-20" dark>
             <div className="absolute inset-0 opacity-20 pointer-events-none">
-                <video src="/highlights.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover" />
+            <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    display: "block"
+  }}
+>
+<source src="/highlights.mp4" type="video/mp4" />
+</video>
+
                 <div className="absolute inset-0 bg-[#0c0a08]/80" />
             </div>
 
@@ -64,7 +79,7 @@ export function Location() {
                 </div>
 
                 <div className="relative h-[300px] lg:h-[400px] w-full rounded-xl lg:rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                    <Image src="/location.jpg" alt="Map" fill className="object-cover" />
+                    <Image src="/avinea-hadapsar-pune/location.webp" alt="Map" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                     <div className="absolute bottom-4 left-4">
                         <p className="text-[9px] font-bold uppercase tracking-widest text-accent mb-1">Prime Location</p>

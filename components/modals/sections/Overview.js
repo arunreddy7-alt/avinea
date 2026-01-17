@@ -81,10 +81,11 @@ export function Overview({ onWatchFilm }) {
                     <Reveal>
                         <div className="relative aspect-square lg:aspect-[4/3] rounded-xl lg:rounded-[2rem] overflow-hidden shadow-xl lg:shadow-2xl border-4 lg:border-8 border-white">
                             <Image
-                                src="/ga3.jpg"
+                                src="/avinea-hadapsar-pune/ga3.webp"
                                 alt="Overview"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                             <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-8 text-white">

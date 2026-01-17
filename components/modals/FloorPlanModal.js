@@ -64,6 +64,7 @@ export function FloorPlanModal({ plan, isOpen, onClose, onUnlock }) {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 100vw, 66vw"
                 />
               </div>
 

@@ -34,3 +34,54 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+without hosting 
+
+
+export default nextConfig;
+/*/** @type {import('next').NextConfig} */
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const nextConfig = {
+  turbopack: {
+    // Explicitly set the workspace root to avoid multi-lockfile inference warnings
+    root: __dirname,
+  },
+};
+
+export default nextConfig;
+
+for hosting 
+
+
+/** @type {import('next').NextConfig} */
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const nextConfig = {
+  output: "export",
+  basePath: "/avinea-hadapsar-pune",
+  assetPrefix: "/avinea-hadapsar-pune/",
+
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
+  },
+
+  turbopack: {
+    root: __dirname,
+  },
+};
+
+export default nextConfig;

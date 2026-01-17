@@ -7,6 +7,7 @@ import Image from "next/image";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqqzoab";
 
 const faqs = [
     {
@@ -73,15 +74,86 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
     const [openIndex, setOpenIndex] = useState(0);
     const [showScheduleForm, setShowScheduleForm] = useState(false);
     const [showBrochureForm, setShowBrochureForm] = useState(false);
+    const [scheduleFormData, setScheduleFormData] = useState({
+        name: "",
+        phone: "",
+        whatsapp: "",
+        email: "",
+        date: "",
+        time: "",
+        interests: []
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const toggleFAQ = (index) => {
         setOpenIndex(openIndex === index ? -1 : index);
     };
 
-    const handleScheduleSubmit = (e) => {
+    const handleScheduleChange = (e) => {
+        const { name, value } = e.target;
+        setScheduleFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleScheduleInterestChange = (interest) => {
+        setScheduleFormData(prev => ({
+            ...prev,
+            interests: prev.interests.includes(interest)
+                ? prev.interests.filter(i => i !== interest)
+                : [...prev.interests, interest]
+        }));
+    };
+
+    const handleScheduleSubmit = async (e) => {
         e.preventDefault();
-        alert("Thank you! We will contact you shortly to confirm your visit.");
-        setShowScheduleForm(false);
+        setIsSubmitting(true);
+        setSubmitError(null);
+
+        try {
+            const emailData = {
+                ...scheduleFormData,
+                interests: scheduleFormData.interests.join(", ") || "Not specified",
+                formType: "schedule"
+            };
+
+            const response = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(emailData)
+            });
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok) {
+                setIsSubmitted(true);
+                setScheduleFormData({
+                    name: "",
+                    phone: "",
+                    whatsapp: "",
+                    email: "",
+                    date: "",
+                    time: "",
+                    interests: []
+                });
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setShowScheduleForm(false);
+                }, 2000);
+            } else {
+                setSubmitError(result?.error || "Failed to send email. Please try again.");
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setSubmitError("An error occurred. Please try again or contact us directly.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleBrochureSubmit = (e) => {
@@ -123,10 +195,11 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
             {/* Background Image with Black Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/faq-bg2.jpg"
+                    src="/avinea-hadapsar-pune/faq-bg2.webp"
                     alt="FAQ Background"
                     fill
                     className="object-cover"
+                    sizes="100vw"
                 />
                 {/* Black gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
@@ -200,26 +273,54 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
 
                                     {/* Modal Body */}
                                     <div className="p-4 md:p-6">
-                                        <form onSubmit={handleScheduleSubmit} className="space-y-4">
+                                        {isSubmitted ? (
+                                            <div className="text-center py-12">
+                                                <div className="w-16 h-16 bg-[#997B29]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                    <svg className="w-8 h-8 text-[#997B29]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                                <h3 className="text-xl font-serif text-white mb-2">Thank You!</h3>
+                                                <p className="text-white/60">We will contact you shortly to confirm your visit.</p>
+                                            </div>
+                                        ) : (
+                                        <form
+                                            onSubmit={handleScheduleSubmit}
+                                            className="space-y-4"
+                                            action={FORMSPREE_ENDPOINT}
+                                            method="POST"
+                                        >
                                             <input
                                                 type="text"
+                                                name="name"
+                                                value={scheduleFormData.name}
+                                                onChange={handleScheduleChange}
                                                 placeholder="Full Name"
                                                 required
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="tel"
+                                                name="phone"
+                                                value={scheduleFormData.phone}
+                                                onChange={handleScheduleChange}
                                                 placeholder="Phone Number"
                                                 required
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="tel"
+                                                name="whatsapp"
+                                                value={scheduleFormData.whatsapp}
+                                                onChange={handleScheduleChange}
                                                 placeholder="WhatsApp Number"
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
                                                 type="email"
+                                                name="email"
+                                                value={scheduleFormData.email}
+                                                onChange={handleScheduleChange}
                                                 placeholder="Email Address"
                                                 required
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
@@ -228,8 +329,10 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 {/* Mobile: Dropdown Time */}
                                                 <div className="relative block md:hidden">
                                                     <select
+                                                        name="time"
+                                                        value={scheduleFormData.time}
+                                                        onChange={handleScheduleChange}
                                                         required
-                                                        defaultValue=""
                                                         className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
                                                     >
                                                         <option value="" disabled className="bg-black text-white">Time</option>
@@ -249,8 +352,10 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 {/* Mobile: Dropdown Date */}
                                                 <div className="relative block md:hidden">
                                                     <select
+                                                        name="date"
+                                                        value={scheduleFormData.date}
+                                                        onChange={handleScheduleChange}
                                                         required
-                                                        defaultValue=""
                                                         className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
                                                     >
                                                         <option value="" disabled className="bg-black text-white">Date</option>
@@ -268,6 +373,9 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 <div className="relative hidden md:block">
                                                     <input
                                                         type="time"
+                                                        name="time"
+                                                        value={scheduleFormData.time}
+                                                        onChange={handleScheduleChange}
                                                         required
                                                         className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
@@ -276,6 +384,9 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                 <div className="relative hidden md:block">
                                                     <input
                                                         type="date"
+                                                        name="date"
+                                                        value={scheduleFormData.date}
+                                                        onChange={handleScheduleChange}
                                                         required
                                                         className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
                                                     />
@@ -289,10 +400,12 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                             <div className="relative w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
                                                                 <input
                                                                     type="checkbox"
+                                                                    checked={scheduleFormData.interests.includes(item)}
+                                                                    onChange={() => handleScheduleInterestChange(item)}
                                                                     className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
                                                                 />
-                                                                <div className="w-full h-full bg-[#997B29] opacity-0 transition-opacity pointer-events-none checkbox-bg-fill" />
-                                                                <svg className="absolute w-3 h-3 text-white opacity-0 transition-opacity pointer-events-none checkbox-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <div className={`w-full h-full bg-[#997B29] transition-opacity pointer-events-none checkbox-bg-fill ${scheduleFormData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} />
+                                                                <svg className={`absolute w-3 h-3 text-white transition-opacity pointer-events-none checkbox-check ${scheduleFormData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                     <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
                                                                 </svg>
                                                             </div>
@@ -301,13 +414,18 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
                                                     ))}
                                                 </div>
                                             </div>
+                                            {submitError && (
+                                                <div className="text-red-400 text-sm mt-2">{submitError}</div>
+                                            )}
                                             <button
                                                 type="submit"
-                                                className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 text-xs"
+                                                disabled={isSubmitting}
+                                                className="w-full py-3 md:py-4 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black font-bold uppercase tracking-widest rounded-full transition-all duration-500 hover:scale-105 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
-                                                Submit
+                                                {isSubmitting ? "Sending..." : "Submit"}
                                             </button>
                                         </form>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>
