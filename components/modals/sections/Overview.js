@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { Badge } from "@/components/modals/ui/Badge";
+import { RevealText } from "@/components/modals/ui/RevealText";
 
 export function Overview({ onWatchFilm }) {
     return (
@@ -98,48 +99,22 @@ export function Overview({ onWatchFilm }) {
                     <Reveal>
                         <Badge>The Vision</Badge>
                         <h2 className="heading-section mt-4 text-3xl sm:text-4xl lg:text-5xl">
-                            <div className="block">
-                                {"Where Future".split("").map((char, i) => (
-                                    <motion.span
-                                        key={`l1-${i}`}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.03, duration: 0.6, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                        className="inline-block"
-                                    >
-                                        {char === " " ? "\u00A0" : char}
-                                    </motion.span>
-                                ))}
-                            </div>
+                            <RevealText
+                                text="Where Future "
+                                className="inline-block"
+                            />
                             <div className="block mt-1 lg:mt-2">
-                                {"Meets".split("").map((char, i) => (
-                                    <motion.span
-                                        key={`l2-${i}`}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.3 + i * 0.03, duration: 0.6, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                        className="inline-block"
-                                    >
-                                        {char === " " ? "\u00A0" : char}
-                                    </motion.span>
-                                ))}
+                                <RevealText
+                                    text="Meets "
+                                    className="inline-block"
+                                    delay={0.3}
+                                />
                                 &nbsp;
-                                <span className="text-accent italic font-serif">
-                                    {"Serenity.".split("").map((char, i) => (
-                                        <motion.span
-                                            key={`l3-${i}`}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.5 + i * 0.03, duration: 0.6, ease: "easeOut" }}
-                                            viewport={{ once: true }}
-                                            className="inline-block"
-                                        >
-                                            {char === " " ? "\u00A0" : char}
-                                        </motion.span>
-                                    ))}
-                                </span>
+                                <RevealText
+                                    text="Serenity."
+                                    className="inline-block text-accent italic font-serif"
+                                    delay={0.5}
+                                />
                             </div>
                         </h2>
                         <p className="body-main text-text-body mt-4 lg:mt-6 border-l-2 border-accent/20 pl-4 lg:pl-6 text-sm sm:text-base">
@@ -172,7 +147,7 @@ export function Overview({ onWatchFilm }) {
 
                     <Reveal delay={0.6}>
                         <div className="flex justify-center">
-                            <button 
+                            <button
                                 onClick={onWatchFilm}
                                 className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-black/20 text-black hover:bg-black hover:text-white font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[180px] sm:min-w-[200px] flex items-center justify-center gap-2 sm:gap-3"
                             >
