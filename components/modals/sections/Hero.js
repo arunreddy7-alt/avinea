@@ -35,7 +35,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
 
       <div className="relative z-10 w-full h-full flex flex-col justify-end px-4 sm:px-6 pb-0">
         <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center lg:justify-end lg:pb-32 pt-35 md:pt-0">
-          <Reveal>
+          <Reveal priority>
             <div className="flex items-center gap-4 mb-6 sm:mb-8">
               <div className="hidden md:inline w-12 h-[1px] bg-accent"></div>
               <span className="hidden md:inline text-xs font-bold uppercase tracking-[0.2em] text-accent">Phase 2 Launching</span>
@@ -63,7 +63,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
             </span>
           </h1>
 
-          <Reveal delay={0.8}>
+          <Reveal delay={0.8} priority>
             <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-[260px] sm:max-w-lg font-light leading-relaxed font-medium">
               Avinea defines the new standard of{" "}
               <br className="block sm:hidden" />
@@ -74,7 +74,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
 
           </Reveal>
 
-          <Reveal delay={0.2} className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10">
+          <Reveal delay={0.2} priority className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10">
             {/* Desktop Button with Gold Gradient - Static */}
             <button
               onClick={onOpenEnquiry}
