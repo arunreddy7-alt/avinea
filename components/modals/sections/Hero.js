@@ -75,17 +75,17 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
           </Reveal>
 
           <Reveal delay={0.2} className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10">
-            {/* Desktop Button with Gold Gradient */}
+            {/* Desktop Button with Gold Gradient - Static */}
             <button
               onClick={onOpenEnquiry}
-              className="hidden md:inline-flex group relative px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-sm min-w-[180px] sm:min-w-[200px] bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black"
+              className="hidden md:inline-flex group relative px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-sm min-w-[180px] sm:min-w-[200px] bg-gradient-to-r from-[#997B29] to-[#e6c86e] text-black"
             >
               Enquire Now
             </button>
-            {/* Mobile Button with Gold Gradient */}
+            {/* Mobile Button with Gold Gradient - Static */}
             <button
               onClick={onOpenEnquiry}
-              className="md:hidden group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black"
+              className="md:hidden group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto bg-gradient-to-r from-[#997B29] to-[#e6c86e] text-black"
             >
               Enquire Now
             </button>
@@ -94,11 +94,11 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
 
         <div
           className="
-    border-t border-white/10 bg-black/20 backdrop-blur-sm
-    w-screen relative left-1/2 right-1/2
-    -ml-[50vw] -mr-[50vw]
-    md:w-full md:left-auto md:right-auto md:ml-0 md:mr-0
-  "
+            border-t border-white/10 bg-black/40
+            w-screen relative left-1/2 right-1/2
+            -ml-[50vw] -mr-[50vw]
+            md:w-full md:left-auto md:right-auto md:ml-0 md:mr-0
+          "
         >
           <div className="w-full md:max-w-8xl md:mx-auto">
             <motion.div
