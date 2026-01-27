@@ -12,7 +12,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
             <div className="absolute inset-0 z-0">
                 {/* Desktop Hero Image - Priority loaded, full viewport */}
                 <Image
-                    src="/avinea-hadapsar-pune/hero1.webp"
+                    src="/hero1.webp"
                     alt="Hero"
                     fill
                     className="hidden md:block object-cover"
@@ -21,7 +21,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
                 />
                 {/* Mobile Hero Image - Priority loaded, full viewport */}
                 <Image
-                    src="/avinea-hadapsar-pune/banner.webp"
+                    src="/banner.webp"
                     alt="Hero Mobile"
                     fill
                     className="md:hidden object-cover"

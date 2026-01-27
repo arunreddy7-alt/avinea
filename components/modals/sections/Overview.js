@@ -11,62 +11,43 @@ import { Badge } from "@/components/modals/ui/Badge";
 export function Overview({ onWatchFilm }) {
     return (
         <Section id="overview" className="relative overflow-hidden">
-            {/* Background Geometry - Fluid Ribbons (strictly horizontal flow) */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            {/* Background Geometry - Static Ribbons (optimized for performance) */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="absolute inset-0 pointer-events-none overflow-hidden"
+            >
                 <svg className="absolute w-full h-full" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-
-                    {/* 1. Top Horizon - Gentle Wave */}
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 2, ease: "easeOut" }}
+                    {/* Static paths - no pathLength animation for better performance */}
+                    <path
                         d="M-50 100 Q 360 50 720 100 T 1490 100"
                         stroke="#d4af37"
                         strokeOpacity="0.06"
                         strokeWidth="50"
                         strokeLinecap="round"
                     />
-
-                    {/* 2. Upper Mid - Parallel Wave */}
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 2.2, ease: "easeOut", delay: 0.2 }}
+                    <path
                         d="M-50 300 Q 360 250 720 300 T 1490 300"
                         stroke="#d4af37"
                         strokeOpacity="0.12"
                         strokeWidth="80"
                         strokeLinecap="round"
                     />
-
-                    {/* 3. Center - Main Flow */}
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 2.4, ease: "easeOut", delay: 0.4 }}
+                    <path
                         d="M-50 500 Q 360 450 720 500 T 1490 500"
                         stroke="#d4af37"
                         strokeOpacity="0.08"
                         strokeWidth="70"
                         strokeLinecap="round"
                     />
-
-                    {/* 4. Lower Mid - Wide Arc */}
-                    <motion.path
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 3, delay: 0.6 }}
+                    <path
                         d="M-50 700 Q 360 650 720 700 T 1490 700"
                         stroke="#d4af37"
                         strokeOpacity="0.05"
                         strokeWidth="100"
                     />
-
-                    {/* 5. Bottom Edge - Soft Foundation */}
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: 0.8 }}
+                    <path
                         d="M-50 850 Q 360 820 720 850 T 1490 850"
                         stroke="#d4af37"
                         strokeOpacity="0.03"
@@ -74,14 +55,14 @@ export function Overview({ onWatchFilm }) {
                         strokeLinecap="round"
                     />
                 </svg>
-            </div>
+            </motion.div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                 <div className="relative pl-0 lg:pl-6 pt-0 lg:pt-6">
                     <Reveal>
                         <div className="relative aspect-square lg:aspect-[4/3] rounded-xl lg:rounded-[2rem] overflow-hidden shadow-xl lg:shadow-2xl border-4 lg:border-8 border-white">
                             <Image
-                                src="/avinea-hadapsar-pune/ga3.webp"
+                                src="/ga3.webp"
                                 alt="Overview"
                                 fill
                                 className="object-cover"

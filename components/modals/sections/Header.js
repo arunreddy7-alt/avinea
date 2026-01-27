@@ -47,7 +47,7 @@ const handleSmoothScroll = (id) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center relative">
                 <div className="flex items-center gap-2 relative z-[110]">
                     <Image
-                        src="/avinea-hadapsar-pune/logo.png"
+                        src="/logo.webp"
                         alt="Avinea"
                         width={100} height={40}
                         className="object-contain w-[100px] sm:w-[140px]"

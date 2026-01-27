@@ -11,7 +11,7 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                     <div className="sm:col-span-2 lg:col-span-5 space-y-6 lg:space-y-8">
                         <div className="relative w-[140px] h-[50px] sm:w-[180px] sm:h-[60px]">
                             <Image
-                                src="/avinea-hadapsar-pune/logo1.png"
+                                src="/logo1.webp"
                                 alt="Avinea"
                                 fill
                                 className="object-contain object-left"

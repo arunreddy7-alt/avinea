@@ -195,7 +195,7 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
             {/* Background Image with Black Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="/avinea-hadapsar-pune/faq-bg2.webp"
+                    src="/faq-bg2.webp"
                     alt="FAQ Background"
                     fill
                     className="object-cover"

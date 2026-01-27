@@ -162,7 +162,7 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                             className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group mx-0 md:mx-0"
                         >
                             <Image
-                                src="/avinea-hadapsar-pune/masterlayout.webp"
+                                src="/masterlayout.webp"
                                 alt="Master Layout"
                                 width={1200}
                                 height={900}

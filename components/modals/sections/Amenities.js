@@ -10,12 +10,12 @@ import Image from "next/image";
 
 export function Amenities() {
     const amenitiesList = [
-        { title: "3 Swimming Pools", icon: <Waves className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/avinea-hadapsar-pune/Swimming1.webp" },
-        { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "State of the art fitness center with view.", image: "/avinea-hadapsar-pune/Fitness Centre.webp" },
-        { title: "Kids Arena", icon: <Baby className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Safe and engaging play areas.", image: "/avinea-hadapsar-pune/Kids Arena.webp" },
-        { title: "3 Clubhouses", icon: <House className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Landscaped meditation zones.", image: "/avinea-hadapsar-pune/Clubhouses.webp" },
-        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/avinea-hadapsar-pune/hall2.webp" },
-        { title: "Mini Golf Course", icon: <Flag className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Spiritual corner for peace.", image: "/avinea-hadapsar-pune/Mini Golf.webp" },
+        { title: "3 Swimming Pools", icon: <Waves className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Olympic sized temperature controlled pool.", image: "/Swimming1.webp" },
+        { title: "13000 sq.ft. Fitness Centre", icon: <Dumbbell className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "State of the art fitness center with view.", image: "/Fitness Centre.webp" },
+        { title: "Kids Arena", icon: <Baby className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Safe and engaging play areas.", image: "/Kids Arena.webp" },
+        { title: "3 Clubhouses", icon: <House className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Landscaped meditation zones.", image: "/Clubhouses.webp" },
+        { title: "Gourmet Dining Experiences", icon: <Utensils className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Open air cultural space.", image: "/hall2.webp" },
+        { title: "Mini Golf Course", icon: <Flag className="w-5 h-5 sm:w-6 sm:h-6" />, desc: "Spiritual corner for peace.", image: "/Mini Golf.webp" },
     ];
 
     const textVariants = {
@@ -29,40 +29,38 @@ export function Amenities() {
 
     return (
         <Section id="amenities" className="bg-[#0a0a0a] relative overflow-hidden py-16 lg:py-24" dark>
-            {/* Background - Subtle Gold Ribbons */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-screen">
+            {/* Background - Subtle Gold Ribbons (optimized) */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="absolute inset-0 pointer-events-none overflow-hidden mix-blend-screen"
+            >
                 <svg className="absolute w-full h-full" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 2.5, ease: "easeOut" }}
+                    {/* Static paths for better performance */}
+                    <path
                         d="M-50 200 Q 360 150 720 200 T 1490 200"
                         stroke="#d4af37"
                         strokeOpacity="0.04"
                         strokeWidth="40"
                         strokeLinecap="round"
                     />
-                    <motion.path
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        whileInView={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 3, ease: "easeOut", delay: 0.2 }}
+                    <path
                         d="M-50 500 Q 360 450 720 500 T 1490 500"
                         stroke="#d4af37"
                         strokeOpacity="0.03"
                         strokeWidth="60"
                         strokeLinecap="round"
                     />
-                    <motion.path
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 2, delay: 0.5 }}
+                    <path
                         d="M-50 800 Q 360 750 720 800 T 1490 800"
                         stroke="#d4af37"
                         strokeOpacity="0.02"
                         strokeWidth="80"
                     />
                 </svg>
-            </div>
+            </motion.div>
 
             {/* Background decorative elements */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />

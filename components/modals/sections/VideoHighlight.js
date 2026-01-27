@@ -39,7 +39,7 @@ export function VideoHighlight() {
         <section className="relative w-full h-[40vh] md:h-[50vh] min-h-[300px] overflow-hidden bg-black">
             <video
                 ref={videoRef}
-                src="/avinea-hadapsar-pune/highlights.mp4"
+                src="/highlights.mp4"
                 autoPlay
                 muted
                 loop
