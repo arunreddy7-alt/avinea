@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+:root {
+  /* Premium Dark/Light Theme System */
+  --bg-dark: #0f1012;
+  /* Deep Charcoal */
+  --bg-darker: #08090a;
+  /* Near Black */
+  --bg-light: #fdfcfb;
+  /* Warm Off-White */
+  --bg-soft: #f4f2ef;
+  /* Soft Beige/Grey */
+
+  --accent: #d4af37;
+  /* Classic Gold */
+  --accent-light: #e6c86e;
+  /* Soft Gold */
+  --accent-dark: #b69121;
+  /* Deep Gold */
+
+  --text-main: #1a1a1a;
+  /* Soft Black */
+  --text-body: #4a4a4a;
+  /* Dark Grey */
+  --text-inv: #fcfcfc;
+  /* Off White (for dark bg) */
+  --text-inv-muted: #a3a3a3;
+  /* Muted White */
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+@theme inline {
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-darker: var(--bg-darker);
+  --color-bg-light: var(--bg-light);
+  --color-bg-soft: var(--bg-soft);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+
+  --color-text-main: var(--text-main);
+  --color-text-body: var(--text-body);
+  --color-text-inv: var(--text-inv);
+  --color-text-inv-muted: var(--text-inv-muted);
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+  /* Disable default smooth scroll - Lenis handles it */
+  scroll-behavior: auto !important;
+}
+
+/* Mobile overflow protection */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    scroll-behavior: auto !important;
+  }
+  
+  * {
+    max-width: 100vw;
+  }
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  /* Serif usually looks better lighter */
+  letter-spacing: -0.02em;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 6s ease infinite;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-flow {
+  animation: flow 4s linear infinite;
+}
+
+/* Typography System */
+@layer utilities {
+  .heading-display {
+    @apply font-serif text-5xl sm:text-7xl lg:text-8xl leading-[1.05] tracking-tight;
+  }
+
+  .heading-section {
+    @apply font-serif text-3xl md:text-5xl leading-tight;
+  }
+
+  .heading-card {
+    @apply font-serif text-2xl leading-none;
+  }
+
+  .text-sub {
+    @apply text-xs font-bold uppercase tracking-[0.15em];
+  }
+
+  .body-lg {
+    @apply text-lg sm:text-xl font-light leading-relaxed;
+  }
+
+  .body-main {
+    @apply text-base font-light leading-relaxed;
+  }
+
+  .caption {
+    @apply text-[10px] uppercase tracking-widest opacity-60;
+  }
+}
+
+/* Animation Utilities - Simplified */
+.reveal-up {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* Smooth Scroll - Handled by Lenis */
+/* Removed conflicting CSS scroll-behavior to let Lenis handle smooth scrolling */
+
+/* Smooth scroll anchor targeting - managed by Lenis */
+:target {
+  scroll-margin-top: 100px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-soft);
+  /* Subtle thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Hide gold gradient on desktop for Download Brochure button */
+@media (min-width: 640px) {
+  .download-btn-gold {
+    background: transparent !important;
+    background-image: none !important;
+  }
+}
+
+/* Custom Checkbox Styles */
+/* Using :has() selector to detect checkbox state from parent label */
+label:has(input[type="checkbox"]:checked) .checkbox-bg {
+  background-color: #997B29 !important;
+  border-color: #997B29 !important;
+}
+
+label:has(input[type="checkbox"]:checked) .checkbox-check {
+  opacity: 1 !important;
+}
+
+
+
+
