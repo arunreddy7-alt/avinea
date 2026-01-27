@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+import { RevealText } from "@/components/modals/ui/RevealText";
 import { specs } from "@/app/data";
 
 export function Specifications() {
@@ -48,35 +49,16 @@ export function Specifications() {
                         <Reveal>
                             <div className="space-y-4">
                                 <h2 className="heading-section text-3xl sm:text-4xl lg:text-5xl text-black mb-4">
-                                    <div className="block">
-                                        {"Curated".split("").map((char, i) => (
-                                            <motion.span
-                                                key={`spec1-${i}`}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                                viewport={{ once: true }}
-                                                className="inline-block"
-                                            >
-                                                {char === " " ? "\u00A0" : char}
-                                            </motion.span>
-                                        ))}
-                                    </div>
+                                    <RevealText
+                                        text="Curated"
+                                        className="block"
+                                    />
                                     <div className="block mt-1">
-                                        <span className="font-serif italic text-accent">
-                                            {"Perfection.".split("").map((char, i) => (
-                                                <motion.span
-                                                    key={`spec2-${i}`}
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.3 + i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                                    viewport={{ once: true }}
-                                                    className="inline-block"
-                                                >
-                                                    {char === " " ? "\u00A0" : char}
-                                                </motion.span>
-                                            ))}
-                                        </span>
+                                        <RevealText
+                                            text="Perfection."
+                                            className="font-serif italic text-accent"
+                                            delay={0.3}
+                                        />
                                     </div>
                                 </h2>
                                 <p className="body-sm text-black/60 font-light text-sm">

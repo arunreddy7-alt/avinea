@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+import { RevealText } from "@/components/modals/ui/RevealText";
 
 export function AboutLegacy({ onOpenEnquiry }) {
     const textVariants = {
@@ -49,37 +50,26 @@ export function AboutLegacy({ onOpenEnquiry }) {
                     <div className="relative space-y-8">
                         <div className="w-20 h-1 bg-accent mb-8" />
                         <h2 className="heading-display">
-                            <div className="inline-block">
-                                {"A Promise of".split("").map((char, i) => (
-                                    <motion.span
-                                        key={i}
-                                        custom={i}
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        variants={textVariants}
-                                        viewport={{ once: true }}
-                                        className="inline-block"
-                                    >
-                                        {char === " " ? "\u00A0" : char}
-                                    </motion.span>
-                                ))}
-                            </div>
+                            <RevealText
+                                text="A Promise of"
+                                className="inline-block"
+                            />
                             &nbsp;
                             <span className="text-accent italic font-light">Uncompromising Quality.</span>
                         </h2>
                         <p className="body-lg text-white/60 max-w-md leading-relaxed">
-                        Built on a strong foundation of expertise, Vyom Sigma Developers stands for purposeful design, lasting quality, and homes crafted with intent. Rooted in deep industry understanding, we go beyond construction to create lifestyle-driven spaces for discerning homeowners.
+                            Built on a strong foundation of expertise, Vyom Sigma Developers stands for purposeful design, lasting quality, and homes crafted with intent. Rooted in deep industry understanding, we go beyond construction to create lifestyle-driven spaces for discerning homeowners.
                         </p>
 
-                        <button 
+                        <button
                             onClick={onOpenEnquiry}
                             className="group flex items-center gap-4 pt-6 cursor-pointer"
                         >
                             {/* Arrow before - always visible */}
-                            <svg 
-                                className="w-8 h-8 text-accent transition-all duration-300" 
-                                fill="none" 
-                                stroke="currentColor" 
+                            <svg
+                                className="w-8 h-8 text-accent transition-all duration-300"
+                                fill="none"
+                                stroke="currentColor"
                                 viewBox="0 0 24 24"
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
@@ -88,7 +78,7 @@ export function AboutLegacy({ onOpenEnquiry }) {
                                 Explore Avinea by Vyom Sigma
                             </span>
                             {/* Arrow after - appears on hover */}
-                            
+
                         </button>
                     </div>
                 </Reveal>

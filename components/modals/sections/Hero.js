@@ -49,6 +49,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
               delay={0.2}
               stagger={0.04}
               tag="span"
+              priority
             />
             <span className="italic font-light opacity-90 block">
               <RevealText
@@ -57,6 +58,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
                 delay={0.6}
                 stagger={0.04}
                 tag="span"
+                priority
               />
             </span>
           </h1>

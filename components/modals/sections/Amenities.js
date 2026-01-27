@@ -3,6 +3,7 @@
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { Badge } from "@/components/modals/ui/Badge";
+import { RevealText } from "@/components/modals/ui/RevealText";
 import { Waves, Dumbbell, Baby, House, Utensils, Sprout, Flag } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -70,19 +71,11 @@ export function Amenities() {
                 <Reveal className="text-center mb-10 lg:mb-20">
                     <Badge dark>Lifestyle</Badge>
                     <div className="heading-section mt-4 lg:mt-6 text-white text-3xl sm:text-4xl lg:text-5xl text-center">
-                        {"World Class".split("").map((char, i) => (
-                            <motion.span
-                                key={i}
-                                custom={i}
-                                initial="hidden"
-                                whileInView="visible"
-                                variants={textVariants}
-                                viewport={{ once: true }}
-                                className="inline-block"
-                            >
-                                {char === " " ? "\u00A0" : char}
-                            </motion.span>
-                        ))}
+                        <RevealText
+                            text="World Class"
+                            className="inline-block"
+                            tag="span"
+                        />
                         &nbsp; <span className="text-accent italic font-serif">Amenities</span>
                     </div>
                     <p className="body-lg text-white/60 mt-4 lg:mt-6 max-w-2xl mx-auto font-light leading-relaxed text-sm sm:text-base">

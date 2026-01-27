@@ -7,7 +7,8 @@ export function RevealText({
     className,
     delay = 0,
     tag = "div",
-    stagger = 0.03
+    stagger = 0.03,
+    priority = false
 }) {
     const Tag = tag;
     const words = text.split(" ");
@@ -44,8 +45,9 @@ export function RevealText({
             style={{ display: "inline-block" }}
             variants={container}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-10%" }}
+            whileInView={!priority ? "visible" : undefined}
+            animate={priority ? "visible" : undefined}
+            viewport={!priority ? { once: true, margin: "-10%" } : undefined}
             className={className}
         >
             {text.split("").map((char, index) => (

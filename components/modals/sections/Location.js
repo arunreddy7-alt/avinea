@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+import { RevealText } from "@/components/modals/ui/RevealText";
 import { Badge } from "@/components/modals/ui/Badge";
 import { locationHighlights } from "@/app/data";
 
@@ -40,33 +41,16 @@ export function Location() {
                     </Reveal>
 
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white leading-tight">
-                        <div className="block">
-                            {"Connected".split("").map((char, i) => (
-                                <motion.span
-                                    key={`loc1-${i}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                    viewport={{ once: true }}
-                                    className="inline-block"
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                            ))}
-                        </div>
+                        <RevealText
+                            text="Connected"
+                            className="block"
+                        />
                         <div className="block mt-1 lg:mt-2">
-                            {"to Everything.".split("").map((char, i) => (
-                                <motion.span
-                                    key={`loc2-${i}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 + i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                    viewport={{ once: true }}
-                                    className="inline-block"
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                            ))}
+                            <RevealText
+                                text="to Everything."
+                                className="inline-block"
+                                delay={0.4}
+                            />
                         </div>
                     </h2>
 
