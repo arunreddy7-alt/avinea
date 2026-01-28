@@ -26,39 +26,39 @@ export const navLinks = [
 ];
 
 export const galleryImages = [
-    "/avinea-hadapsar-pune/gall1.webp",
-    "/avinea-hadapsar-pune/gall2.webp",
-    "/avinea-hadapsar-pune/gall3.webp",
-    "/avinea-hadapsar-pune/gall4.webp",
-    "/avinea-hadapsar-pune/gall5.webp",
-    "/avinea-hadapsar-pune/gall6.webp",
-    "/avinea-hadapsar-pune/gall7.webp",
-    "/avinea-hadapsar-pune/gall8.webp",
+    "/gall1.webp",
+    "/gall2.webp",
+    "/gall3.webp",
+    "/gall4.webp",
+    "/gall5.webp",
+    "/gall6.webp",
+    "/gall7.webp",
+    "/gall8.webp",
 ];
 
 export const clubhouseImages = [
     { src: "", label: "3 Clubhouses", sublabel: "Citadel, Castle, Manor" },
-    { src: "/avinea-hadapsar-pune/CB 1.webp", label: "Citadel" },
-    { src: "/avinea-hadapsar-pune/CB 2.webp", label: "Castle" },
-    { src: "/avinea-hadapsar-pune/CB 3.webp", label: "Manor" },
+    { src: "/CB 1.webp", label: "Citadel" },
+    { src: "/CB 2.webp", label: "Castle" },
+    { src: "/CB 3.webp", label: "Manor" },
     { src: "", label: "3 Swimming Pools", sublabel: "" },
-    { src: "/avinea-hadapsar-pune/SP 1.webp", label: "Swimming Pool 1" },
-    { src: "/avinea-hadapsar-pune/SP 2.webp", label: "Swimming Pool 2" },
-    { src: "/avinea-hadapsar-pune/SP 3.webp", label: "Swimming Pool 3" },
+    { src: "/SP 1.webp", label: "Swimming Pool 1" },
+    { src: "/SP 2.webp", label: "Swimming Pool 2" },
+    { src: "/SP 3.webp", label: "Swimming Pool 3" },
 ];
 
 
 export const floorPlans = [
-    { title: "2 BHK", image: "/avinea-hadapsar-pune/2bhk2.webp", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
-    { title: "2 BHK", image: "/avinea-hadapsar-pune/2bhk1.webp", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
-    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk1.webp", size: "1213 | 1226 | 1232 |\n1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
-    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk2.webp", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
-    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk3.webp", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
-    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk4.webp", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
-    { title: "3 BHK", image: "/avinea-hadapsar-pune/3bhk5.webp", size: "1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
-    { title: "4 BHK", image: "/avinea-hadapsar-pune/4bhk1.webp", size: "1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
-    { title: "5 BHK (Couplet)", image: "/avinea-hadapsar-pune/5bhk2.webp", size: "1940 sq.ft", features: ["Private terrace", "Grand entry"] },
-    { title: "6 BHK (Couplet)", image: "/avinea-hadapsar-pune/6bhk2.webp", size: "2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
+    { title: "2 BHK", image: "/2bhk2.webp", size: "946 | 960 sq.ft", features: ["Well ventilated", "Abundant sunlight"] },
+    { title: "2 BHK", image: "/2bhk1.webp", size: "960 sq.ft", features: ["Vastu compliant", "Premium finishes"] }, 
+    { title: "3 BHK", image: "/3bhk1.webp", size: "1213 | 1226 | 1232 |\n1239 | 1262 sq.ft", features: ["Smart home ready", "High ceilings"] },
+    { title: "3 BHK", image: "/3bhk2.webp", size: "1226 sq.ft", features: ["Power backup", "Video door phone"] },
+    { title: "3 BHK", image: "/3bhk3.webp", size: "1232 sq.ft", features: ["Italian flooring", "Designer lights"] },
+    { title: "3 BHK", image: "/3bhk4.webp", size: "1239 sq.ft", features: ["Modern kitchen", "Split AC pre-wire"] },
+    { title: "3 BHK", image: "/3bhk5.webp", size: "1262 sq.ft", features: ["Premium fixtures", "Wooden flooring"] },
+    { title: "4 BHK", image: "/4bhk1.webp", size: "1780 sq.ft", features: ["Panoramic views", "Luxury amenities"] },
+    { title: "5 BHK (Couplet)", image: "/5bhk2.webp", size: "1940 sq.ft", features: ["Private terrace", "Grand entry"] },
+    { title: "6 BHK (Couplet)", image: "/6bhk2.webp", size: "2470 sq.ft", features: ["Ultra premium", "Exclusive access"] },
 ];
 
 export const specs = {

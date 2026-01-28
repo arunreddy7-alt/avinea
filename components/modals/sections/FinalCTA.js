@@ -96,7 +96,7 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
                 <div 
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: 'url(/avinea-hadapsar-pune/img.webp)',
+                        backgroundImage: 'url(/img.webp)',
                     }}
                 />
                 {/* Black Gradient Overlay */}

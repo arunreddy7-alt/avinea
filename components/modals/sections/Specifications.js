@@ -7,6 +7,7 @@ import { ChevronDown } from "lucide-react";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+import { RevealText } from "@/components/modals/ui/RevealText";
 import { specs } from "@/app/data";
 
 export function Specifications() {
@@ -16,13 +17,13 @@ export function Specifications() {
 
     // Images map to key
     const images = {
-        living: "/avinea-hadapsar-pune/living&bedroom.webp",
-        bath: "/avinea-hadapsar-pune/bathroom.webp",
-        kitchen: "/avinea-hadapsar-pune/kitchen2.webp",
-        structure: "/avinea-hadapsar-pune/doors.webp",
-        safety: "/avinea-hadapsar-pune/switch1.webp",
-        comfort: "/avinea-hadapsar-pune/comformt&sustainability.webp",
-        logistics: "/avinea-hadapsar-pune/security1.webp"
+        living: "/living&bedroom.webp",
+        bath: "/bathroom.webp",
+        kitchen: "/kitchen2.webp",
+        structure: "/doors.webp",
+        safety: "/switch1.webp",
+        comfort: "/comformt&sustainability.webp",
+        logistics: "/security1.webp"
     };
 
     // Get spec keys as array for iteration
@@ -48,35 +49,16 @@ export function Specifications() {
                         <Reveal>
                             <div className="space-y-4">
                                 <h2 className="heading-section text-3xl sm:text-4xl lg:text-5xl text-black mb-4">
-                                    <div className="block">
-                                        {"Curated".split("").map((char, i) => (
-                                            <motion.span
-                                                key={`spec1-${i}`}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                                viewport={{ once: true }}
-                                                className="inline-block"
-                                            >
-                                                {char === " " ? "\u00A0" : char}
-                                            </motion.span>
-                                        ))}
-                                    </div>
+                                    <RevealText
+                                        text="Curated"
+                                        className="block"
+                                    />
                                     <div className="block mt-1">
-                                        <span className="font-serif italic text-accent">
-                                            {"Perfection.".split("").map((char, i) => (
-                                                <motion.span
-                                                    key={`spec2-${i}`}
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.3 + i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                                    viewport={{ once: true }}
-                                                    className="inline-block"
-                                                >
-                                                    {char === " " ? "\u00A0" : char}
-                                                </motion.span>
-                                            ))}
-                                        </span>
+                                        <RevealText
+                                            text="Perfection."
+                                            className="font-serif italic text-accent"
+                                            delay={0.3}
+                                        />
                                     </div>
                                 </h2>
                                 <p className="body-sm text-black/60 font-light text-sm">
@@ -114,7 +96,7 @@ export function Specifications() {
                                                         {/* Image */}
                                                         <div className="relative aspect-video rounded-lg overflow-hidden bg-black/5">
                                                             <Image
-                                                                src={images[key] || "/avinea-hadapsar-pune/gallery1.png"}
+                                                                src={images[key] || "/gallery1.png"}
                                                                 alt={category.title}
                                                                 fill
                                                                 className="object-cover"
@@ -190,7 +172,7 @@ export function Specifications() {
                                         {/* Dynamic Image */}
                                         <div className="relative aspect-[4/5] md:aspect-auto md:h-[350px] lg:h-[450px] rounded-lg sm:rounded-[1.5rem] overflow-hidden bg-black/5">
                                             <Image
-                                                src={images[activeTab] || "/avinea-hadapsar-pune/gallery1.png"}
+                                                src={images[activeTab] || "/gallery1.png"}
                                                 alt={specs[activeTab].title}
                                                 fill
                                                 className="object-cover"

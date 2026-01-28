@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
+import { RevealText } from "@/components/modals/ui/RevealText";
 import { Badge } from "@/components/modals/ui/Badge";
 import { locationHighlights } from "@/app/data";
 
@@ -12,7 +13,7 @@ export function Location() {
     return (
         <Section id="location" className="bg-[#0c0a08] relative overflow-hidden py-16 lg:py-20" dark>
             <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <video
+                {/* <video
   autoPlay
   muted
   loop
@@ -26,7 +27,7 @@ export function Location() {
   }}
 >
 <source src="/highlights.mp4" type="video/mp4" />
-</video>
+</video> */}
 
                 <div className="absolute inset-0 bg-[#0c0a08]/80" />
             </div>
@@ -40,33 +41,16 @@ export function Location() {
                     </Reveal>
 
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-white leading-tight">
-                        <div className="block">
-                            {"Connected".split("").map((char, i) => (
-                                <motion.span
-                                    key={`loc1-${i}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                    viewport={{ once: true }}
-                                    className="inline-block"
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                            ))}
-                        </div>
+                        <RevealText
+                            text="Connected"
+                            className="block"
+                        />
                         <div className="block mt-1 lg:mt-2">
-                            {"to Everything.".split("").map((char, i) => (
-                                <motion.span
-                                    key={`loc2-${i}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 + i * 0.04, duration: 0.6, ease: "easeOut" }}
-                                    viewport={{ once: true }}
-                                    className="inline-block"
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </motion.span>
-                            ))}
+                            <RevealText
+                                text="to Everything."
+                                className="inline-block"
+                                delay={0.4}
+                            />
                         </div>
                     </h2>
 
@@ -79,7 +63,7 @@ export function Location() {
                 </div>
 
                 <div className="relative h-[300px] lg:h-[400px] w-full rounded-xl lg:rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                    <Image src="/avinea-hadapsar-pune/location.webp" alt="Map" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                    <Image src="/location.webp" alt="Map" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                     <div className="absolute bottom-4 left-4">
                         <p className="text-[9px] font-bold uppercase tracking-widest text-accent mb-1">Prime Location</p>
