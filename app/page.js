@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { initializeTracking } from "@/lib/trackingUtils";
 
 import { Header } from "@/components/modals/sections/Header";
 import { Hero } from "@/components/modals/sections/Hero";
@@ -30,6 +31,11 @@ export default function Home() {
   const [pendingDownload, setPendingDownload] = useState(null);
   const [pendingVideoUrl, setPendingVideoUrl] = useState(null);
   const [hasAutoPopupShown, setHasAutoPopupShown] = useState(false);
+
+  // Initialize Google Ads tracking on page load
+  useEffect(() => {
+    initializeTracking();
+  }, []);
 
   // Handle body scroll lock when modals are open
   useEffect(() => {
