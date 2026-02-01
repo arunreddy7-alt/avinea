@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { getAllTrackingParams } from "@/lib/trackingUtils";
+
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqqzoab";
 
 export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
@@ -15,8 +17,17 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
         message: "",
         interests: []
     });
+    const [trackingData, setTrackingData] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState(null);
+
+    // Load tracking params when modal opens
+    useEffect(() => {
+        if (isOpen) {
+            const params = getAllTrackingParams();
+            setTrackingData(params);
+        }
+    }, [isOpen]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -54,6 +65,7 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                 },
                 body: JSON.stringify({
                     ...emailData,
+                    ...trackingData, // Include Google Ads tracking data
                     formType: isVisit ? "visit" : "enquiry"
                 })
             });
@@ -124,6 +136,15 @@ export function EnquiryModal({ isOpen, onClose, mode = "enquiry", onSubmit }) {
                                     action={FORMSPREE_ENDPOINT}
                                     method="POST"
                                 >
+                                    {/* Hidden fields for Google Ads tracking */}
+                                    {Object.entries(trackingData).map(([key, value]) => (
+                                        <input
+                                            key={key}
+                                            type="hidden"
+                                            name={key}
+                                            value={value}
+                                        />
+                                    ))}
 
                                     <div className="space-y-6 sm:space-y-3">
                                         <input 
