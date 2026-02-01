@@ -11,22 +11,24 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {/* Desktop Hero Image - Priority loaded, full viewport */}
+        {/* Desktop Hero Image - Priority loaded with high fetch priority */}
         <Image
           src="/hero1.webp"
           alt="Hero"
           fill
           className="hidden md:block object-cover"
           priority
+          fetchPriority="high"
           sizes="100vw"
         />
-        {/* Mobile Hero Image - Priority loaded, full viewport */}
+        {/* Mobile Hero Image - Loads eagerly but not priority to avoid double download */}
         <Image
           src="/banner.webp"
           alt="Hero Mobile"
           fill
           className="md:hidden object-cover"
-          priority
+          loading="eager"
+          fetchPriority="high"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
