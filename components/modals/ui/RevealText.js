@@ -7,44 +7,46 @@ export function RevealText({
     className,
     delay = 0,
     tag = "div",
-    stagger = 0.03,
+    stagger = 0.05,
     priority = false
 }) {
     const Tag = tag;
 
-    // "Container" logic
-    // Optimized: Only ONE observer for the whole block of text.
+    // Container with stagger animation
     const container = {
         hidden: { opacity: 0 },
-        visible: (i = 1) => ({
+        visible: {
             opacity: 1,
             transition: { staggerChildren: stagger, delayChildren: delay }
-        })
+        }
     };
 
-    // "Child" logic (each character)
-    const child = {
+    // Word-level animation (much lighter than character-level)
+    const wordVariant = {
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
-                ease: [0.33, 1, 0.68, 1] // cubic-bezier for "swift out" feel
+                duration: 0.4,
+                ease: [0.33, 1, 0.68, 1]
             }
         },
         hidden: {
             opacity: 0,
-            y: 20,
+            y: 15,
             transition: {
-                duration: 0.6,
+                duration: 0.4,
                 ease: [0.33, 1, 0.68, 1]
             }
         }
     };
 
+    // Split by words instead of characters for better performance
+    const words = text.split(" ");
+
     return (
         <motion.div
-            style={{ display: "inline-block", position: "relative" }}
+            style={{ display: "inline-block" }}
             variants={container}
             initial="hidden"
             whileInView={!priority ? "visible" : undefined}
@@ -52,33 +54,16 @@ export function RevealText({
             viewport={!priority ? { once: true, margin: "-10%" } : undefined}
             className={className}
         >
-            {text.split("").map((char, index) => (
+            {words.map((word, index) => (
                 <motion.span
                     key={index}
-                    variants={child}
+                    variants={wordVariant}
                     style={{
                         display: "inline-block",
-                        // CRITICAL FIX FOR CLIPPING:
-                        // 1. Add significant padding to all sides to expand the layer box.
-                        // 2. Use negative margins to pull it back so layout spacing is preserved.
-                        paddingRight: "0.2em",
-                        marginRight: "-0.2em",
-                        paddingLeft: "0.05em",
-                        marginLeft: "-0.05em",
-                        paddingTop: "0.1em",
-                        marginBottom: "-0.1em",
-                        position: "relative",
-                        zIndex: 1,
-                        verticalAlign: "bottom", // Ensures alignment doesn't jump
-
-                        // PERFORMANCE OPTIMIZATIONS (The "Butter Smooth" Fix):
-                        willChange: "transform, opacity", // Tell browser to prep layers
-                        transform: "translateZ(0)", // Force hardware acceleration
-                        backfaceVisibility: "hidden", // Fixes anti-aliasing jitter
-                        WebkitFontSmoothing: "antialiased" // Cleaner text rendering during motion
+                        marginRight: "0.25em"
                     }}
                 >
-                    {char === " " ? "\u00A0" : char}
+                    {word}
                 </motion.span>
             ))}
         </motion.div>

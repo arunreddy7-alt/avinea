@@ -36,7 +36,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
       </div>
 
       <div className="relative z-10 w-full h-full flex flex-col justify-end px-4 sm:px-6 pb-0">
-        <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center lg:justify-end lg:pb-32 pt-35 md:pt-0">
+        <div className="max-w-7xl w-full mx-auto flex flex-col items-start h-full justify-center pt-35 ">
           <Reveal priority delay={0.5}>
             <div className="flex items-center gap-4 mb-6 sm:mb-8">
               <div className="hidden md:inline w-12 h-[1px] bg-accent"></div>
