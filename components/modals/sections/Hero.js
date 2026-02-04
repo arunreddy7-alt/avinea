@@ -13,8 +13,8 @@ export function Hero() {
           alt="Hero"
           fill
           className="hidden md:block object-cover"
-          priority
-          fetchPriority="high"
+          loading="lazy"
+          fetchPriority="low"
           sizes="100vw"
         />
         {/* Mobile Hero Image - Loads eagerly but not priority to avoid double download */}
@@ -23,7 +23,7 @@ export function Hero() {
           alt="Hero Mobile"
           fill
           className="md:hidden object-cover"
-          loading="eager"
+          priority
           fetchPriority="high"
           sizes="100vw"
         />
