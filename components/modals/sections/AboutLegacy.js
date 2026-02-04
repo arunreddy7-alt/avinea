@@ -7,16 +7,7 @@ import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { RevealText } from "@/components/modals/ui/RevealText";
 
-export function AboutLegacy({ onOpenEnquiry }) {
-    const textVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: (i) => ({
-            opacity: 1,
-            y: 0,
-            transition: { delay: i * 0.03, duration: 0.6, ease: "easeOut" }
-        })
-    };
-
+export function AboutLegacy() {
     return (
         <Section className="bg-[#0c0a08] py-32 relative overflow-hidden text-white" dark>
             {/* Background - Very Minimal Gold Drifts (optimized) */}
@@ -62,7 +53,7 @@ export function AboutLegacy({ onOpenEnquiry }) {
                         </p>
 
                         <button
-                            onClick={onOpenEnquiry}
+                            data-enquiry-action="visit"
                             className="group flex items-center gap-4 pt-6 cursor-pointer"
                         >
                             {/* Arrow before - always visible */}

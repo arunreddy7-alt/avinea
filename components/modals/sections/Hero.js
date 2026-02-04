@@ -1,13 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { Play, Sparkles, Home as HomeIcon, MapPin, ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { RevealText } from "@/components/modals/ui/RevealText";
 
-export function Hero({ onOpenEnquiry, onWatchFilm }) {
+export function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -79,14 +75,14 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
           <Reveal delay={1.7} priority className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10">
             {/* Desktop Button with Gold Gradient - Static */}
             <button
-              onClick={onOpenEnquiry}
+              data-enquiry-action="visit"
               className="hidden md:inline-flex group relative px-8 sm:px-10 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-sm min-w-[180px] sm:min-w-[200px] bg-gradient-to-r from-[#997B29] to-[#e6c86e] text-black"
             >
               Enquire Now
             </button>
             {/* Mobile Button with Gold Gradient - Static */}
             <button
-              onClick={onOpenEnquiry}
+              data-enquiry-action="visit"
               className="md:hidden group relative px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto bg-gradient-to-r from-[#997B29] to-[#e6c86e] text-black"
             >
               Enquire Now
@@ -103,11 +99,7 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
           "
         >
           <div className="w-full md:max-w-8xl md:mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
-            >
+            <div>
               <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
                 {[
                   { label: "Acres", val: "10.5", sub: "Expansive Greenery" },
@@ -142,11 +134,10 @@ export function Hero({ onOpenEnquiry, onWatchFilm }) {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

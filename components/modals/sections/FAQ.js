@@ -70,7 +70,7 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
     );
 }
 
-export function FAQ({ onBookVisit, onOpenEnquiry }) {
+export function FAQ() {
     const [openIndex, setOpenIndex] = useState(0);
     const [showScheduleForm, setShowScheduleForm] = useState(false);
     const [showBrochureForm, setShowBrochureForm] = useState(false);
@@ -436,4 +436,3 @@ export function FAQ({ onBookVisit, onOpenEnquiry }) {
         </Section>
     );
 }
-

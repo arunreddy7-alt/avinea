@@ -6,7 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { navLinks } from "@/app/data";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function Header({ onOpenEnquiry }) {
+export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -70,7 +70,7 @@ const handleSmoothScroll = (id) => {
                         </button>
                     ))}
                     <button
-                        onClick={onOpenEnquiry}
+                        data-enquiry-action="visit"
                         className={`px-6 lg:px-8 py-2.5 lg:py-3 rounded-none border text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
                             ? "border-black text-black hover:bg-black hover:text-white"
                             : "border-white/30 text-white hover:bg-white hover:text-black hover:border-white"
@@ -111,7 +111,7 @@ const handleSmoothScroll = (id) => {
                                 </button>
                             ))}
                             <button
-                                onClick={onOpenEnquiry}
+                                data-enquiry-action="visit"
                                 className="w-full py-3 bg-accent text-white font-bold uppercase tracking-widest rounded-lg text-xs mt-2"
                             >
                                 Schedule Visit
@@ -127,4 +127,3 @@ const handleSmoothScroll = (id) => {
         </header>
     );
 }
-

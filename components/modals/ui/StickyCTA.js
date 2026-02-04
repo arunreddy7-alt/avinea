@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 
-export function StickyCTA({ onOpen }) {
+export function StickyCTA() {
     return (
         <>
             {/* Desktop sticky CTA - right side, vertical */}
@@ -12,7 +12,7 @@ export function StickyCTA({ onOpen }) {
                     initial={{ x: 100 }}
                     animate={{ x: 0 }}
                     transition={{ delay: 2, duration: 0.8 }}
-                    onClick={onOpen}
+                    data-enquiry-action="visit"
                     className="group flex flex-col items-center bg-accent py-6 px-3 rounded-l-xl shadow-[0_4px_30px_-5px_rgba(212,175,55,0.6)] hover:bg-white transition-all duration-500"
                 >
                     <Calendar className="w-5 h-5 text-black mb-4 group-hover:text-black transition-colors rotate-0" />
@@ -35,7 +35,7 @@ export function StickyCTA({ onOpen }) {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 3, duration: 0.5 }}
-                onClick={onOpen}
+                data-enquiry-action="visit"
                 className="fixed right-4 bottom-4 z-50 md:hidden flex items-center gap-2 bg-accent text-black px-6 py-3 rounded-full font-bold uppercase tracking-widest text-[10px] shadow-[0_4px_20px_-5px_rgba(212,175,55,0.6)] hover:bg-white transition-all duration-300"
             >
                 Enquire Now

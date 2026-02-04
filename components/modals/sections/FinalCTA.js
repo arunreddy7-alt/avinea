@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
 
 import { Reveal } from "@/components/modals/ui/Reveal";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqqzoab";
 const BROCHURE_URL = "/AVINEA%20by%20Vyom-Sigma%20(6).pdf";
 
-export function FinalCTA({ onBookVisit, onRequestDetails }) {
+export function FinalCTA() {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -131,7 +129,7 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
 
                         <Reveal delay={0.2} className="flex flex-col sm:flex-row gap-4">
                             <button
-                                onClick={onBookVisit}
+                                data-enquiry-action="visit"
                                 className="hidden sm:block group relative px-8 py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-[10px] w-full sm:w-auto bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black"
                             >
                                 Enquire Now
@@ -139,7 +137,8 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
 
                             <button
                                 type="button"
-                                onClick={onRequestDetails}
+                                data-enquiry-action="visit"
+                                data-enquiry-download="brochure"
                                 className="group relative px-6 sm:px-8 py-4 sm:py-4 rounded-full font-bold uppercase tracking-widest overflow-hidden transition-all duration-500 hover:scale-105 text-xs sm:text-[10px] w-full sm:w-auto sm:bg-transparent sm:border sm:border-white/10 sm:text-white/70 mr-8 sm:mr-0 bg-gradient-to-r from-[#997B29] via-[#FFF5B2] to-[#997B29] bg-[length:200%_auto] animate-flow text-black download-btn-gold text-center"
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
@@ -255,4 +254,3 @@ export function FinalCTA({ onBookVisit, onRequestDetails }) {
         </section>
     );
 }
-
