@@ -1,24 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import { Shield, Trophy, Users, Star, Play } from "lucide-react";
-import { motion } from "framer-motion";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
 import { Badge } from "@/components/modals/ui/Badge";
 import { RevealText } from "@/components/modals/ui/RevealText";
 
-export function Overview({ onWatchFilm }) {
+export function Overview() {
     return (
         <Section id="overview" className="relative overflow-hidden">
             {/* Background Geometry - Static Ribbons (optimized for performance) */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
-                className="absolute inset-0 pointer-events-none overflow-hidden"
-            >
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <svg className="absolute w-full h-full" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     {/* Static paths - no pathLength animation for better performance */}
                     <path
@@ -56,7 +48,7 @@ export function Overview({ onWatchFilm }) {
                         strokeLinecap="round"
                     />
                 </svg>
-            </motion.div>
+            </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                 <div className="relative pl-0 lg:pl-6 pt-0 lg:pt-6">
@@ -148,7 +140,8 @@ export function Overview({ onWatchFilm }) {
                     <Reveal delay={0.6}>
                         <div className="flex justify-center">
                             <button
-                                onClick={onWatchFilm}
+                                data-enquiry-action="video"
+                                data-enquiry-video-url="https://youtu.be/MbQAPR1iFS4?si=Xp1EC3fkorthF-Va"
                                 className="px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-black/20 text-black hover:bg-black hover:text-white font-bold uppercase tracking-[0.2em] transition-all duration-500 text-xs min-w-[180px] sm:min-w-[200px] flex items-center justify-center gap-2 sm:gap-3"
                             >
                                 <Play className="w-3 h-3 fill-current" />

@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { navLinks } from "@/app/data";
 
-export function Footer({ onScrollTo, onOpenEnquiry }) {
+export function Footer() {
     return (
         <footer className="bg-[#F2F0E9] text-[#1a1a1a] py-16 px-4 sm:px-6 relative border-t border-black/5">
             <div className="max-w-7xl mx-auto">
@@ -48,9 +46,12 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
                         <ul className="space-y-3 lg:space-y-4">
                             {navLinks.map(l => (
                                 <li key={l.href}>
-                                    <button onClick={() => onScrollTo(l.href.slice(1))} className="hover:text-accent-dark transition-colors text-sm sm:text-base font-normal text-black/70 hover:text-black">
+                                    <a
+                                        href={l.href}
+                                        className="hover:text-accent-dark transition-colors text-sm sm:text-base font-normal text-black/70 hover:text-black"
+                                    >
                                         {l.label}
-                                    </button>
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -76,4 +77,3 @@ export function Footer({ onScrollTo, onOpenEnquiry }) {
         </footer>
     );
 }
-

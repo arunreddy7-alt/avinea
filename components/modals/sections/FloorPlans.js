@@ -10,7 +10,7 @@ import { Badge } from "@/components/modals/ui/Badge";
 import { floorPlans } from "@/app/data";
 import Image from "next/image";
 
-export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
+export function FloorPlans() {
     // Group floor plans by BHK type
     const groupedFloorPlans = useMemo(() => {
         const groups = {};
@@ -25,11 +25,6 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
 
     const [selectedBHK, setSelectedBHK] = useState(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const handleUnlock = () => {
-        setPendingDownload('costsheet');
-        onOpenEnquiry(true);
-    };
 
     const openBHK = (bhkTitle) => {
         setSelectedBHK(bhkTitle);
@@ -133,10 +128,9 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                                                 </div>
                                                 <div className={`absolute inset-0 flex items-center ${title === '3 BHK' ? '' : 'md:justify-end'}`}>
                                                     <button
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            handleUnlock();
-                                                        }}
+                                                        data-enquiry-action="visit"
+                                                        data-enquiry-download="costsheet"
+                                                        onClick={(e) => e.stopPropagation()}
                                                         className={`flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/20 rounded-full transition-all duration-300 ${title === '3 BHK' ? 'md:ml-1' : 'md:ml-0'}`}
                                                     >
                                                         <Lock className="w-3 h-3" />
@@ -155,10 +149,8 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
                 <div className="mt-8 text-center">
                     <div className="mt-6 max-w-full mx-0 md:max-w-4xl md:mx-auto px-0 md:px-4">
                     <div 
-                            onClick={() => {
-                                setPendingDownload('masterlayout');
-                                onOpenEnquiry(true);
-                            }}
+                            data-enquiry-action="visit"
+                            data-enquiry-download="masterlayout"
                             className="relative overflow-hidden rounded-xl border border-white/10 cursor-pointer group mx-0 md:mx-0"
                         >
                             <Image
@@ -173,11 +165,9 @@ export function FloorPlans({ onOpenEnquiry, setPendingDownload }) {
 
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setPendingDownload('brochure');
-                                        onOpenEnquiry(true);
-                                    }}
+                                    data-enquiry-action="visit"
+                                    data-enquiry-download="brochure"
+                                    onClick={(e) => e.stopPropagation()}
                                     className="bg-accent/10 hover:bg-accent px-4 py-2 rounded-full border border-accent/20 transition-all duration-300 transform scale-90 group-hover:scale-100 inline-flex items-center gap-2 text-accent hover:text-white text-xs font-bold uppercase tracking-widest"
                                 >
                                     <ArrowRight className="w-3 h-3" /> Download Master Plan

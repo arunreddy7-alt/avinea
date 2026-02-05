@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 import { Reveal } from "@/components/modals/ui/Reveal";
@@ -12,6 +11,8 @@ export function VideoHighlight() {
         const video = videoRef.current;
         if (!video) return;
 
+        let isNearViewport = false;
+
         const playVideo = async () => {
             try {
                 video.muted = true;
@@ -21,18 +22,38 @@ export function VideoHighlight() {
             }
         };
 
-        playVideo();
+        const pauseVideo = () => {
+            video.pause();
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                isNearViewport = entry.isIntersecting;
+                if (isNearViewport) {
+                    playVideo();
+                } else {
+                    pauseVideo();
+                }
+            },
+            { rootMargin: "200px 0px", threshold: 0.01 }
+        );
+
+        observer.observe(video);
 
         const handleVisibilityChange = () => {
-            if (document.visibilityState === 'visible') {
-                video.play().catch(() => {});
+            if (document.visibilityState === "visible" && isNearViewport) {
+                playVideo();
             } else {
-                video.pause();
+                pauseVideo();
             }
         };
 
-        document.addEventListener('visibilitychange', handleVisibilityChange);
-        return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            observer.disconnect();
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, []);
 
     return (

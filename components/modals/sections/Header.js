@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { navLinks } from "@/app/data";
-import { motion, AnimatePresence } from "framer-motion";
 
-export function Header({ onOpenEnquiry }) {
+export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -70,7 +69,7 @@ const handleSmoothScroll = (id) => {
                         </button>
                     ))}
                     <button
-                        onClick={onOpenEnquiry}
+                        data-enquiry-action="visit"
                         className={`px-6 lg:px-8 py-2.5 lg:py-3 rounded-none border text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
                             ? "border-black text-black hover:bg-black hover:text-white"
                             : "border-white/30 text-white hover:bg-white hover:text-black hover:border-white"
@@ -93,38 +92,30 @@ const handleSmoothScroll = (id) => {
                 </button>
 
                 {/* Mobile Menu */}
-                <AnimatePresence>
-                    {mobileMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="fixed top-0 left-0 right-0 bg-white p-4 pt-28 pb-8 shadow-xl md:hidden border-b border-black/5 flex flex-col gap-3 z-[100] max-h-screen overflow-y-auto"
-                        >
-                            {navLinks.map((link) => (
-                                <button
-                                    key={link.href}
-                                    onClick={() => handleSmoothScroll(link.href.slice(1))}
-                                    className="text-base font-serif text-black/80 text-left border-b border-black/5 pb-2"
-                                >
-                                    {link.label}
-                                </button>
-                            ))}
+                {mobileMenuOpen && (
+                    <div className="fixed top-0 left-0 right-0 bg-white p-4 pt-28 pb-8 shadow-xl md:hidden border-b border-black/5 flex flex-col gap-3 z-[100] max-h-screen overflow-y-auto">
+                        {navLinks.map((link) => (
                             <button
-                                onClick={onOpenEnquiry}
-                                className="w-full py-3 bg-accent text-white font-bold uppercase tracking-widest rounded-lg text-xs mt-2"
+                                key={link.href}
+                                onClick={() => handleSmoothScroll(link.href.slice(1))}
+                                className="text-base font-serif text-black/80 text-left border-b border-black/5 pb-2"
                             >
-                                Schedule Visit
+                                {link.label}
                             </button>
-                            <div className="flex items-center gap-3 text-sm text-black/60 pt-2">
-                                <Phone className="w-4 h-4" />
-                                <span>+91 9121772320</span>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                        ))}
+                        <button
+                            data-enquiry-action="visit"
+                            className="w-full py-3 bg-accent text-white font-bold uppercase tracking-widest rounded-lg text-xs mt-2"
+                        >
+                            Schedule Visit
+                        </button>
+                        <div className="flex items-center gap-3 text-sm text-black/60 pt-2">
+                            <Phone className="w-4 h-4" />
+                            <span>+91 9121772320</span>
+                        </div>
+                    </div>
+                )}
             </div>
         </header>
     );
 }
-
