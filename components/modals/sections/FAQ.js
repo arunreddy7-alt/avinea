@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { Section } from "@/components/modals/ui/Section";
 import { Reveal } from "@/components/modals/ui/Reveal";
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqqzoab";
+import { submitInquiryForm } from "@/lib/submitInquiryForm";
 
 const faqs = [
     {
@@ -73,15 +73,14 @@ function FAQItem({ faq, isOpen, onToggle, index }) {
 export function FAQ() {
     const [openIndex, setOpenIndex] = useState(0);
     const [showScheduleForm, setShowScheduleForm] = useState(false);
-    const [showBrochureForm, setShowBrochureForm] = useState(false);
     const [scheduleFormData, setScheduleFormData] = useState({
         name: "",
         phone: "",
-        whatsapp: "",
         email: "",
-        date: "",
-        time: "",
-        interests: []
+        configuration: "",
+        budget: "",
+        timeline: "",
+        siteVisit: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState(null);
@@ -99,96 +98,38 @@ export function FAQ() {
         }));
     };
 
-    const handleScheduleInterestChange = (interest) => {
-        setScheduleFormData(prev => ({
-            ...prev,
-            interests: prev.interests.includes(interest)
-                ? prev.interests.filter(i => i !== interest)
-                : [...prev.interests, interest]
-        }));
-    };
-
     const handleScheduleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitError(null);
 
         try {
-            const emailData = {
+            await submitInquiryForm({
                 ...scheduleFormData,
-                interests: scheduleFormData.interests.join(", ") || "Not specified",
-                formType: "schedule"
-            };
-
-            const response = await fetch(FORMSPREE_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(emailData)
+                formType: "schedule",
             });
-            const result = await response.json().catch(() => ({}));
 
-            if (response.ok) {
-                setIsSubmitted(true);
-                setScheduleFormData({
-                    name: "",
-                    phone: "",
-                    whatsapp: "",
-                    email: "",
-                    date: "",
-                    time: "",
-                    interests: []
-                });
-                setTimeout(() => {
-                    setIsSubmitted(false);
-                    setShowScheduleForm(false);
-                }, 2000);
-            } else {
-                setSubmitError(result?.error || "Failed to send email. Please try again.");
-            }
+            setIsSubmitted(true);
+            setScheduleFormData({
+                name: "",
+                phone: "",
+                email: "",
+                configuration: "",
+                budget: "",
+                timeline: "",
+                siteVisit: "",
+            });
+            setTimeout(() => {
+                setIsSubmitted(false);
+                setShowScheduleForm(false);
+            }, 2000);
         } catch (error) {
             console.error("Form submission error:", error);
-            setSubmitError("An error occurred. Please try again or contact us directly.");
+            setSubmitError(error.message || "An error occurred. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
     };
-
-    const handleBrochureSubmit = (e) => {
-        e.preventDefault();
-        alert("Thank you! Your brochure will be sent to your email.");
-        setShowBrochureForm(false);
-    };
-
-    // Generate dynamic date options starting from tomorrow
-    const getDateOptions = () => {
-        const options = [];
-        const today = new Date();
-        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-        for (let i = 1; i <= 7; i++) {
-            const date = new Date(today);
-            date.setDate(today.getDate() + i);
-            const dateStr = date.toISOString().split('T')[0];
-            const dayName = dayNames[date.getDay()];
-            const monthName = monthNames[date.getMonth()];
-            const dayNum = date.getDate();
-
-            let label;
-            if (i === 1) {
-                label = "Tomorrow";
-            } else {
-                label = `${monthName} ${dayNum}, ${dayName}`;
-            }
-            options.push({ value: dateStr, label });
-        }
-        return options;
-    };
-
-    const dateOptions = getDateOptions();
 
     return (
         <Section className="bg-[#1a1612] relative" dark>
@@ -287,8 +228,6 @@ export function FAQ() {
                                         <form
                                             onSubmit={handleScheduleSubmit}
                                             className="space-y-4"
-                                            action={FORMSPREE_ENDPOINT}
-                                            method="POST"
                                         >
                                             <input
                                                 type="text"
@@ -309,14 +248,6 @@ export function FAQ() {
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
                                             <input
-                                                type="tel"
-                                                name="whatsapp"
-                                                value={scheduleFormData.whatsapp}
-                                                onChange={handleScheduleChange}
-                                                placeholder="WhatsApp Number"
-                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
-                                            />
-                                            <input
                                                 type="email"
                                                 name="email"
                                                 value={scheduleFormData.email}
@@ -325,95 +256,50 @@ export function FAQ() {
                                                 required
                                                 className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none placeholder:text-white/30 text-white rounded-lg transition-colors text-sm"
                                             />
-                                            <div className="grid grid-cols-2 gap-3">
-                                                {/* Mobile: Dropdown Time */}
-                                                <div className="relative block md:hidden">
-                                                    <select
-                                                        name="time"
-                                                        value={scheduleFormData.time}
-                                                        onChange={handleScheduleChange}
-                                                        required
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
-                                                    >
-                                                        <option value="" disabled className="bg-black text-white">Time</option>
-                                                        <option value="09:00" className="bg-black text-white">09:00 AM</option>
-                                                        <option value="10:00" className="bg-black text-white">10:00 AM</option>
-                                                        <option value="11:00" className="bg-black text-white">11:00 AM</option>
-                                                        <option value="12:00" className="bg-black text-white">12:00 PM</option>
-                                                        <option value="14:00" className="bg-black text-white">02:00 PM</option>
-                                                        <option value="15:00" className="bg-black text-white">03:00 PM</option>
-                                                        <option value="16:00" className="bg-black text-white">04:00 PM</option>
-                                                        <option value="17:00" className="bg-black text-white">05:00 PM</option>
-                                                    </select>
-                                                    <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
-                                                    </svg>
-                                                </div>
-                                                {/* Mobile: Dropdown Date */}
-                                                <div className="relative block md:hidden">
-                                                    <select
-                                                        name="date"
-                                                        value={scheduleFormData.date}
-                                                        onChange={handleScheduleChange}
-                                                        required
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
-                                                    >
-                                                        <option value="" disabled className="bg-black text-white">Date</option>
-                                                        {dateOptions.map((opt) => (
-                                                            <option key={opt.value} value={opt.value} className="bg-black text-white">
-                                                                {opt.label}
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                    <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-white/40 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
-                                                    </svg>
-                                                </div>
-                                                {/* Desktop: Native Time */}
-                                                <div className="relative hidden md:block">
-                                                    <input
-                                                        type="time"
-                                                        name="time"
-                                                        value={scheduleFormData.time}
-                                                        onChange={handleScheduleChange}
-                                                        required
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
-                                                    />
-                                                </div>
-                                                {/* Desktop: Native Date */}
-                                                <div className="relative hidden md:block">
-                                                    <input
-                                                        type="date"
-                                                        name="date"
-                                                        value={scheduleFormData.date}
-                                                        onChange={handleScheduleChange}
-                                                        required
-                                                        className="w-full px-2.5 py-2 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm [color-scheme:dark]"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="p-4 bg-white/5 border border-white/10 rounded-lg">
-                                                <p className="text-xs font-bold uppercase tracking-widest text-[#997B29] mb-3">Interests</p>
-                                                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                                    {["2 BHK", "3 BHK", "4 BHK", "5 BHK", "6 BHK"].map(item => (
-                                                        <label key={item} className="flex items-center gap-2 cursor-pointer group">
-                                                            <div className="relative w-4 h-4 rounded-none border border-white/20 flex items-center justify-center group-hover:border-[#997B29] transition-colors flex-shrink-0 checkbox-bg">
-                                                                <input
-                                                                    type="checkbox"
-                                                                    checked={scheduleFormData.interests.includes(item)}
-                                                                    onChange={() => handleScheduleInterestChange(item)}
-                                                                    className="absolute inset-0 w-full h-full cursor-pointer appearance-none z-20"
-                                                                />
-                                                                <div className={`w-full h-full bg-[#997B29] transition-opacity pointer-events-none checkbox-bg-fill ${scheduleFormData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} />
-                                                                <svg className={`absolute w-3 h-3 text-white transition-opacity pointer-events-none checkbox-check ${scheduleFormData.interests.includes(item) ? 'opacity-100' : 'opacity-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                    <path strokeWidth="3" strokeLinecap="round" d="M5 12l5 5L20 7"/>
-                                                                </svg>
-                                                            </div>
-                                                            <span className="text-sm text-white/70 truncate">{item}</span>
-                                                        </label>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                            <select
+                                                name="configuration"
+                                                value={scheduleFormData.configuration}
+                                                onChange={handleScheduleChange}
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
+                                            >
+                                                <option value="" className="bg-[#1a1a1a]">Select configuration</option>
+                                                <option value="2 BHK" className="bg-[#1a1a1a]">2 BHK</option>
+                                                <option value="3 BHK" className="bg-[#1a1a1a]">3 BHK</option>
+                                                <option value="4 BHK" className="bg-[#1a1a1a]">4 BHK</option>
+                                            </select>
+                                            <select
+                                                name="budget"
+                                                value={scheduleFormData.budget}
+                                                onChange={handleScheduleChange}
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
+                                            >
+                                                <option value="" className="bg-[#1a1a1a]">Select budget</option>
+                                                <option value="Rs. 1.2 Cr - Rs. 1.5 Cr" className="bg-[#1a1a1a]">Rs. 1.2 Cr - Rs. 1.5 Cr</option>
+                                                <option value="Rs. 1.5 Cr - Rs. 2 Cr" className="bg-[#1a1a1a]">Rs. 1.5 Cr - Rs. 2 Cr</option>
+                                                <option value="Rs. 2 Cr+" className="bg-[#1a1a1a]">Rs. 2 Cr+</option>
+                                            </select>
+                                            <select
+                                                name="timeline"
+                                                value={scheduleFormData.timeline}
+                                                onChange={handleScheduleChange}
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
+                                            >
+                                                <option value="" className="bg-[#1a1a1a]">When are you planning to buy?</option>
+                                                <option value="Immediately (0-3 months)" className="bg-[#1a1a1a]">Immediately (0-3 months)</option>
+                                                <option value="3-6 months" className="bg-[#1a1a1a]">3-6 months</option>
+                                                <option value="6-12 months" className="bg-[#1a1a1a]">6-12 months</option>
+                                            </select>
+                                            <select
+                                                name="siteVisit"
+                                                value={scheduleFormData.siteVisit}
+                                                onChange={handleScheduleChange}
+                                                className="w-full px-4 py-3 bg-white/5 border border-white/10 focus:border-[#997B29] focus:outline-none text-white rounded-lg transition-colors text-sm appearance-none cursor-pointer"
+                                            >
+                                                <option value="" className="bg-[#1a1a1a]">Would you like to schedule a visit?</option>
+                                                <option value="Yes. this weekend" className="bg-[#1a1a1a]">Yes, this weekend</option>
+                                                <option value="Yes, next week" className="bg-[#1a1a1a]">Yes, next week</option>
+                                                <option value="Need more details first" className="bg-[#1a1a1a]">Need more details first</option>
+                                            </select>
                                             {submitError && (
                                                 <div className="text-red-400 text-sm mt-2">{submitError}</div>
                                             )}
